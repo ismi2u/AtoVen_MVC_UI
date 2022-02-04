@@ -13,6 +13,7 @@ namespace AtoVen_MVC_UI
 {
     public class Startup
     {
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -53,5 +54,8 @@ namespace AtoVen_MVC_UI
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
     }
+
+   
 }

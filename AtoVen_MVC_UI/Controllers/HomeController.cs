@@ -48,6 +48,38 @@ namespace AtoVen_MVC_UI.Controllers
             return View(_oVendorList); 
         }
 
+        public async Task<string> VATValidate(VATValidatorDTO VATNo)
+        {
+            var Jsonresult = "";
+            
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+            string endpoint = apiBaseUrl + "/Validation/VATValidator?VATNumber="+ VATNo.VATNumber;
+            
+            //var values = new Dictionary<string, string>();
+            //values.Add("VATNumber", VATNumber);
+            //HttpContent content = new FormUrlEncodedContent(values);
+            
+            using (var httpclient = new HttpClient())
+            {
+                //string jsonContent = HttpContent.ReadAsStringAsync().Result; 
+                HttpResponseMessage result = await httpclient.PostAsync(endpoint, null);
+
+                Jsonresult = result.ToString();
+                var responsecode = (int)result.StatusCode;
+                if (result.IsSuccessStatusCode)
+                {
+                    Jsonresult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    return Jsonresult;
+                }
+                else
+                {
+                    return responsecode + " " + result.ReasonPhrase;
+                }
+
+            }
+            
+        }
+
         [HttpPost]
         public async Task<string> Register(propVendorDTO vendordtls, List<ListOfCompanyContactsDTO> vendorContactdtls, List<ListOfCompanyBanksDTO> vendorBankdtls)
         {
@@ -58,22 +90,29 @@ namespace AtoVen_MVC_UI.Controllers
             
 
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
-            string endpoint = apiBaseUrl + "/Companies/RegisterVendor";
+            string endpoint = apiBaseUrl + "/Companies/RegisterCompany";
             var response = string.Empty;
             using (var httpclient = new HttpClient())
             {
                 var json = JsonConvert.SerializeObject(VendorDtls);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-                HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/x-www-form-urlencoded");
-                string jsonContent = httpContent.ReadAsStringAsync().Result;
+
+                //HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/x-www-form-urlencoded");
+                //string jsonContent = httpContent.ReadAsStringAsync().Result;
 
                 HttpResponseMessage result = await httpclient.PostAsync(endpoint, data);
+                var responsecode = (int)result.StatusCode;
+
                 if (result.IsSuccessStatusCode)
                 {
-                    response = result.StatusCode.ToString();
+                    var responseBodyAsText = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    return responseBodyAsText;
+                }
+                else
+                {
+                    return responsecode + " " + result.ReasonPhrase;
                 }
             }
-            return response;
         }
 
 

@@ -22,6 +22,7 @@ namespace AtoVen_MVC_UI.Models
     public class ListOfCompanyBanksDTO
     {
         public string Country { get; set; }
+        public string CompanyName { get; set; }
         public string BankKey { get; set; }
         public string BankName { get; set; }
         public string SwiftCode { get; set; }

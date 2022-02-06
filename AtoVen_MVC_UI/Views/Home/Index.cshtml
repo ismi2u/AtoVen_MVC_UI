@@ -152,7 +152,7 @@ License: For each use you must have a valid license purchased only from above li
                         <div id="kt_content_container" class="container-xxl mt-2 mb-2">
                             <!--begin::Layout-->
                             <div class="d-flex flex-column flex-lg-row">
-                                <form asp-action="Register" asp-controller="Home" id="kt_invoice_form" method="post">
+                                <form id="frm" method="post">
                                     <!--begin::Content-->
                                     <div class="flex-lg-row-fluid mb-10 mb-lg-0 me-lg-7 me-xl-10">
 
@@ -170,21 +170,21 @@ License: For each use you must have a valid license purchased only from above li
                                                         <div class="col-lg-6">
                                                             <label class="form-label fs-6 fw-bolder text-black mb-3">Company Information</label>
                                                             <!--begin::Input group-->
-                                                            
-                                                            <div class="form-floating mb-5">
-                                                                <input name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" required autocomplete="off" value="Atominos Consulting" />
-                                                                <label for="CompanyName" class="Notrequired">Company Name</label>
+
+                                                            <div class="fv-row form-floating mb-5">
+                                                                <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" />
+                                                                <label for="CompanyName" class="required">Company Name</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
-                                                                <input name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" required autocomplete="off" value="CR100001" />
-                                                                <label for="CommRegNo" class="Notrequired">Commercial Registration No.</label>
+                                                            <div class="fv-row form-floating mb-5">
+                                                                <input required name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" autocomplete="off" />
+                                                                <label for="CommRegNo" class="required">Commercial Registration No.</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="mb-5">
-                                                                <input name="Language" type="text" class="form-control  border" value="EN" id="Language" readonly required>
+                                                                <input name="Language" type="text" class="form-control  border" value="EN" id="Language" readonly>
                                                             </div>
                                                             <!--end::Input group-->
                                                         </div>
@@ -196,15 +196,15 @@ License: For each use you must have a valid license purchased only from above li
 
                                                             <div class="row">
                                                                 <div class="col-6">
-                                                                    <div class="form-floating mb-5">
-                                                                        <input name="PhoneNo" type="text" class="form-control border" placeholder="Phone Number" id="PhoneNo" required value="044 123456" />
-                                                                        <label for="PhoneNo" class="Notrequired">Phone Number</label>
+                                                                    <div class="fv-row form-floating mb-5">
+                                                                        <input name="PhoneNo" type="text" class="form-control border" placeholder="Phone Number" id="PhoneNo" />
+                                                                        <label for="PhoneNo" class="required">Phone Number</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
-                                                                    <div class="form-floating form-floating">
-                                                                        <input name="FaxNumber" type="text" class="form-control border" placeholder="Fax Number" id="FaxNumber" required value="044 123456">
-                                                                        <label for="FaxNumber" class="Notrequired">Fax Number</label>
+                                                                    <div class="fv-row form-floating form-floating">
+                                                                        <input name="FaxNumber" type="text" class="form-control border" placeholder="Fax Number" id="FaxNumber">
+                                                                        <label for="FaxNumber" class="required">Fax Number</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -213,23 +213,23 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--begin::Input group-->
                                                             <div class="row">
                                                                 <div class="col-6">
-                                                                    <div class="form-floating mb-5">
-                                                                        <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address"  id="EmailAddress" required value="test@gmail.com">
-                                                                        <label for="EmailAddress" class="Notrequired">E-Mail Address</label>
+                                                                    <div class="fv-row form-floating mb-5">
+                                                                        <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress">
+                                                                        <label for="EmailAddress" class="required">E-Mail Address</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
-                                                                    <div class="form-floating mb-5">
-                                                                        <input name="MobileNo" type="text" class="form-control border" placeholder="Mobile Number" id="MobileNo" required value="044 123456">
-                                                                        <label for="MobileNo" class="Notrequired">Mobile Number</label>
+                                                                    <div class="fv-row form-floating mb-5">
+                                                                        <input name="MobileNo" type="text" class="form-control border" placeholder="Mobile Number" id="MobileNo">
+                                                                        <label for="MobileNo" class="required">Mobile Number</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
-                                                            <div class="mb-5 form-floating">
-                                                                <input name="Website" type="text" class="form-control border" placeholder="Website" id="Website" required value="www.test.com">
-                                                                <label for="Website" class="Notrequired">Website</label>
+                                                            <div class="fv-row mb-5 form-floating">
+                                                                <input name="Website" type="text" class="form-control border" placeholder="Website" id="Website">
+                                                                <label for="Website" class="required">Website</label>
                                                             </div>
                                                             <!--end::Input group-->
 
@@ -244,12 +244,12 @@ License: For each use you must have a valid license purchased only from above li
                                                         <div class="col-lg-6">
 
                                                             <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
-                                                                <select name="CountryId" class="form-control border" id="CounryId" required>
+                                                            <div class="fv-row form-floating mb-5">
+                                                                <select name="CountryId" class="form-control border" id="CountryId">
                                                                     <option value="" selected>--select--</option>
                                                                     <option value="1">Afghanistan</option>
-                                                                    <option value="2" selected>Åland Islands</option>
-                                                                    <option value="3">Albania</option>
+                                                                    <option value="2">Åland Islands</option>
+                                                                    <option value="3" selected>Albania</option>
                                                                     <option value="4">Algeria</option>
                                                                     <option value="5">American Samoa</option>
                                                                     <option value="6">Andorra</option>
@@ -497,11 +497,11 @@ License: For each use you must have a valid license purchased only from above li
                                                                     <option value="248">Zambia</option>
                                                                     <option value="249">Zimbabwe</option>
                                                                 </select>
-                                                                <label for="CountryId" class="Notrequired">Country</label>
+                                                                <label for="CountryId" class="required">Country</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
+                                                            <div class="fv-row form-floating mb-5">
                                                                 <select name="RegionId" id="RegionId" class="form-control border">
                                                                     <option value="">--select--</option>
                                                                     <option value="1">Bavaria</option>
@@ -521,28 +521,28 @@ License: For each use you must have a valid license purchased only from above li
                                                                     <option value="15">Berlin</option>
                                                                     <option value="16">Hamburg</option>
                                                                 </select>
-                                                                <label for="RegionId" class="Notrequired">Region</label>
+                                                                <label for="RegionId" class="required">Region</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
+                                                            <div class="fv-row form-floating mb-5">
                                                                 <input name="District" type="text" id="District" class="form-control border" placeholder="District" value="VLR">
-                                                                <label for="District" class="Notrequired">District</label>
+                                                                <label for="District" class="required">District</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="row">
                                                                 <div class="col-4">
-                                                                    <div class="form-floating mb-5">
-                                                                        <input name="Postalcode" type="text" id="Postalcode"  class="form-control border" placeholder="Postal Code" value="654321">
-                                                                        <label for="Postalcode" class="Notrequired">Postal Code</label>
+                                                                    <div class="fv-row form-floating mb-5">
+                                                                        <input name="Postalcode" type="text" id="Postalcode" class="form-control border" placeholder="Postal Code" value="635751">
+                                                                        <label for="Postalcode" class="required">Postal Code</label>
                                                                     </div>
 
                                                                 </div>
                                                                 <div class="col-8">
-                                                                    <div class="form-floating mb-5">
-                                                                        <input name="City" type="text" id="City"  class="form-control border" placeholder="City" value="VNB">
-                                                                        <label for="City" class="Notrequired">City</label>
+                                                                    <div class="fv-row form-floating mb-5">
+                                                                        <input name="City" type="text" id="City" class="form-control border" placeholder="City" value="VNB">
+                                                                        <label for="City" class="required">City</label>
                                                                     </div>
 
                                                                 </div>
@@ -555,14 +555,14 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--begin::Input group-->
                                                             <div class="row">
                                                                 <div class="col-8">
-                                                                    <div class="form-floating mb-5">
-                                                                        <input name="Street"  type="text" id="Street" class="form-control border" placeholder="Street" value="MUNI">
+                                                                    <div class="fv-row form-floating mb-5">
+                                                                        <input name="Street" type="text" id="Street" class="form-control border" placeholder="Street" value="MUNI">
                                                                         <label for="Street">Street</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
-                                                                    <div class="form-floating mb-5">
-                                                                        <input name="HouseNo" type="text" id="HouseNo" class="form-control border" placeholder="House No." value="62"> 
+                                                                    <div class="fv-row form-floating mb-5">
+                                                                        <input name="HouseNo" type="text" id="HouseNo" class="form-control border" placeholder="House No." value="100">
                                                                         <label for="HouseNo">House No.</label>
                                                                     </div>
                                                                 </div>
@@ -571,20 +571,20 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--begin::Input group-->
                                                             <div class="row">
                                                                 <div class="col-4">
-                                                                    <div class="form-floating  mb-5">
-                                                                        <input  name="Building" type="text" id="Building" class="form-control border" placeholder="Building" value="ZH">
+                                                                    <div class="fv-row form-floating  mb-5">
+                                                                        <input name="Building" type="text" id="Building" class="form-control border" placeholder="Building" value="APR">
                                                                         <label for="Building">Building</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
-                                                                    <div class="form-floating  mb-5">
-                                                                        <input name="Floor" type="text" id="Floor" class="form-control border" placeholder="Floor" value="1">
+                                                                    <div class="fv-row form-floating  mb-5">
+                                                                        <input name="Floor" type="text" id="Floor" class="form-control border" placeholder="Floor" value="G">
                                                                         <label for="Floor">Floor</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
-                                                                    <div class="form-floating  mb-5">
-                                                                        <input name="Room" type="text" id="Room"  class="form-control border" placeholder="Room" value="2">
+                                                                    <div class="fv-row form-floating  mb-5">
+                                                                        <input name="Room" type="text" id="Room" class="form-control border" placeholder="Room" value="3">
                                                                         <label for="Room">Room</label>
                                                                     </div>
                                                                 </div>
@@ -592,9 +592,9 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--end::Input group-->
                                                             <label class="form-label fs-6 fw-bolder text-black mb-3">PO Box Address</label>
                                                             <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
-                                                                <input  name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" required value="654321"/>
-                                                                <label for="PoBox" class="Notrequired">Po Box</label>
+                                                            <div class="fv-row form-floating mb-5">
+                                                                <input name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" value="456321" />
+                                                                <label for="PoBox" class="required">Po Box</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                         </div>
@@ -630,68 +630,68 @@ License: For each use you must have a valid license purchased only from above li
                                                                                 <div class="col-lg-6">
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" value="Habeeb"/>
-                                                                                        <label for="cp_firstName0" class="Notrequired">First Name</label>
+                                                                                        <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" />
+                                                                                        <label for="cp_firstName0" class="required">First Name</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_lastName0" id="cp_lastName0" placeholder="Last Name" value="P"/>
-                                                                                        <label for="cp_lastName0" class="Notrequired">Last Name</label>
+                                                                                        <input type="text" class="form-control border" name="cp_lastName0" id="cp_lastName0" placeholder="Last Name" />
+                                                                                        <label for="cp_lastName0" class="required">Last Name</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_address0" id="cp_address0" placeholder="Form of Address" value="Office" />
-                                                                                        <label for="cp_address0" class="Notrequired">Form of Address</label>
+                                                                                        <input type="text" class="form-control border" name="cp_address0" id="cp_address0" placeholder="Form of Address" />
+                                                                                        <label for="cp_address0" class="required">Form of Address</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_position0" id="cp_position0" placeholder="Position" value="SrDev" />
-                                                                                        <label for="cp_position0" class="Notrequired">Position</label>
+                                                                                        <input type="text" class="form-control border" name="cp_position0" id="cp_position0" placeholder="Position" />
+                                                                                        <label for="cp_position0" class="required">Position</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5"> 
-                                                                                        <input type="text" class="form-control border" name="cp_department0" id="cp_department0" placeholder="Department" value="IT" />
-                                                                                        <label for="cp_department0" class="Notrequired">Department</label>
+                                                                                    <div class="form-floating mb-5">
+                                                                                        <input type="text" class="form-control border" name="cp_department0" id="cp_department0" placeholder="Department" />
+                                                                                        <label for="cp_department0" class="required">Department</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                 </div>
                                                                                 <div class="col-lg-6">
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_phoneno0" id="cp_phoneno0" placeholder="Phone No." value="044 123456" />
-                                                                                        <label for="cp_phoneno0" class="Notrequired">Phone No.</label>
+                                                                                        <input type="text" class="form-control border" name="cp_phoneno0" id="cp_phoneno0" placeholder="Phone No." />
+                                                                                        <label for="cp_phoneno0" class="required">Phone No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_faxno0" id="cp_faxno0" placeholder="Fax No." value="044 123456" />
-                                                                                        <label for="cp_faxno0" class="Notrequired">Fax No.</label>
+                                                                                        <input type="text" class="form-control border" name="cp_faxno0" id="cp_faxno0" placeholder="Fax No." />
+                                                                                        <label for="cp_faxno0" class="required">Fax No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_emil0" id="cp_emil0" placeholder="E-Mail Address" value="test@gmail.com" />
-                                                                                        <label for="cp_emil0" class="Notrequired">E-Mail Address</label>
+                                                                                        <input type="text" class="form-control border" name="cp_emil0" id="cp_emil0" placeholder="E-Mail Address" />
+                                                                                        <label for="cp_emil0" class="required">E-Mail Address</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_language0" id="cp_language0" placeholder="Language" value="EN" readonly />
-                                                                                        <label for="cp_language0" class="Notrequired">Language</label>
+                                                                                        <input type="text" class="form-control border" name="cp_language0" id="cp_language0" placeholder="Language" readonly />
+                                                                                        <label for="cp_language0" class="required">Language</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <select class=" form-control border" name="cp_country0" id="cp_country0" required>
+                                                                                        <select class=" form-control border" name="cp_country0" id="cp_country0">
                                                                                             <option value="" selected>--select--</option>
                                                                                             <option value="1">Afghanistan</option>
                                                                                             <option value="2">Aland Islands</option>
                                                                                             <option value="3">Albania</option>
-                                                                                            <option value="4" selected>Algeria</option>
+                                                                                            <option value="4">Algeria</option>
                                                                                             <option value="5">American Samoa</option>
                                                                                             <option value="6">Andorra</option>
                                                                                             <option value="7">Angola</option>
@@ -938,7 +938,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                                             <option value="248">Zambia</option>
                                                                                             <option value="249">Zimbabwe</option>
                                                                                         </select>
-                                                                                        <label for="cp_country0" class="Notrequired">Country</label>
+                                                                                        <label for="cp_country0" class="required">Country</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                 </div>
@@ -965,8 +965,15 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <tfoot>
                                                                     <tr class="border-top border-top-dashed align-top fs-6 fw-bolder">
                                                                         <th class="text-primary">
-                                                                            <button class="btn btn-link py-1" id="add-row">Add more Contact Person</button>
-                                                                            <input type="text" id="ContactRow" value="1"/>
+                                                                            <!--<button class="btn btn-link py-1" id="add-row">Add more Contact Person</button>//-->
+
+                                                                            <button type="button" class="btn btn-primary" id="add-row">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                                                                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"></path>
+                                                                                </svg>
+                                                                                Add more
+                                                                            </button>
+                                                                            <input type="hidden" id="ContactRow" value="" />
                                                                         </th>
                                                                     </tr>
                                                                 </tfoot>
@@ -999,7 +1006,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Manufacturer" id="VendorType1" checked>
+                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Manufacturer" id="VendorType1">
                                                                         <span class="form-check-label" for="Manufacturer">Manufacturer</span>
                                                                     </label>
                                                                     <!--end::Checkbox-->
@@ -1111,34 +1118,34 @@ License: For each use you must have a valid license purchased only from above li
                                                         <div class="col-6">
                                                             <!--begin::Input group-->
                                                             <div class="form-floating mb-5">
-                                                                <input name="ClerkVendorName" type="text" class="form-control border" placeholder="Clerk Vendor Name" id="ClerkVendorName"  required value="Clerk" />
-                                                                <label for="ClerkVendorName" class="Notrequired">Clerk Vendor Name</label>
+                                                                <input name="ClerkVendorName" type="text" class="form-control border" placeholder="Clerk Vendor Name" id="ClerkVendorName" />
+                                                                <label for="ClerkVendorName" class="required">Clerk Vendor Name</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="form-floating mb-5">
-                                                                <input name="ClerkNationalId" type="text" class="form-control border" placeholder="National Id" id="ClerkNationalId" required value="Indian" />
-                                                                <label for="ClerkNationalId" class="Notrequired">National Id</label>
+                                                                <input name="ClerkNationalId" type="text" class="form-control border" placeholder="National Id" id="ClerkNationalId" />
+                                                                <label for="ClerkNationalId" class="required">National Id</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="form-floating mb-5">
-                                                                <input name="ClerkEmailId" type="text" class="form-control border" placeholder="Clerk E-Mail Id" id="ClerkEmailId" required value="test@gmail.com" />
-                                                                <label for="clerk_email_id" class="Notrequired">Clerk E-Mail Id</label>
+                                                                <input name="ClerkEmailId" type="text" class="form-control border" placeholder="Clerk E-Mail Id" id="ClerkEmailId" />
+                                                                <label for="clerk_email_id" class="required">Clerk E-Mail Id</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                         </div>
                                                         <div class="col-6">
                                                             <!--begin::Input group-->
                                                             <div class="form-floating mb-5">
-                                                                <input name="ClerkTelephoneNo" type="text" class="form-control border" placeholder="Clerk Telephone No" id="ClerkTelephoneNo" required value="044 123456" />
-                                                                <label for="ClerkTelephoneNo" class="Notrequired">Clerk Telephone No</label>
+                                                                <input name="ClerkTelephoneNo" type="text" class="form-control border" placeholder="Clerk Telephone No" id="ClerkTelephoneNo" />
+                                                                <label for="ClerkTelephoneNo" class="required">Clerk Telephone No</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="form-floating mb-5">
-                                                                <input name="ClerkFaxNo"  type="text" class="form-control border" placeholder="Clerk Fax Number" id="ClerkFaxNo" required value="044 123456" />
-                                                                <label for="ClerkFaxNo" class="Notrequired">Clerk Telephone No</label>
+                                                                <input name="ClerkFaxNo" type="text" class="form-control border" placeholder="Clerk Fax Number" id="ClerkFaxNo" />
+                                                                <label for="ClerkFaxNo" class="required">Clerk Telephone No</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                         </div>
@@ -1178,11 +1185,11 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <tbody id="bank_dtls">
                                                                     <tr class="border-bottom border-bottom-dashed" id="rowBD0">
                                                                         <td>
-                                                                            <select class="form-control border" name="bd_country0" id="bd_country0"  required>
+                                                                            <select class="form-control border" name="bd_country0" id="bd_country0">
                                                                                 <option value="">--Select--</option>
                                                                                 <option value="1">Afghanistan</option>
                                                                                 <option value="2">Åland Islands</option>
-                                                                                <option value="3" selected>Albania</option>
+                                                                                <option value="3">Albania</option>
                                                                                 <option value="4">Algeria</option>
                                                                                 <option value="5">American Samoa</option>
                                                                                 <option value="6">Andorra</option>
@@ -1432,27 +1439,28 @@ License: For each use you must have a valid license purchased only from above li
                                                                             </select>
                                                                         </td>
                                                                         <td>
-                                                                            <input class="form-control border" type="text" name="bank_key0" id="bank_key0" placeholder="" value="bk001" />
+                                                                            <input class="form-control border" type="text" name="bank_key0" id="bank_key0" placeholder="" />
                                                                         </td>
                                                                         <td>
-                                                                            <input class="form-control border" type="text" name="bank_name0" id="bank_name0" placeholder="" value="icici" />
+                                                                            <input class="form-control border" type="text" name="bank_name0" id="bank_name0" placeholder="" />
                                                                         </td>
                                                                         <td>
-                                                                            <input class="form-control border" type="text" name="swift_code0" id="swift_code0" placeholder="" value="sw001" />
+                                                                            <input class="form-control border" type="text" name="swift_code0" id="swift_code0" placeholder="" />
                                                                         </td>
                                                                         <td>
-                                                                            <input class="form-control border" type="text" name="bank_account0" id="bank_account0" placeholder="" value="123456" />
+                                                                            <input class="form-control border" type="text" name="bank_account0" id="bank_account0" placeholder="" />
                                                                         </td>
                                                                         <td>
-                                                                            <input class="form-control border" type="text" name="account_holder0" id="account_holder0"  placeholder="" value="habib" />
+                                                                            <input class="form-control border" type="text" name="account_holder0" id="account_holder0" placeholder="" />
                                                                         </td>
                                                                         <td>
-                                                                            <input class="form-control border" type="text" name="iban0"  id="iban0" placeholder="" value="ibn001" />
+                                                                            <input class="form-control border" type="text" name="iban0" id="iban0" placeholder="" />
                                                                         </td>
                                                                         <td>
-                                                                            <select class="form-control border" name="bd_currency0" id="bd_currency0" required>
+                                                                            <select class="form-control border" name="bd_currency0" id="bd_currency0">
+                                                                                <option value="" selected>--select--</option>
                                                                                 <option value="USD">USD</option>
-                                                                                <option value="AED" selected>AED</option>
+                                                                                <option value="AED">AED</option>
                                                                                 <option value="SAR">SAR</option>
                                                                                 <option value="GBP">GBP</option>
                                                                             </select>
@@ -1465,8 +1473,14 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <tfoot>
                                                                     <tr class="border-top border-top-dashed align-top fs-6 fw-bolder">
                                                                         <th class="text-primary">
-                                                                            <button class="btn btn-link py-1" id="add-row-bank">Add more Banks</button>
-                                                                            <input type="text" id="BankRow" value="1" />
+                                                                            <!-- <button class="btn btn-link py-1" id="add-row-bank">Add more Banks</button>//-->
+                                                                            <button type="button" class="btn btn-primary" id="add-row-bank">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                                                                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"></path>
+                                                                                </svg>
+                                                                                Add more
+                                                                            </button>
+                                                                            <input type="hidden" id="BankRow" value="" />
                                                                         </th>
                                                                     </tr>
                                                                 </tfoot>
@@ -1493,9 +1507,15 @@ License: For each use you must have a valid license purchased only from above li
                                                         <label class="required form-label fs-6 fw-bolder text-black mb-3">VAT Details</label>
                                                         <div class="col-lg-6">
                                                             <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
-                                                                <input name="VATNo" id="VATNo" type="text" class="form-control border" placeholder="VAT Number" required value="VAT123456" />
+                                                            <div class="fv-row form-floating mb-5">
+                                                                <input name="VATNo" id="VATNo" type="text" class="form-control border" placeholder="VAT Number" onblur="ValidateVATNo()" value="GB429214460" />
                                                                 <label>VAT Number</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-floating mb-5">
+                                                                <label id="WLblVATNo" style="color:red"></label>
+                                                                <label id="CLblVATNo" style="color:green"></label>
                                                             </div>
                                                         </div>
                                                         <label class="required form-label fs-6 fw-bolder text-black mb-3">Attachment</label>
@@ -1578,7 +1598,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Card-->
                                         <!-- Notes End -->
 
-                                        <button type="submit" class="btn btn-sm btn-primary" id="register" onclick="callregister()">Register</button>
+                                        <button type="button" class="btn btn-sm btn-primary" id="register">Register</button>
 
 
                                     </div>
@@ -1675,7 +1695,7 @@ License: For each use you must have a valid license purchased only from above li
                             <tbody>
                                 <tr>
                                     <td>01</td>
-                                    <td><label class="Notrequired">Copy of Valid Commercial Registration</label></td>
+                                    <td><label class="required">Copy of Valid Commercial Registration</label></td>
                                     <td><input class="form-control border DOI" placeholder="Date of Issue" id="VCR_DOI" /></td>
                                     <td><input class="form-control border DOE" placeholder="Date of Expiry" id="VCR_DOE" /></td>
                                     <td><input type="text" class="form-control border" placeholder="" id="comm_reg_cn" name="comm_reg_cn" /></td>
@@ -1684,7 +1704,7 @@ License: For each use you must have a valid license purchased only from above li
                                 </tr>
                                 <tr>
                                     <td>02</td>
-                                    <td><label class="Notrequired">Subscription of the chamber of commerce</label></td>
+                                    <td><label class="required">Subscription of the chamber of commerce</label></td>
                                     <td><input class="form-control border DOI" placeholder="Date of Issue" id="SCC_DOI" /></td>
                                     <td><input class="form-control border DOE" placeholder="Date of Expiry" id="SCC_DOE" /></td>
                                     <td><input type="text" class="form-control border" placeholder="" id="chamber_cn" name="chamber_cn" /></td>
@@ -1693,7 +1713,7 @@ License: For each use you must have a valid license purchased only from above li
                                 </tr>
                                 <tr>
                                     <td>03</td>
-                                    <td><label class="Notrequired">Agency Certificate authority</label></td>
+                                    <td><label class="required">Agency Certificate authority</label></td>
                                     <td><input class="form-control border DOI" placeholder="Date of Issue" id="SCC_DOI" /></td>
                                     <td><input class="form-control border DOE" placeholder="Date of Expiry" id="SCC_DOE" /></td>
                                     <td><input type="text" class="form-control border" placeholder="" id="agency_cert_cn" name="agency_cert_cn" /></td>
@@ -1756,100 +1776,300 @@ License: For each use you must have a valid license purchased only from above li
             $(this).val(picker.startDate.format('MM/DD/YYYY'));
         });
 
-        function callregister()
-        {
-            var VenObj = {};
-            VenObj.CompanyName = $('#CompanyName').val();
-            VenObj.CommercialRegistrationNo = $('#CommRegNo').val();
-            VenObj.Language = $('#Language').val();
-            VenObj.Country = $('#CounryId').val();
-            VenObj.Region = $('#RegionId').val();
-            VenObj.District = $('#District').val();
-            VenObj.PostalCode = $('#Postalcode').val();
-            VenObj.City = $('#City').val();
-            VenObj.Street = $('#Street').val();
-            VenObj.HouseNo = $('#HouseNo').val();
-            VenObj.Building = $('#Building').val();
-            VenObj.Floor = $('#Floor').val();
-            VenObj.Room = $('#Room').val();
-            VenObj.PoBox = $('#PoBox').val();
-            VenObj.PhoneNo = $('#PhoneNo').val();
-            VenObj.FaxNumber = $('#FaxNumber').val();
-            VenObj.Email = $('#EmailAddress').val();
-            VenObj.MobileNo = $('#MobileNo').val();
-            VenObj.Website = $('#Website').val(); 
-            var vendortype = [];
-            $.each($("input[name='VendorType']:checked"), function () {
-                vendortype.push($(this).val());
-            });
-            VenObj.VendorType = vendortype.join(", ");
-            VenObj.AccountGroup = $("input[name='AccountGroup']:checked").val();
-            VenObj.Notes = $('#Notes').val();
-            VenObj.VATNo = $('#VATNo').val();
 
-           /* VenObj.ClerkVendorName = $('#ClerkVendorName').val();
-            VenObj.ClerkNationalId = $('#ClerkNationalId').val();
-            VenObj.ClerkEmailId = $('#ClerkEmailId').val();
-            VenObj.ClerkTelephoneNo = $('#ClerkTelephoneNo').val();
-            VenObj.ClerkFaxNo = $('#ClerkFaxNo').val();*/
-           
-            var vendorcontactdtls = [];
-            TotalContactRow = $("#ContactRow").val();
 
-            for (i = 0; i < TotalContactRow; i++) {
-                vendorcontactdtls.push({
-                    FirstName: $('#cp_firstName' + i).val(),
-                    LastName: $('#cp_lastName' + i).val(),
-                    Address: $('#cp_address' + i).val(),
-                    Designation: $('#cp_position' + i).val(),
-                    Department: $('#cp_department' + i).val(),
-                    PhoneNo: $('#cp_phoneno' + i).val(),
-                    MobileNo: $('#cp_phoneno' + i).val(),
-                    FaxNo: $('#cp_faxno' + i).val(),
-                    Email: $('#cp_emil' + i).val(),
-                    Language: $('#cp_language' + i).val(),
-                    Country: $('#cp_country' + i).val()
-                });
-            }
 
-            var vendorbankdtls = [];
-            TotalBankRow = $("#BankRow").val();
 
-            for (j = 0; j < TotalBankRow; j++) {
-                vendorbankdtls.push({
-                    Country: $('#bd_country'+j).val(),
-                    BankKey: $('#bank_name'+j).val(),
-                    BankName: $('#bank_name'+j).val(),
-                    SwiftCode: $('#swift_code'+j).val(),
-                    BankAccount: $('#bank_account'+j).val(),
-                    AccountHolderName: $('#account_holder'+j).val(),
-                    Iban: $('#iban'+j).val(),
-                    Currency: $('#bd_currency'+j).val()
-                });
-            }
-           
+        function ValidateVATNo() {
+            var vatDetails = {}
+            vatDetails.VATNumber = $("#VATNo").val();
             var postData = {
-                vendordtls: VenObj,
-                vendorContactdtls: vendorcontactdtls,
-                vendorBankdtls: vendorbankdtls
+                VatDtls: vatDetails
             }
-                
-            console.log(postData);
             $.ajax({
                 type: "POST",
-                async:true,
-                url: "Home/Register",
-                data: postData,
-                dataType: "json",
+                async: true,
+                url: "Home/VATValidate",
+                data: { VATNumber: $("#VATNo").val() },
+
                 error: function () {
                     alert("An error occoured!");
                 },
-                success: function (data) {
-                    $("CompanyId").text(data.id);
+                success: function (d) {
+                    if (d == "Invalid VAT Number") {
+                        console.log(d);
+                        $("#CLblVATNo").text("")
+                        $("#WLblVATNo").text(d)
+                    } else {
+                        console.log(d);
+                        $("#WLblVATNo").text("")
+                        $("#CLblVATNo").text(d)
+                    }
                 }
             });
-
         }
+
+
+        document.addEventListener('DOMContentLoaded', function (e) {
+            const registerButton = document.getElementById('register');
+            const frmForm = document.getElementById('frm');
+            const fv = FormValidation.formValidation(frmForm, {
+                fields: {
+                    'CompanyName': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Company Name is required'
+                            }
+                        }
+                    },
+                    'CommRegNo': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Company Registration No. is required'
+                            }
+                        }
+                    },
+                    'PhoneNo': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Phone No. is required'
+                            }
+                        }
+                    },
+                    'EmailAddress': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Email Address. is required'
+                            },
+                            emailAddress: {
+                                message: 'The value is not a valid email address'
+                            }
+                        }
+                    },
+                    'MobileNo': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Phone No. is required'
+                            }
+                        }
+                    },
+                    'Website': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Website is required'
+                            }
+                        }
+                    },
+                    'CountryId': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Country is required'
+                            }
+                        }
+                    },
+                    'RegionId': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Region is required'
+                            }
+                        }
+                    },
+                    'District': {
+                        validators: {
+                            notEmpty: {
+                                message: 'District is required'
+                            }
+                        }
+                    },
+                    'Postalcode': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Postal Code is required'
+                            }
+                        }
+                    },
+                    'City': {
+                        validators: {
+                            notEmpty: {
+                                message: 'City is required'
+                            }
+                        }
+                    },
+                    'Street': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Street is required'
+                            }
+                        }
+                    },
+                    'HouseNo': {
+                        validators: {
+                            notEmpty: {
+                                message: 'House No. is required'
+                            }
+                        }
+                    },
+                    'Building': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Building is required'
+                            }
+                        }
+                    },
+                    'Floor': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Floor is required'
+                            }
+                        }
+                    },
+                    'Room': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Room is required'
+                            }
+                        }
+                    },
+                    'VendorType': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Vendor Type is required'
+                            }
+                        }
+                    },
+                    'VATNo': {
+                        validators: {
+                            notEmpty: {
+                                message: 'VAT No is required'
+                            }
+                        }
+                    },
+                },
+
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    bootstrap: new FormValidation.plugins.Bootstrap5({
+                        rowSelector: '.fv-row',
+                        eleInvalidClass: '',
+                        eleValidClass: ''
+                    })
+                },
+            }).on('core.form.validating', function () {
+                registerButton.innerHTML = 'Validating ...';
+
+            });
+
+
+            registerButton.addEventListener('click', function () {
+                fv.validate().then(function (status) {
+                    registerButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
+                    if (status === 'Valid') {
+
+                        var VenObj = {};
+                        VenObj.CompanyName = $('#CompanyName').val();
+                        VenObj.CommercialRegistrationNo = $('#CommRegNo').val();
+                        VenObj.Language = $('#Language').val();
+                        VenObj.Country = $('#CountryId').val();
+                        VenObj.Region = $('#RegionId').val();
+                        VenObj.District = $('#District').val();
+                        VenObj.PostalCode = $('#Postalcode').val();
+                        VenObj.City = $('#City').val();
+                        VenObj.Street = $('#Street').val();
+                        VenObj.HouseNo = $('#HouseNo').val();
+                        VenObj.Building = $('#Building').val();
+                        VenObj.Floor = $('#Floor').val();
+                        VenObj.Room = $('#Room').val();
+                        VenObj.PoBox = $('#PoBox').val();
+                        VenObj.PhoneNo = $('#PhoneNo').val();
+                        VenObj.FaxNumber = $('#FaxNumber').val();
+                        VenObj.Email = $('#EmailAddress').val();
+                        VenObj.MobileNo = $('#MobileNo').val();
+                        VenObj.Website = $('#Website').val();
+                        var vendortype = [];
+                        $.each($("input[name='VendorType']:checked"), function () {
+                            vendortype.push($(this).val());
+                        });
+                        VenObj.VendorType = vendortype.join(", ");
+                        VenObj.AccountGroup = $("input[name='AccountGroup']:checked").val();
+                        VenObj.Notes = $('#Notes').val();
+                        VenObj.VATNo = $('#VATNo').val();
+
+                        /* VenObj.ClerkVendorName = $('#ClerkVendorName').val();
+                         VenObj.ClerkNationalId = $('#ClerkNationalId').val();
+                         VenObj.ClerkEmailId = $('#ClerkEmailId').val();
+                         VenObj.ClerkTelephoneNo = $('#ClerkTelephoneNo').val();
+                         VenObj.ClerkFaxNo = $('#ClerkFaxNo').val();*/
+
+                        var vendorcontactdtls = [];
+                        TotalContactRow = $("#ContactRow").val();
+
+                        for (i = 0; i < TotalContactRow; i++) {
+                            vendorcontactdtls.push({
+                                FirstName: $('#cp_firstName' + i).val(),
+                                LastName: $('#cp_lastName' + i).val(),
+                                Address: $('#cp_address' + i).val(),
+                                Designation: $('#cp_position' + i).val(),
+                                Department: $('#cp_department' + i).val(),
+                                PhoneNo: $('#cp_phoneno' + i).val(),
+                                MobileNo: $('#cp_phoneno' + i).val(),
+                                FaxNo: $('#cp_faxno' + i).val(),
+                                Email: $('#cp_emil' + i).val(),
+                                Language: $('#cp_language' + i).val(),
+                                Country: $('#cp_country' + i).val()
+                            });
+                        }
+
+                        var vendorbankdtls = [];
+                        TotalBankRow = $("#BankRow").val();
+
+                        for (j = 0; j < TotalBankRow; j++) {
+                            vendorbankdtls.push({
+                                Country: $('#bd_country' + j).val(),
+                                BankKey: $('#bank_name' + j).val(),
+                                BankName: $('#bank_name' + j).val(),
+                                SwiftCode: $('#swift_code' + j).val(),
+                                BankAccount: $('#bank_account' + j).val(),
+                                AccountHolderName: $('#account_holder' + j).val(),
+                                Iban: $('#iban' + j).val(),
+                                Currency: $('#bd_currency' + j).val()
+                            });
+                        }
+
+                        var postData = {
+                            vendordtls: VenObj,
+                            vendorContactdtls: vendorcontactdtls,
+                            vendorBankdtls: vendorbankdtls
+                        }
+
+                        console.log(postData);
+                        $.ajax({
+                            type: "POST",
+                            async: true,
+                            url: "Home/Register",
+                            data: postData,
+                            dataType: "json",
+                            error: function () {
+                                alert("An error occoured!");
+                            },
+                            success: function (data) {
+                                $("CompanyId").text(data.id);
+                                registerButton.innerHTML = "Register"
+                                // Show popup confirmation
+                                Swal.fire({
+                                    text: "Form has been successfully submitted!",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+        });
 
     </script>
 </body>

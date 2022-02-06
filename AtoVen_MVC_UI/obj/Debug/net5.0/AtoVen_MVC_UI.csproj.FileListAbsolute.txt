@@ -157,3 +157,5 @@ C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\
 C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
 C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\ApproverLevels\Index.cshtml.g.cs
 C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Home\Inbox.cshtml.g.cs
+C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Role\Index.cshtml.g.cs
+C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\User\Index.cshtml.g.cs

@@ -10,12 +10,13 @@ namespace AtoVen_MVC_UI.Models
         public string Id {get; set;}
         public string UserName { get; set; }
 
-        public string email { get; set; }
+        public string Email { get; set; }
 
-        public string password { get; set; }
-        public int approverLevel { get; set; }
+        public string Password { get; set; }
+        public int ApproverLevel { get; set; }
 
-        public string role { get; set; }
+        public string Role { get; set; }
+
     }
 
     public class UserDTO
@@ -23,11 +24,11 @@ namespace AtoVen_MVC_UI.Models
         public string Id { get; set; }
         public string UserName { get; set; }
 
-        public string email { get; set; }
+        public string Email { get; set; }
 
-        public string password { get; set; }
-        public int approverLevel { get; set; }
+        public string Password { get; set; }
+        public int ApproverLevel { get; set; }
 
-        public string role { get; set; }
+        public string Role { get; set; } 
     }
 }

@@ -52,19 +52,63 @@ var KTLogin = function() {
         $('#kt_login_signin_submit').on('click', function (e) {
             e.preventDefault();
 
-            validation.validate().then(function(status) {
-		        if (status == 'Valid') {
-                    swal.fire({
-		                text: "All is cool! Now you submit this form",
-		                icon: "success",
-		                buttonsStyling: false,
-		                confirmButtonText: "Ok, got it!",
-                        customClass: {
-    						confirmButton: "btn font-weight-bold btn-light-primary"
-    					}
-		            }).then(function() {
-						KTUtil.scrollTop();
-					});
+            validation.validate().then(function (status) {
+                $('#kt_login_signin_submit').innerHTML = status === 'Valid' ? 'Log In ...' : 'Log In';
+                if (status == 'Valid') {
+
+                    var UserLogObj = {};
+                    UserLogObj.Email = $('#username').val();
+                    UserLogObj.Password = $('#password').val();
+                     UserLogObj.Remember = true;
+                    if ($("input[name='rememberme']:checked").val() == "Y") {
+                        UserLogObj.Remember = true;
+                    } else {
+                        UserLogObj.Remember = false;
+                    }
+                    var postData = {
+                        userlogindtls: UserLogObj
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        async: true,
+                        url: "Login/Login",
+                        data: postData,
+                        dataType: "json",
+                        error: function () {
+                            alert("An error occoured!");
+                        },
+                        success: function (d) {
+                            console.log(d);
+                            $('#kt_login_signin_submit').innerHTML = "Sign"
+                            if (d["token"]) {
+                                
+                                Swal.fire({
+                                    text: "Logged In successfully!",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+                                setTimeout(function () {
+                                    window.location.href = "/Home";
+                                }, 2000);
+                            } else {
+                                 Swal.fire({
+                                    text: d["message"],
+                                    icon: "error",
+                                    buttonsStyling: false,
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+
+                            }
+                        }
+                    });
+
+                 
 				} else {
 					swal.fire({
 		                text: "Sorry, looks like there are some errors detected, please try again.",

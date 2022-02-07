@@ -52,7 +52,23 @@ namespace AtoVen_MVC_UI.Controllers
                 
         }
 
-
+        [HttpGet]
+        public async Task<ActionResult> ListRoles()
+        {
+            List<Role> _rolelist = new List<Role>();
+                
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+            string endpoint = apiBaseUrl + "/Administration/ListRoles";
+            using (var httpclient = new HttpClient())
+            {
+                using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
+                {
+                    var data = await response.Content.ReadAsStringAsync();
+                    _rolelist = JsonConvert.DeserializeObject<List<Role>>(data);
+                }
+            }
+            return View(_rolelist);
+        }
 
     }
 }

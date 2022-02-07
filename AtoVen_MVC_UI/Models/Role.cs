@@ -7,7 +7,8 @@ namespace AtoVen_MVC_UI.Models
 {
     public class Role
     {
-        public string RoleName { get; set; }
+        public string Id { get; set; }
+        public string name { get; set; }
     }
 
     public class RoleDTO

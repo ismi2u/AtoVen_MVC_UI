@@ -282,3 +282,6 @@ C:\Users\FAKEER\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen
 C:\Users\FAKEER\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\ref\AtoVen_MVC_UI.dll
 C:\Users\FAKEER\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.pdb
 C:\Users\FAKEER\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.genruntimeconfig.cache
+C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Inbox\Index.cshtml.g.cs
+C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Role\ListRoles.cshtml.g.cs

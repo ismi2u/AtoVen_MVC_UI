@@ -1,12 +1,12 @@
-﻿@{
+﻿    @{
     ViewBag.Title = "Role";
     Layout = "_AdminLayout";
 
-}
+    }
 
 
-<!--begin::Layout-->
-<div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
+    <!--begin::Layout-->
+    <div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
 
     <form id="frm" method="post">
         <!--begin::Content-->
@@ -24,11 +24,18 @@
                                 <!--begin::Col-->
                                 <div class="col-lg-12">
                                     <label class="form-label fs-6 fw-bolder text-black mb-3">Create Role</label>
-
+                                </div>
+                                <div class="col-lg-6">
                                     <div class="fv-row form-floating mb-5">
                                         <input required name="RoleName" type="text" class="form-control border" placeholder="Role Name" id="RoleName" autocomplete="off" />
                                         <label for="RoleName" class="required">Role Name</label>
                                     </div>
+                                </div>
+
+                            </div>
+                            <div class="row gx-10 mb-5">
+                                <div class="col-lg-12">
+                                    <button type="button" class="btn btn-sm btn-primary" id="create">Create</button>
                                 </div>
                             </div>
                         </div>
@@ -38,17 +45,17 @@
                 </div>
             <!--end::Card-->
 
-            <button type="button" class="btn btn-sm btn-primary" id="create">Create</button>
+            
         </div>
         <!--end::Content-->
     </form>
     <!--end::Form-->
     <!--begin::Sidebar-->
     <!--end::Sidebar-->
-</div>
-<!--end::Layout-->
-<!--begin::Scrolltop-->
-<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+    </div>
+    <!--end::Layout-->
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
     <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
     <span class="svg-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -57,15 +64,15 @@
         </svg>
     </span>
     <!--end::Svg Icon-->
-</div>
-<!--end::Scrolltop-->
-<!--end::Main-->
-<script>var hostUrl = "~/assets/";</script>
-<!--begin::Javascript-->
-<!--begin::Global Javascript Bundle(used by all pages)-->
-<script src="~/assets/plugins/global/plugins.bundle.js"></script>
-<script src="~/assets/js/scripts.bundle.js"></script>
-<script>
+    </div>
+    <!--end::Scrolltop-->
+    <!--end::Main-->
+    <script>var hostUrl = "~/assets/";</script>
+    <!--begin::Javascript-->
+    <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script src="~/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="~/assets/js/scripts.bundle.js"></script>
+    <script>
     document.addEventListener('DOMContentLoaded', function (e) {
         const CreateButton = document.getElementById('create');
         const frmForm = document.getElementById('frm');
@@ -129,7 +136,7 @@
             });
         });
     });
-</script>
+    </script>
 
 
 

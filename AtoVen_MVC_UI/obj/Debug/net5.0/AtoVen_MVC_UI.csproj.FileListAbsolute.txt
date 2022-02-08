@@ -285,3 +285,4 @@ C:\Users\FAKEER\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen
 C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Inbox\Index.cshtml.g.cs
 C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\habee\source\repos\ismi2u\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Role\ListRoles.cshtml.g.cs
+C:\Users\FAKEER\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Role\ListRoles.cshtml.g.cs

@@ -6317,26 +6317,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FAKEER\\.nuget\\packages\\": {}
+    "C:\\Users\\habee\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FAKEER\\source\\repos\\AtoVen_MVC_UI\\AtoVen_MVC_UI\\AtoVen_MVC_UI.csproj",
+      "projectUniqueName": "C:\\Users\\habee\\Source\\Repos\\AtoVen_MVC_UI\\AtoVen_MVC_UI\\AtoVen_MVC_UI.csproj",
       "projectName": "AtoVen_MVC_UI",
-      "projectPath": "C:\\Users\\FAKEER\\source\\repos\\AtoVen_MVC_UI\\AtoVen_MVC_UI\\AtoVen_MVC_UI.csproj",
-      "packagesPath": "C:\\Users\\FAKEER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FAKEER\\source\\repos\\AtoVen_MVC_UI\\AtoVen_MVC_UI\\obj\\",
+      "projectPath": "C:\\Users\\habee\\Source\\Repos\\AtoVen_MVC_UI\\AtoVen_MVC_UI\\AtoVen_MVC_UI.csproj",
+      "packagesPath": "C:\\Users\\habee\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\habee\\Source\\Repos\\AtoVen_MVC_UI\\AtoVen_MVC_UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\FAKEER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\habee\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

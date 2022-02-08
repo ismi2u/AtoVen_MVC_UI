@@ -30,7 +30,13 @@ namespace AtoVen_MVC_UI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Inbox()
+        public IActionResult List()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<List<propVendor>> GetList()
         {
             List<propVendor> _oVendorList = new List<propVendor>();
 
@@ -45,7 +51,7 @@ namespace AtoVen_MVC_UI.Controllers
                 }
             }
 
-            return View(_oVendorList); 
+            return _oVendorList; 
         }
 
         public async Task<string> VATValidate(VATValidatorDTO VATNo)
@@ -115,6 +121,12 @@ namespace AtoVen_MVC_UI.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Edit(string Id)
+        {
+            ViewBag.roleId = Id;
+            return View();
+        }
 
         public IActionResult Privacy()
         {

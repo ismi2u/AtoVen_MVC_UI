@@ -15,7 +15,7 @@
             <div class="card-header align-items-center py-5 gap-2 gap-md-5">
                 <!--begin::Actions-->
                 <div class="d-flex flex-wrap gap-1">
-                    <a href="/User/Create" class="btn btn-primary">Create</a>
+                    <a href="/Home/Create" class="btn btn-primary">Create</a>
                 </div>
                 <!--end::Actions-->
                 <!--begin::Pagination-->
@@ -41,10 +41,12 @@
                     <!--begin::Table head-->
                     <thead>
                         <tr>
-                            <th>User Name</th>
+                            <th>Company Id</th>
+                            <th>Company Name</th>
+                            <th>CR Number</th>
+                            <th>VAT No</th>
                             <th>Email</th>
-                            <th>Approver Level</th>
-                            <th>Actions</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <!--end::Table head-->
@@ -68,15 +70,19 @@
 <script src="~/assets/js/scripts.bundle.js"></script>
 <script>
     $(document).ready(function () {
-        var urlRequest = "/User/GetList"
+        var urlRequest = "/Home/GetList"
         $.post(urlRequest, function (data) { // do ajax getrequest
+            console.log(data);
             var rows = '';
             $.each(data, function (index, item) { //build tbody content using each function
+               
                 rows += "<tr>";
-                rows += "<td>" + item.userName + "</td>";
-                rows += "<td>" + item.email + "</td>";
-                rows += "<td>" + item.approverLevel + "</td>";
-                rows += "<td><a class='btn btn-sm btn-primary' href='/User/Edit/" + item.id + "'>Edit</a></td>";
+                rows += "<td>" + item.id + "</td>";
+                rows += "<td>" + item.companyName + "</td>";
+                rows += "<td>" + item.commercialRegistrationNo + "</td>";
+                rows += "<td>" + item.vatNo + "</td>";
+                rows += "<td>" + item.email  + "</td>";
+                rows += "<td><a class='btn btn-sm btn-primary' href='/Home/Edit/" + item.id + "'>Edit</a></td>";
                 rows += "</tr>";
             });
             $('.InfoTBody').html(rows);

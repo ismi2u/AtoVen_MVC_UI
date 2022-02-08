@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Role";
+    Layout = "_AdminLayout";
+
+}
+
+
+<!--begin::Layout-->
+<div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
+
+    <form id="frm" method="post">
+        <!--begin::Content-->
+        <div class="flex-lg-row-fluid mb-10 mb-lg-0 me-lg-7 me-xl-10">
+
+            <!-- Company Information Start -->
+            <!--begin::Card-->
+            <div class="card">
+                <!--begin::Card body-->
+                <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                        <div class="mb-0">
+                            <!--begin::Row-->
+                            <div class="row gx-10 mb-5">
+                                <!--begin::Col-->
+                                <div class="col-lg-12">
+                                    <label class="form-label fs-6 fw-bolder text-black mb-3">Edit Role</label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="fv-row form-floating mb-5">
+                                        <input name="RoleId" type="hidden" id="RoleId" value="@ViewBag.roleId"/>
+                                        <input required name="RoleName" type="text" class="form-control border" placeholder="Role Name" id="RoleName" autocomplete="off" />
+                                        <label for="RoleName" class="required">Role Name</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row gx-10 mb-5">
+                                <div class="col-lg-12">
+                                    <button type="button" class="btn btn-sm btn-primary" id="update">Update</button>
+                                    <a href="/Role" class="btn btn-sm btn-default">Back</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Card body-->
+            </div>
+            <!--end::Card-->
+
+
+        </div>
+        <!--end::Content-->
+    </form>
+    <!--end::Form-->
+    <!--begin::Sidebar-->
+    <!--end::Sidebar-->
+</div>
+<!--end::Layout-->
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+    <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+    <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+            <path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
+        </svg>
+    </span>
+    <!--end::Svg Icon-->
+</div>
+<!--end::Scrolltop-->
+<!--end::Main-->
+<script>var hostUrl = "~/assets/";</script>
+<!--begin::Javascript-->
+<!--begin::Global Javascript Bundle(used by all pages)-->
+<script src="~/assets/plugins/global/plugins.bundle.js"></script>
+<script src="~/assets/js/scripts.bundle.js"></script>
+<script>
+    function GetDetails() {
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/Role/Get",
+            data: { RoleId: $("#RoleId").val() },
+            dataType: "json",
+            error: function () {
+                alert("An error occoured!");
+            },
+            success: function (d) {
+               console.log(d)
+                $("#RoleName").val(d.name);
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function (e) {
+        const CreateButton = document.getElementById('update');
+        const frmForm = document.getElementById('frm');
+        const fv = FormValidation.formValidation(frmForm, {
+            fields: {
+                'RoleName': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Role Name is required'
+                        }
+                    }
+                }
+            },
+            plugins: {
+                trigger: new FormValidation.plugins.Trigger(),
+                bootstrap: new FormValidation.plugins.Bootstrap5({
+                    rowSelector: '.fv-row',
+                    eleInvalidClass: '',
+                    eleValidClass: ''
+                })
+            },
+
+        }).on('core.form.validating', function () {
+            CreateButton.innerHTML = 'Validating ...';
+
+        });
+
+        CreateButton.addEventListener('click', function () {
+            fv.validate().then(function (status) {
+                CreateButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
+                console.log(status);
+                if (status === 'Valid') {
+
+                    var RoleObj = {};
+                    RoleObj.Id = $('#RoleId').val();
+                    RoleObj.RoleName = $('#RoleName').val();
+                    var postData = {
+                        roledtls: RoleObj
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        async: true,
+                        url: "/Role/Update",
+                        data: postData,
+
+                        error: function () {
+                            alert("An error occoured!");
+                        },
+                        success: function (d) {
+                            console.log(d);
+                            CreateButton.innerHTML = "Update"
+
+                            Swal.fire({
+                                text: "Role is updated successfully!",
+                                icon: "success",
+                                buttonsStyling: false,
+                                confirmButtonText: "Ok, got it!",
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            });
+
+                        }
+                    });
+
+                }
+            });
+        });
+    });
+
+    GetDetails();
+</script>
+
+
+

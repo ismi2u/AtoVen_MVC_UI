@@ -5,14 +5,20 @@ using System.Threading.Tasks;
 
 namespace AtoVen_MVC_UI.Models
 {
-    public class Role
+    public class Roles
     {
         public string Id { get; set; }
-        public string name { get; set; }
+        public string Name { get; set; }
+
+        public string NormalizedName { get; set; }
+
+        public string ConcurrencyStamp { get; set; }
     }
 
-    public class RoleDTO
+    public class RolesDTO
     {
+        public string Id { get; set; }
+        public string RoleId { get; set; }
         public string RoleName { get; set; }
     }
 }

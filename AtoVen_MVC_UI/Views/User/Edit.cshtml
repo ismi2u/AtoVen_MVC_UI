@@ -1,0 +1,267 @@
+﻿@{
+    ViewBag.Title = "User Edit";
+    Layout = "_AdminLayout";
+
+}
+
+
+
+<!--begin::Layout-->
+<div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
+    <form id="frm" method="post">
+        <!--begin::Content-->
+        <div class="flex-lg-row-fluid mb-10 mb-lg-0 me-lg-7 me-xl-10">
+
+            <!-- Company Information Start -->
+            <!--begin::Card-->
+            <div class="card" style="width: 100% !important;">
+                <!--begin::Card body-->
+                <div class="card-body p-6">
+                    <div class="mb-0">
+                        <!--begin::Row-->
+                        <div class="row gx-10 mb-5">
+                            <!--begin::Col-->
+                            <div class="col-lg-12">
+                                <label class="form-label fs-6 fw-bolder text-black mb-3">Edit User</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="fv-row mb-5">
+                                    <input name="UserId" type="hidden" id="UserId" value="@ViewBag.userId" />
+                                    <label for="UserName" class="required form-label">User Name</label>
+                                    <input required name="UserName" type="Email" class="form-control border" placeholder="example@gmail.com" id="UserName" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="fv-row mb-5">
+                                    <label for="Password" class="required form-label">Password</label>
+                                    <input required name="Password" type="Password" class="form-control border" placeholder="Password" id="Password" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="fv-row mb-5">
+                                    <label for="Email" class="required form-label">Email</label>
+                                    <input required name="Email" type="text" class="form-control border" placeholder="example@gmail.com" id="Email" autocomplete="off" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="fv-row mb-5">
+                                    <label for="ApproverLevel" class="required form-label">Approver Level</label>
+                                    <select class="form-control border" name="ApproverLevel" id="ApproverLevel">
+                                        <option value="" selected>--select--</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="fv-row mb-5">
+                                    <label for="Role" class="required form-label">Role</label>
+                                    <select class="form-control border" name="Role" id="Role">
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row gx-10 mb-5">
+                            <div class="col-lg-12">
+                                <button type="button" class="btn btn-sm btn-primary" id="update">Update</button>
+                                <a href="/User" class="btn btn-sm btn-default">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Card body-->
+            </div>
+            <!--end::Card-->
+
+
+        </div>
+        <!--end::Content-->
+    </form>
+    <!--end::Form-->
+    <!--begin::Sidebar-->
+    <!--end::Sidebar-->
+</div>
+<!--end::Layout-->
+<!--end::Root-->
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+    <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+    <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+            <path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
+        </svg>
+    </span>
+    <!--end::Svg Icon-->
+</div>
+<!--end::Scrolltop-->
+<!--end::Main-->
+<script>var hostUrl = "~/assets/";</script>
+<!--begin::Javascript-->
+<!--begin::Global Javascript Bundle(used by all pages)-->
+<script src="~/assets/plugins/global/plugins.bundle.js"></script>
+<script src="~/assets/js/scripts.bundle.js"></script>
+<script>
+    $(function () {
+        var ddlRole = $("#Role");
+        ddlRole.empty().append('<option selected="selected" value="0" disabled = "disabled">Loading.....</option>');
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/User/getUserRole",
+            data: '{}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                console.log(response)
+                ddlRole.empty().append('<option selected="selected" value="">--select--</option>');
+                $.each(response, function (i) {
+                    ddlRole.append($('<option>',
+                    {
+                        value: response[i].id,
+                        text: response[i].name
+                    },
+                    '</option>'));
+                });
+
+                GetDetails();
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    });
+
+    function GetDetails() {
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/User/Get",
+            data: { Id: $("#UserId").val() },
+            dataType: "json",
+            error: function () {
+                alert("An error occoured!");
+            },
+            success: function (d) {
+                
+                console.log(d);
+
+                $("#UserName").val(d.user.userName);
+                $("#Email").val(d.user.email);
+                $('#ApproverLevel').val(d.user.approverLevel).trigger('change');
+                $('#Role').val(d.roleids[0]).trigger('change');;
+
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function (e) {
+        const CreateButton = document.getElementById('update');
+        const frmForm = document.getElementById('frm');
+        const fv = FormValidation.formValidation(frmForm, {
+            fields: {
+                'UserName': {
+                    validators: {
+                        notEmpty: {
+                            message: 'User Name is required'
+                        },
+                        emailAddress: {
+                            message: 'The value is not a valid email address'
+                        }
+                    }
+                },
+                'Password': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Password is required'
+                        }
+                    }
+                },
+                'Email': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Email is required'
+                        },
+                        emailAddress: {
+                            message: 'The value is not a valid email address'
+                        }
+                    }
+                },
+                'ApproverLevel': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Approver Level is required'
+                        }
+                    }
+                },
+                'Role': {
+                    validators: {
+                        notEmpty: {
+                            message: 'Role is required'
+                        }
+                    }
+                },
+            },
+            plugins: {
+                trigger: new FormValidation.plugins.Trigger(),
+                bootstrap: new FormValidation.plugins.Bootstrap5({
+                    rowSelector: '.fv-row',
+                    eleInvalidClass: '',
+                    eleValidClass: ''
+                })
+            },
+
+            }).on('core.form.validating', function () {
+                CreateButton.innerHTML = 'Validating ...';
+
+            });
+
+            CreateButton.addEventListener('click', function () {
+                fv.validate().then(function (status) {
+                    CreateButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
+                    if (status === 'Valid') {
+                        var UserObj = {};
+                        UserObj.Id = $("#UserId").val();
+                        UserObj.UserName = $('#UserName').val();
+                        UserObj.Email = $('#Email').val();
+                        UserObj.Password = $('#Password').val();
+                        UserObj.ApproverLevel = $('#ApproverLevel').val();
+                        UserObj.Role = $('#Role').val();
+                        var postData = {
+                            userdtls: UserObj
+                        }
+                        $.ajax({
+                            type: "POST",
+                            async: true,
+                            url: "/User/Update",
+                            data: postData,
+
+                            error: function () {
+                                alert("An error occoured!");
+                            },
+                            success: function (d) {
+                                console.log(d);
+                                CreateButton.innerHTML = "Create"
+                                Swal.fire({
+                                    text: "User is updated successfully!",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+    });
+
+   
+</script>

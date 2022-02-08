@@ -1,142 +1,84 @@
-﻿    @{
-    ViewBag.Title = "Role";
+﻿@{
+    ViewBag.Title = "Roles List";
     Layout = "_AdminLayout";
 
-    }
+}
 
-
-    <!--begin::Layout-->
-    <div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
-
-    <form id="frm" method="post">
-        <!--begin::Content-->
-        <div class="flex-lg-row-fluid mb-10 mb-lg-0 me-lg-7 me-xl-10">
-
-            <!-- Company Information Start -->
-            <!--begin::Card-->
-            <div class="card" >
-                <!--begin::Card body-->
-                <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-                    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-                        <div class="mb-0">
-                            <!--begin::Row-->
-                            <div class="row gx-10 mb-5">
-                                <!--begin::Col-->
-                                <div class="col-lg-12">
-                                    <label class="form-label fs-6 fw-bolder text-black mb-3">Create Role</label>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="fv-row form-floating mb-5">
-                                        <input required name="RoleName" type="text" class="form-control border" placeholder="Role Name" id="RoleName" autocomplete="off" />
-                                        <label for="RoleName" class="required">Role Name</label>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="row gx-10 mb-5">
-                                <div class="col-lg-12">
-                                    <button type="button" class="btn btn-sm btn-primary" id="create">Create</button>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <!--end::Card body-->
-                </div>
-            <!--end::Card-->
-
-            
-        </div>
-        <!--end::Content-->
-    </form>
-    <!--end::Form-->
+<!--begin::Inbox App - Messages -->
+<div class="d-flex flex-column flex-lg-row">
     <!--begin::Sidebar-->
     <!--end::Sidebar-->
+    <!--begin::Content-->
+    <div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
+        <!--begin::Card-->
+        <div class="card">
+            <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                <!--begin::Actions-->
+                <div class="d-flex flex-wrap gap-1">
+                    <a href="/Role/Create" class="btn btn-primary">Create</a>
+                </div>
+                <!--end::Actions-->
+                <!--begin::Pagination-->
+                <div class="d-flex align-items-center flex-wrap gap-2">
+                    <!--begin::Search-->
+                    <div class="d-flex align-items-center position-relative">
+                        <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                        <span class="svg-icon svg-icon-2 position-absolute ms-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
+                                <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                        <input type="text" data-kt-inbox-listing-filter="search" class="form-control form-control-sm form-control-solid mw-100 min-w-150px min-w-md-200px ps-12" placeholder="Search Inbox" />
+                    </div>
+                </div>
+                <!--end::Pagination-->
+            </div>
+            <div class="card-body">
+                <!--begin::Table-->
+                <table class="table table-row-dashed " id="role_listing">
+                    <!--begin::Table head-->
+                    <thead>
+                        <tr>
+                            <th>Role Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <!--end::Table head-->
+                    <!--begin::Table body-->
+                    <tbody class="InfoTBody">
+                    </tbody>
+                    <!--end::Table body-->
+                </table>
+                <!--end::Table-->
+            </div>
+        </div>
+        <!--end::Card-->
     </div>
-    <!--end::Layout-->
-    <!--begin::Scrolltop-->
-    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-    <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
-    <span class="svg-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
-            <path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
-        </svg>
-    </span>
-    <!--end::Svg Icon-->
-    </div>
-    <!--end::Scrolltop-->
-    <!--end::Main-->
-    <script>var hostUrl = "~/assets/";</script>
-    <!--begin::Javascript-->
-    <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="~/assets/plugins/global/plugins.bundle.js"></script>
-    <script src="~/assets/js/scripts.bundle.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function (e) {
-        const CreateButton = document.getElementById('create');
-        const frmForm = document.getElementById('frm');
-        const fv = FormValidation.formValidation(frmForm, {
-            fields: {
-                'RoleName': {
-                    validators: {
-                        notEmpty: {
-                            message: 'Role Name is required'
-                        }
-                    }
-                }
-            },
-            plugins: {
-                trigger: new FormValidation.plugins.Trigger(),
-                bootstrap: new FormValidation.plugins.Bootstrap5({
-                    rowSelector: '.fv-row',
-                    eleInvalidClass: '',
-                    eleValidClass: ''
-                })
-            },
-
-        }).on('core.form.validating', function () {
-            CreateButton.innerHTML = 'Validating ...';
-
-        });
-
-        CreateButton.addEventListener('click', function () {
-            fv.validate().then(function (status) {
-                CreateButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
-                if (status === 'Valid') {
-                    var RoleObj = {};
-                    RoleObj.RoleName = $('#RoleName').val();
-                    var postData = {
-                        roledtls: RoleObj
-                    }
-                    $.ajax({
-                        type: "POST",
-                        async: true,
-                        url: "Role/Create",
-                        data: postData,
-
-                        error: function () {
-                            alert("An error occoured!");
-                        },
-                        success: function (d) {
-                            console.log(d);
-                            CreateButton.innerHTML = "Create"
-                            Swal.fire({
-                                text: "Role is created successfully!",
-                                icon: "success",
-                                buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn btn-primary"
-                                }
-                            });
-                        }
-                    });
-                }
+    <!--end::Content-->
+</div>
+<!--end::Inbox App - Messages -->
+<script>var hostUrl = "~/assets/";</script>
+<!--begin::Javascript-->
+<!--begin::Global Javascript Bundle(used by all pages)-->
+<script src="~/assets/plugins/global/plugins.bundle.js"></script>
+<script src="~/assets/js/scripts.bundle.js"></script>
+<script>
+    $(document).ready(function () {
+        var urlRequest = "/Role/GetList"
+        $.post(urlRequest, function (data) { // do ajax getrequest    
+            var rows = '';
+            $.each(data, function (index, item) { //build tbody content using each function    
+                rows += "<tr>";
+                rows += "<td>" + item.name + "</td>";
+                rows += "<td><a class='btn btn-sm btn-primary' href='/Role/Edit/" + item.id + "'>Edit</a></td>";
+                rows += "</tr>";
             });
-        });
+            $('.InfoTBody').html(rows); 
+        }).done(function () {
+            $('#role_listing').DataTable(); 
+        })
     });
-    </script>
 
-
-
+</script>

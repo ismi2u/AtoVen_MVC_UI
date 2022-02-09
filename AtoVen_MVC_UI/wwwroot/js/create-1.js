@@ -97,7 +97,8 @@ $(document).on("click", "#add-row-bank", function () {
 	new_row_bd = new_row_bd + '</td>'
 
 	new_row_bd = new_row_bd + '<td>'
-	new_row_bd = new_row_bd + '<input class="form-control border" type="text" name="iban' + rowBD + '"  id="iban' + rowBD +'"  placeholder="" value=""/>'
+	new_row_bd = new_row_bd + '<input class="form-control border" type="text" name="iban' + rowBD + '"  id="iban' + rowBD + '"  onblur="ValidateIBANNo(' + rowBD +')" placeholder="" value="" />'
+	new_row_bd = new_row_bd + '<span id="opiban' + rowBD + '"><</span>'
 	new_row_bd = new_row_bd + '</td>'
 
 

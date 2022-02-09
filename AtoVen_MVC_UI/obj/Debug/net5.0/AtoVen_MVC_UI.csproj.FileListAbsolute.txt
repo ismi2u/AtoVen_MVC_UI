@@ -415,3 +415,4 @@ C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\V
 C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Role\Edit.cshtml.g.cs
 C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\User\Create.cshtml.g.cs
 C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\User\Edit.cshtml.g.cs
+C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.csproj.AssemblyReference.cache

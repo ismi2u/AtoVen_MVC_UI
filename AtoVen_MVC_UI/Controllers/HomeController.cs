@@ -54,7 +54,7 @@ namespace AtoVen_MVC_UI.Controllers
             return _oVendorList; 
         }
 
-        public async Task<string> VATValidate(VATValidatorDTO VATNo)
+        public async Task<string> VATValidate(Validators VATNo)
         {
             var Jsonresult = "";
             
@@ -62,12 +62,9 @@ namespace AtoVen_MVC_UI.Controllers
             string endpoint = apiBaseUrl + "/Validation/VATValidator?VATNumber="+ VATNo.VATNumber;
             
             //var values = new Dictionary<string, string>();
-            //values.Add("VATNumber", VATNumber);
-            //HttpContent content = new FormUrlEncodedContent(values);
-            
+           
             using (var httpclient = new HttpClient())
             {
-                //string jsonContent = HttpContent.ReadAsStringAsync().Result; 
                 HttpResponseMessage result = await httpclient.PostAsync(endpoint, null);
 
                 Jsonresult = result.ToString();
@@ -84,6 +81,34 @@ namespace AtoVen_MVC_UI.Controllers
 
             }
             
+        }
+
+
+        public async Task<string> IBANValidate(Validators IBANNo)
+        {
+            var Jsonresult = "";
+
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+            string endpoint = apiBaseUrl + "/Validation/IBANValidator?IbanNumber=" + IBANNo.IbanNumber;
+            
+            using (var httpclient = new HttpClient())
+            {
+               HttpResponseMessage result = await httpclient.PostAsync(endpoint, null);
+
+                Jsonresult = result.ToString();
+                var responsecode = (int)result.StatusCode;
+                if (result.IsSuccessStatusCode)
+                {
+                    Jsonresult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    return Jsonresult;
+                }
+                else
+                {
+                    return responsecode + " " + result.ReasonPhrase;
+                }
+
+            }
+
         }
 
         [HttpPost]

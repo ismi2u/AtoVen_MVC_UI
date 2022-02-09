@@ -8,7 +8,7 @@ namespace AtoVen_MVC_UI.Models
 {
     public class propVendor
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string CompanyName { get; set; }
         public string CommercialRegistrationNo { get; set; }
         public string Language { get; set; }
@@ -40,6 +40,7 @@ namespace AtoVen_MVC_UI.Models
 
     public class propVendorDTO
     {
+        public int Id { get; set; }
         public string CompanyName { get; set; }
         public string CommercialRegistrationNo { get; set; }
         public string Language { get; set; }

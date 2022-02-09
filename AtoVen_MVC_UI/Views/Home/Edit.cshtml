@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Vendor Edit";
+    ViewBag.Title = "Create";
     Layout = null;
 
 }
@@ -94,16 +94,6 @@ License: For each use you must have a valid license purchased only from above li
                                         </div>
                                         <div class="menu-item">
                                             <!--begin::Menu link-->
-                                            <a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="/Home/Inbox" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Inbox</a>
-                                            <!--end::Menu link-->
-                                        </div>
-                                        <div class="menu-item">
-                                            <!--begin::Menu link-->
-                                            <a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="/ApproverLevels" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Approver Levels</a>
-                                            <!--end::Menu link-->
-                                        </div>
-                                        <div class="menu-item">
-                                            <!--begin::Menu link-->
                                             <a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="/Login" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Login</a>
                                             <!--end::Menu link-->
                                         </div>
@@ -172,6 +162,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--begin::Input group-->
 
                                                             <div class="fv-row form-floating mb-5">
+                                                                <input name="CompanyId" type="hidden" class="form-control border" id="CompanyId" value="@ViewBag.CompanyId" />
                                                                 <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" />
                                                                 <label for="CompanyName" class="required">Company Name</label>
                                                             </div>
@@ -197,7 +188,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="PhoneNo" type="text" class="form-control border" placeholder="Phone Number" id="PhoneNo" />
+                                                                        <input name="PhoneNo" type="text" class="form-control border" placeholder="Phone Number" id="PhoneNo"  />
                                                                         <label for="PhoneNo" class="required">Phone Number</label>
                                                                     </div>
                                                                 </div>
@@ -214,7 +205,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress">
+                                                                        <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress" >
                                                                         <label for="EmailAddress" class="required">E-Mail Address</label>
                                                                     </div>
                                                                 </div>
@@ -249,7 +240,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                     <option value="" selected>--select--</option>
                                                                     <option value="1">Afghanistan</option>
                                                                     <option value="2">Åland Islands</option>
-                                                                    <option value="3" selected>Albania</option>
+                                                                    <option value="3">Albania</option>
                                                                     <option value="4">Algeria</option>
                                                                     <option value="5">American Samoa</option>
                                                                     <option value="6">Andorra</option>
@@ -505,7 +496,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <select name="RegionId" id="RegionId" class="form-control border">
                                                                     <option value="">--select--</option>
                                                                     <option value="1">Bavaria</option>
-                                                                    <option value="2" selected>Baden-Württemberg</option>
+                                                                    <option value="2">Baden-Württemberg</option>
                                                                     <option value="3">North Rhine-Westphalia</option>
                                                                     <option value="4">Saxony</option>
                                                                     <option value="5">Lower Saxony</option>
@@ -526,7 +517,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input name="District" type="text" id="District" class="form-control border" placeholder="District" value="VLR">
+                                                                <input name="District" type="text" id="District" class="form-control border" placeholder="District">
                                                                 <label for="District" class="required">District</label>
                                                             </div>
                                                             <!--end::Input group-->
@@ -534,14 +525,14 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="Postalcode" type="text" id="Postalcode" class="form-control border" placeholder="Postal Code" value="635751">
+                                                                        <input name="Postalcode" type="text" id="Postalcode" class="form-control border" placeholder="Postal Code" />
                                                                         <label for="Postalcode" class="required">Postal Code</label>
                                                                     </div>
 
                                                                 </div>
                                                                 <div class="col-8">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="City" type="text" id="City" class="form-control border" placeholder="City" value="VNB">
+                                                                        <input name="City" type="text" id="City" class="form-control border" placeholder="City">
                                                                         <label for="City" class="required">City</label>
                                                                     </div>
 
@@ -556,13 +547,13 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-8">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="Street" type="text" id="Street" class="form-control border" placeholder="Street" value="MUNI">
+                                                                        <input name="Street" type="text" id="Street" class="form-control border" placeholder="Street">
                                                                         <label for="Street">Street</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="HouseNo" type="text" id="HouseNo" class="form-control border" placeholder="House No." value="100">
+                                                                        <input name="HouseNo" type="text" id="HouseNo" class="form-control border" placeholder="House No.">
                                                                         <label for="HouseNo">House No.</label>
                                                                     </div>
                                                                 </div>
@@ -572,19 +563,19 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating  mb-5">
-                                                                        <input name="Building" type="text" id="Building" class="form-control border" placeholder="Building" value="APR">
+                                                                        <input name="Building" type="text" id="Building" class="form-control border" placeholder="Building">
                                                                         <label for="Building">Building</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating  mb-5">
-                                                                        <input name="Floor" type="text" id="Floor" class="form-control border" placeholder="Floor" value="G">
+                                                                        <input name="Floor" type="text" id="Floor" class="form-control border" placeholder="Floor">
                                                                         <label for="Floor">Floor</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating  mb-5">
-                                                                        <input name="Room" type="text" id="Room" class="form-control border" placeholder="Room" value="3">
+                                                                        <input name="Room" type="text" id="Room" class="form-control border" placeholder="Room">
                                                                         <label for="Room">Room</label>
                                                                     </div>
                                                                 </div>
@@ -593,7 +584,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <label class="form-label fs-6 fw-bolder text-black mb-3">PO Box Address</label>
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" value="456321" />
+                                                                <input name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" />
                                                                 <label for="PoBox" class="required">Po Box</label>
                                                             </div>
                                                             <!--end::Input group-->
@@ -630,6 +621,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                                 <div class="col-lg-6">
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
+                                                                                        <input type="hidden" class="form-control" id="cp_id0" name="cp_id0" />
                                                                                         <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" />
                                                                                         <label for="cp_firstName0" class="required">First Name</label>
                                                                                     </div>
@@ -664,6 +656,12 @@ License: For each use you must have a valid license purchased only from above li
                                                                                     <div class="form-floating mb-5">
                                                                                         <input type="text" class="form-control border" name="cp_phoneno0" id="cp_phoneno0" placeholder="Phone No." />
                                                                                         <label for="cp_phoneno0" class="required">Phone No.</label>
+                                                                                    </div>
+                                                                                    <!--end::Input group-->
+                                                                                    <!--begin::Input group-->
+                                                                                    <div class="form-floating mb-5">
+                                                                                        <input type="text" class="form-control border" name="cp_mobileno0" id="cp_mobileno0" placeholder="Mobile No." value="044 987654321" />
+                                                                                        <label for="cp_mobileno0" class="required">Mobile No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
@@ -946,9 +944,9 @@ License: For each use you must have a valid license purchased only from above li
                                                                         </td>
                                                                         <td class="pt-5 text-end">
                                                                             &nbsp;
-                                                                            <!--
+                                                                            <input type="hidden" class="form-control" id="CPIsDeleted0" name="CPIsDeleted0" />
                                                                             <button type="button" class="btn btn-sm btn-icon btn-active-color-primary remove-item">
-                                                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg
+                                                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg //-->
                                                                                 <span class="svg-icon svg-icon-3">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                                         <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black" />
@@ -956,9 +954,9 @@ License: For each use you must have a valid license purchased only from above li
                                                                                         <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black" />
                                                                                     </svg>
                                                                                 </span>
-                                                                                <!--end::Svg Icon
+                                                                                <!--end::Svg Icon //-->
                                                                             </button>
-                                                                            -->
+                                                                            
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -1006,7 +1004,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Manufacturer" id="VendorType1">
+                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Manufacturer" id="Manufacturer">
                                                                         <span class="form-check-label" for="Manufacturer">Manufacturer</span>
                                                                     </label>
                                                                     <!--end::Checkbox-->
@@ -1016,7 +1014,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Contractor" id="VendorType2">
+                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Contractor" id="Contractor">
                                                                         <span class="form-check-label" for="Contractor">Contractor</span>
                                                                     </label>
                                                                     <!--end::Checkbox-->
@@ -1026,7 +1024,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Trader" id="VendorType3">
+                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Trader" id="Contractor">
                                                                         <span class="form-check-label" for="Contractor">Trader</span>
                                                                     </label>
                                                                     <!--end::Checkbox-->
@@ -1036,7 +1034,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Agent" id="VendorType4">
+                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Agent" id="Contractor">
                                                                         <span class="form-check-label" for="Contractor">Agent</span>
                                                                     </label>
                                                                     <!--end::Checkbox-->
@@ -1081,7 +1079,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input name="AccountGroup" class="form-check-input border" type="radio" value="domestic_vendor" checked>
+                                                                        <input name="AccountGroup" class="form-check-input border" type="radio" value="domestic_vendor">
                                                                         <span class="form-check-label" for="Domestic Vendor">Domestic Vendor</span>
                                                                     </label>
                                                                     <!--end::Checkbox-->
@@ -1184,7 +1182,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 </thead>
                                                                 <tbody id="bank_dtls">
                                                                     <tr class="border-bottom border-bottom-dashed" id="rowBD0">
-                                                                        <td>
+                                                                        <td><input type="hidden" class="form-control" id="bd_id0" name="bd_id0" />
                                                                             <select class="form-control border" name="bd_country0" id="bd_country0">
                                                                                 <option value="">--Select--</option>
                                                                                 <option value="1">Afghanistan</option>
@@ -1454,7 +1452,8 @@ License: For each use you must have a valid license purchased only from above li
                                                                             <input class="form-control border" type="text" name="account_holder0" id="account_holder0" placeholder="" />
                                                                         </td>
                                                                         <td>
-                                                                            <input class="form-control border" type="text" name="iban0" id="iban0" placeholder="" />
+                                                                            <input class="form-control border" type="text" name="iban0" id="iban0" placeholder="" onblur="ValidateIBANNo(0)" />
+                                                                            <span id="opiban0"><</span>
                                                                         </td>
                                                                         <td>
                                                                             <select class="form-control border" name="bd_currency0" id="bd_currency0">
@@ -1466,7 +1465,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                             </select>
                                                                         </td>
                                                                         <td class="text-end">
-                                                                            &nbsp;
+                                                                            <input type="hidden" class="form-control" id="BDIsDeleted0" name="BDIsDeleted0" /><button type="button" class="btn btn-sm btn-icon btn-active-color-primary remove-item-bd"><span class="svg-icon svg-icon-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black" /><path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="black" /><path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black" /></svg></span></button>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -1508,14 +1507,13 @@ License: For each use you must have a valid license purchased only from above li
                                                         <div class="col-lg-6">
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input name="VATNo" id="VATNo" type="text" class="form-control border" placeholder="VAT Number" onblur="ValidateVATNo()" value="GB429214460" />
+                                                                <input name="VATNo" id="VATNo" type="text" class="form-control border error" placeholder="VAT Number" onblur="ValidateVATNo()" />
                                                                 <label>VAT Number</label>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div class="form-floating mb-5">
-                                                                <label id="WLblVATNo" style="color:red"></label>
-                                                                <label id="CLblVATNo" style="color:green"></label>
+                                                                <label id="opVATNo"></label>
                                                             </div>
                                                         </div>
                                                         <label class="required form-label fs-6 fw-bolder text-black mb-3">Attachment</label>
@@ -1586,7 +1584,7 @@ License: For each use you must have a valid license purchased only from above li
                                                         <div class="col-6">
                                                             <!--begin::Input group-->
                                                             <div class="mb-5">
-                                                                <textarea name="Notes" id="Notes" class="form-control border" rows="3" placeholder="">Testing Notes</textarea>
+                                                                <textarea name="Notes" id="Notes" class="form-control border" rows="3" placeholder=""></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1598,7 +1596,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Card-->
                                         <!-- Notes End -->
 
-                                        <button type="button" class="btn btn-sm btn-primary" id="register">Register</button>
+                                        <button type="button" class="btn btn-sm btn-primary" id="update">Update</button>
 
 
                                     </div>
@@ -1743,7 +1741,7 @@ License: For each use you must have a valid license purchased only from above li
     <script src="~/assets/js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Page Custom Javascript(used by this page)-->
-    <script src="~/assets/js/custom/apps/invoices/create-1.js"></script>
+    <script src="~/js/create-1.js"></script>
     <script src="~/assets/js/custom/widgets.js"></script>
     <script src="~/assets/js/custom/apps/chat/chat.js"></script>
     <script src="~/assets/js/custom/modals/create-app.js"></script>
@@ -1781,37 +1779,69 @@ License: For each use you must have a valid license purchased only from above li
 
 
         function ValidateVATNo() {
-            var vatDetails = {}
-            vatDetails.VATNumber = $("#VATNo").val();
-            var postData = {
-                VatDtls: vatDetails
-            }
-            $.ajax({
-                type: "POST",
-                async: true,
-                url: "Home/VATValidate",
-                data: { VATNumber: $("#VATNo").val() },
+            if ($("#VATNo").val() != "") {
+                $.ajax({
+                    type: "POST",
+                    async: true,
+                    url: "Home/VATValidate",
+                    data: { VATNumber: $("#VATNo").val() },
 
-                error: function () {
-                    alert("An error occoured!");
-                },
-                success: function (d) {
-                    if (d == "Invalid VAT Number") {
-                        console.log(d);
-                        $("#CLblVATNo").text("")
-                        $("#WLblVATNo").text(d)
-                    } else {
-                        console.log(d);
-                        $("#WLblVATNo").text("")
-                        $("#CLblVATNo").text(d)
+                    error: function () {
+                        alert("An error occoured!");
+                    },
+                    success: function (d) {
+                        if (d == "Invalid VAT Number") {
+                            $("#VATNo").addClass("is-invalid");
+                            console.log(d);
+                            $("#opVATNo").text(d)
+                            $("#opVATNo").removeClass("text-success")
+                            $("#opVATNo").addClass("text-danger")
+                        } else {
+                            $("#VATNo").removeClass("is-invalid");
+                            console.log(d);
+                            $("#opVATNo").text(d)
+                            $("#opVATNo").addClass("text-success")
+                            $("#opVATNo").removeClass("text-danger")
+                        }
                     }
-                }
-            });
+                });
+            }
+        }
+
+        function ValidateIBANNo(rowno) {
+            if ($("#iban" + rowno).val() != "") {
+                $.ajax({
+                    type: "POST",
+                    async: true,
+                    url: "Home/IBANValidate",
+                    data: { IbanNumber: $("#iban" + rowno).val() },
+
+                    error: function () {
+                        alert("An error occoured!");
+                    },
+                    success: function (d) {
+                        if (d == "Invalid IBAN Number") {
+                            $("#iban" + rowno).addClass("is-invalid");
+                            console.log(d);
+                            $("#opiban" + rowno).removeClass("text-success")
+                            $("#opiban" + rowno).addClass("text-danger")
+                            $("#opiban" + rowno).text(d)
+                        } else {
+                            $("#iban" + rowno).removeClass("is-invalid");
+                            console.log(d);
+                            $("#opiban" + rowno).text(d)
+                            $("#opiban" + rowno).addClass("text-success")
+                            $("#opiban" + rowno).removeClass("text-danger")
+
+                        }
+                    }
+                });
+            }
         }
 
 
         document.addEventListener('DOMContentLoaded', function (e) {
-            const registerButton = document.getElementById('register');
+            const registerButton = document.getElementById('update');
             const frmForm = document.getElementById('frm');
             const fv = FormValidation.formValidation(frmForm, {
                 fields: {
@@ -1966,6 +1996,7 @@ License: For each use you must have a valid license purchased only from above li
                     if (status === 'Valid') {
 
                         var VenObj = {};
+                        VenObj.Id = $('#CompanyId').val();
                         VenObj.CompanyName = $('#CompanyName').val();
                         VenObj.CommercialRegistrationNo = $('#CommRegNo').val();
                         VenObj.Language = $('#Language').val();
@@ -1989,6 +2020,10 @@ License: For each use you must have a valid license purchased only from above li
                         $.each($("input[name='VendorType']:checked"), function () {
                             vendortype.push($(this).val());
                         });
+                        if ($("#others_field").val() != "") {
+                            vendortype.push($("#others_field").val());
+                            $('#others_field').click();
+                        }
                         VenObj.VendorType = vendortype.join(", ");
                         VenObj.AccountGroup = $("input[name='AccountGroup']:checked").val();
                         VenObj.Notes = $('#Notes').val();
@@ -2005,35 +2040,46 @@ License: For each use you must have a valid license purchased only from above li
                         TotalContactRow = $("#ContactRow").val();
 
                         for (i = 0; i < TotalContactRow; i++) {
-                            vendorcontactdtls.push({
-                                FirstName: $('#cp_firstName' + i).val(),
-                                LastName: $('#cp_lastName' + i).val(),
-                                Address: $('#cp_address' + i).val(),
-                                Designation: $('#cp_position' + i).val(),
-                                Department: $('#cp_department' + i).val(),
-                                PhoneNo: $('#cp_phoneno' + i).val(),
-                                MobileNo: $('#cp_phoneno' + i).val(),
-                                FaxNo: $('#cp_faxno' + i).val(),
-                                Email: $('#cp_emil' + i).val(),
-                                Language: $('#cp_language' + i).val(),
-                                Country: $('#cp_country' + i).val()
-                            });
+                            if ($('#CPIsDeleted' + i).val()!="true")
+                            {
+                                vendorcontactdtls.push({
+                                    Id: $('#cp_id' + i).val(),
+                                    CompanyId: $('#CompanyId').val(),
+                                    CompanyName: $('#CompanyName').val(),
+                                    FirstName: $('#cp_firstName' + i).val(),
+                                    LastName: $('#cp_lastName' + i).val(),
+                                    Address: $('#cp_address' + i).val(),
+                                    Designation: $('#cp_position' + i).val(),
+                                    Department: $('#cp_department' + i).val(),
+                                    PhoneNo: $('#cp_phoneno' + i).val(),
+                                    MobileNo: $('#cp_mobileno' + i).val(),
+                                    FaxNo: $('#cp_faxno' + i).val(),
+                                    Email: $('#cp_emil' + i).val(),
+                                    Language: $('#cp_language' + i).val(),
+                                    Country: $('#cp_country' + i).val()
+                                });
+                            }
                         }
 
                         var vendorbankdtls = [];
                         TotalBankRow = $("#BankRow").val();
 
                         for (j = 0; j < TotalBankRow; j++) {
-                            vendorbankdtls.push({
-                                Country: $('#bd_country' + j).val(),
-                                BankKey: $('#bank_name' + j).val(),
-                                BankName: $('#bank_name' + j).val(),
-                                SwiftCode: $('#swift_code' + j).val(),
-                                BankAccount: $('#bank_account' + j).val(),
-                                AccountHolderName: $('#account_holder' + j).val(),
-                                Iban: $('#iban' + j).val(),
-                                Currency: $('#bd_currency' + j).val()
-                            });
+                            if ($('#BDIsDeleted' + j).val() != "true") {
+                                vendorbankdtls.push({
+                                    Id: $('#bd_id' + j).val(),
+                                    CompanyId: $('#CompanyId').val(),
+                                    CompanyName: $('#CompanyName').val(),
+                                    Country: $('#bd_country' + j).val(),
+                                    BankKey: $('#bank_name' + j).val(),
+                                    BankName: $('#bank_name' + j).val(),
+                                    SwiftCode: $('#swift_code' + j).val(),
+                                    BankAccount: $('#bank_account' + j).val(),
+                                    AccountHolderName: $('#account_holder' + j).val(),
+                                    Iban: $('#iban' + j).val(),
+                                    Currency: $('#bd_currency' + j).val()
+                                });
+                            }
                         }
 
                         var postData = {
@@ -2046,15 +2092,16 @@ License: For each use you must have a valid license purchased only from above li
                         $.ajax({
                             type: "POST",
                             async: true,
-                            url: "Home/Register",
+                            url: "Home/Update",
                             data: postData,
                             dataType: "json",
                             error: function () {
                                 alert("An error occoured!");
                             },
                             success: function (data) {
+                                console.log(data);
                                 $("CompanyId").text(data.id);
-                                registerButton.innerHTML = "Register"
+                                registerButton.innerHTML = "Update"
                                 // Show popup confirmation
                                 Swal.fire({
                                     text: "Form has been successfully submitted!",
@@ -2071,6 +2118,118 @@ License: For each use you must have a valid license purchased only from above li
                 });
             });
         });
+
+        function GetDetails() {
+            $.ajax({
+                type: "POST",
+                async: true,
+                url: "/Home/Get",
+                data: { Id: $("#CompanyId").val() },
+                dataType: "json",
+                error: function () {
+                    alert("An error occoured!");
+                },
+                success: function (d) {
+                    console.log(d);
+                    if (d.companyName !== "undefined") {
+                        $('#CompanyName').val(d.companyName);
+                        $('#CommRegNo').val(d.commercialRegistrationNo);
+                        $('#Language').val(d.language);
+                        $('#CountryId').val(d.country).trigger('change');
+                        $('#RegionId').val(d.region).trigger('change');
+                        $('#District').val(d.district);
+                        $('#Postalcode').val(d.postalCode);
+                        $('#City').val(d.city);
+                        $('#Street').val(d.street);
+                        $('#HouseNo').val(d.houseNo);
+                        $('#Building').val(d.building);
+                        $('#Floor').val(d.floor);
+                        $('#Room').val(d.room);
+                        $('#PoBox').val(d.poBox);
+                        $('#PhoneNo').val(d.phoneNo);
+                        $('#FaxNumber').val(d.faxNumber);
+                        $('#EmailAddress').val(d.email);
+                        $('#MobileNo').val(d.mobileNo);
+                        $('#Website').val(d.website);
+                        
+                        var VendorTypeArr = d.vendorType.split(",");
+                        
+                        for (i = 0;i<VendorTypeArr.length; i++) {
+                            if (VendorTypeArr[i] != "")
+                            {
+                                console.log(VendorTypeArr[i]);
+                                VendorTypeArr[i] = VendorTypeArr[i].trim();
+                                $("#" + VendorTypeArr[i]).prop('checked', true);
+
+                                if (VendorTypeArr[i].trim() == "Others")
+                                {
+                                    $("#Others_field").val(VendorTypeArr[i + 1].trim());
+                                }
+
+                            }
+                        }
+
+                        $("input[name='AccountGroup'][value=" + d.accountGroup + "]").prop('checked', true);
+
+                          
+                         
+                        $('#Notes').val(d.notes);
+                        $('#VATNo').val(d.vatNo);
+
+                        var listOfCompanyContacts = d.listOfCompanyContacts;
+                        console.log(listOfCompanyContacts);
+                        $("#ContactRow").val(listOfCompanyContacts.length);
+                         
+                        for (b = 0; b < listOfCompanyContacts.length; b++)
+                        {
+                            
+                            $("#cp_id" + b).val(listOfCompanyContacts[b].id);
+                            $("#cp_firstName" + b).val(listOfCompanyContacts[b].firstName);
+                            $("#cp_lastName" + b).val(listOfCompanyContacts[b].lastName);
+                            $("#cp_address" + b).val(listOfCompanyContacts[b].address);
+                            $("#cp_position" + b).val(listOfCompanyContacts[b].designation);
+                            $("#cp_department" + b).val(listOfCompanyContacts[b].department);
+                            $("#cp_phoneno" + b).val(listOfCompanyContacts[b].phoneNo);
+                            $("#cp_mobileno" + b).val(listOfCompanyContacts[b].mobileNo);
+                            $("#cp_faxno" + b).val(listOfCompanyContacts[b].faxNo);
+                            $("#cp_emil" + b).val(listOfCompanyContacts[b].email);
+                            $("#cp_language" + b).val(listOfCompanyContacts[b].language);
+                            $("#cp_country" + b).val(listOfCompanyContacts[b].country);
+                            if (b+1 < listOfCompanyContacts.length)
+                            { 
+                                $("#add-row").click();
+                            }
+                        } 
+
+
+                        var listOfCompanyBanks = d.listOfCompanyBanks;
+                        console.log(d.listOfCompanyBanks);
+                        $("#BankRow").val(listOfCompanyBanks.length);
+                        for (a = 0; a < listOfCompanyBanks.length; a++)
+                        {
+                            $("#bd_id" + a).val(listOfCompanyBanks[a].id);
+                            $("#bd_country" + a).val(listOfCompanyBanks[a].country).trigger('change');;
+                            $("#bank_key" + a).val(listOfCompanyBanks[a].bankKey);
+                            $("#bank_name" + a).val(listOfCompanyBanks[a].bankName);
+                            $("#swift_code" + a).val(listOfCompanyBanks[a].swiftCode);
+                            $("#bank_account" + a).val(listOfCompanyBanks[a].bankAccount);
+                            $("#account_holder" + a).val(listOfCompanyBanks[a].accountHolderName);
+                            $("#iban" + a).val(listOfCompanyBanks[a].iban);
+                            $("#bd_currency" + a).val(listOfCompanyBanks[a].currency).trigger('change');
+                            if (a + 1 < listOfCompanyBanks.length) {
+                                $("#add-row-bank").click();
+                            }
+                        }
+
+                        
+                        
+                    }
+       
+                }
+            });
+        }
+
+        GetDetails();
 
     </script>
 </body>

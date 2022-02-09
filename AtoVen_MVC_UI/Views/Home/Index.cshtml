@@ -658,13 +658,19 @@ License: For each use you must have a valid license purchased only from above li
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
+                                                                                        <input type="text" class="form-control border" name="cp_mobileno0" id="cp_mobileno0" placeholder="Mobile No." value="044 987654321" />
+                                                                                        <label for="cp_mobileno0" class="required">Mobile No.</label>
+                                                                                    </div>
+                                                                                    <!--end::Input group-->
+                                                                                    <!--begin::Input group-->
+                                                                                    <div class="form-floating mb-5">
                                                                                         <input type="text" class="form-control border" name="cp_faxno0" id="cp_faxno0" placeholder="Fax No." value="044 987654321" />
                                                                                         <label for="cp_faxno0" class="required">Fax No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_emil0" id="cp_emil0" placeholder="E-Mail Address" value="testCP@gmail.com"/>
+                                                                                        <input type="text" class="form-control border" name="cp_emil0" id="cp_emil0" placeholder="E-Mail Address" value="testCP@gmail.com" />
                                                                                         <label for="cp_emil0" class="required">E-Mail Address</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
@@ -936,9 +942,9 @@ License: For each use you must have a valid license purchased only from above li
                                                                         </td>
                                                                         <td class="pt-5 text-end">
                                                                             &nbsp;
-                                                                            <!--
+                                                                            <input type="hidden" class="form-control" id="CPIsDeleted0" name="CPIsDeleted0" />
                                                                             <button type="button" class="btn btn-sm btn-icon btn-active-color-primary remove-item">
-                                                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg
+                                                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg //-->
                                                                                 <span class="svg-icon svg-icon-3">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                                                         <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black" />
@@ -946,9 +952,9 @@ License: For each use you must have a valid license purchased only from above li
                                                                                         <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black" />
                                                                                     </svg>
                                                                                 </span>
-                                                                                <!--end::Svg Icon
+                                                                                <!--end::Svg Icon //--->
                                                                             </button>
-                                                                            -->
+                                                                             
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -1457,7 +1463,16 @@ License: For each use you must have a valid license purchased only from above li
                                                                             </select>
                                                                         </td>
                                                                         <td class="text-end">
-                                                                            &nbsp;
+                                                                            <input type="hidden" class="form-control" id="BDIsDeleted0" name="BDIsDeleted0" />
+                                                                            <button type="button" class="btn btn-sm btn-icon btn-active-color-primary remove-item-bd">
+                                                                            <span class="svg-icon svg-icon-3">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                                    <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="black" />
+                                                                                    <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="black" />
+                                                                                    <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="black" />
+                                                                                 </svg>
+                                                                               </span>
+                                                                           </button>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -2013,6 +2028,13 @@ License: For each use you must have a valid license purchased only from above li
                         $.each($("input[name='VendorType']:checked"), function () {
                             vendortype.push($(this).val());
                         });
+
+                        if ($("#others_field").val() != "")
+                        {
+                            vendortype.push($("#others_field").val());
+                        }
+
+
                         VenObj.VendorType = vendortype.join(", ");
                         VenObj.AccountGroup = $("input[name='AccountGroup']:checked").val();
                         VenObj.Notes = $('#Notes').val();
@@ -2029,35 +2051,45 @@ License: For each use you must have a valid license purchased only from above li
                         TotalContactRow = $("#ContactRow").val();
 
                         for (i = 0; i < TotalContactRow; i++) {
-                            vendorcontactdtls.push({
-                                FirstName: $('#cp_firstName' + i).val(),
-                                LastName: $('#cp_lastName' + i).val(),
-                                Address: $('#cp_address' + i).val(),
-                                Designation: $('#cp_position' + i).val(),
-                                Department: $('#cp_department' + i).val(),
-                                PhoneNo: $('#cp_phoneno' + i).val(),
-                                MobileNo: $('#cp_phoneno' + i).val(),
-                                FaxNo: $('#cp_faxno' + i).val(),
-                                Email: $('#cp_emil' + i).val(),
-                                Language: $('#cp_language' + i).val(),
-                                Country: $('#cp_country' + i).val()
-                            });
+                            if ($('#CPIsDeleted' + i).val() != "true") {
+                                vendorcontactdtls.push({
+                                    Id: 0,
+                                    CompanyId: 0,
+                                    CompanyName: "",
+                                    FirstName: $('#cp_firstName' + i).val(),
+                                    LastName: $('#cp_lastName' + i).val(),
+                                    Address: $('#cp_address' + i).val(),
+                                    Designation: $('#cp_position' + i).val(),
+                                    Department: $('#cp_department' + i).val(),
+                                    PhoneNo: $('#cp_phoneno' + i).val(),
+                                    MobileNo: $('#cp_mobileno' + i).val(),
+                                    FaxNo: $('#cp_faxno' + i).val(),
+                                    Email: $('#cp_emil' + i).val(),
+                                    Language: $('#cp_language' + i).val(),
+                                    Country: $('#cp_country' + i).val()
+                                });
+                            }
                         }
 
                         var vendorbankdtls = [];
                         TotalBankRow = $("#BankRow").val();
 
                         for (j = 0; j < TotalBankRow; j++) {
-                            vendorbankdtls.push({
-                                Country: $('#bd_country' + j).val(),
-                                BankKey: $('#bank_name' + j).val(),
-                                BankName: $('#bank_name' + j).val(),
-                                SwiftCode: $('#swift_code' + j).val(),
-                                BankAccount: $('#bank_account' + j).val(),
-                                AccountHolderName: $('#account_holder' + j).val(),
-                                Iban: $('#iban' + j).val(),
-                                Currency: $('#bd_currency' + j).val()
-                            });
+                            if ($('#BDIsDeleted' + j).val() != "true") {
+                                vendorbankdtls.push({
+                                    Id: 0,
+                                    CompanyId: 0,
+                                    CompanyName: "",
+                                    Country: $('#bd_country' + j).val(),
+                                    BankKey: $('#bank_name' + j).val(),
+                                    BankName: $('#bank_name' + j).val(),
+                                    SwiftCode: $('#swift_code' + j).val(),
+                                    BankAccount: $('#bank_account' + j).val(),
+                                    AccountHolderName: $('#account_holder' + j).val(),
+                                    Iban: $('#iban' + j).val(),
+                                    Currency: $('#bd_currency' + j).val()
+                                });
+                            }
                         }
 
                         var postData = {

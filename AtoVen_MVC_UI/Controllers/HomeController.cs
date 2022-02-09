@@ -149,8 +149,65 @@ namespace AtoVen_MVC_UI.Controllers
         [HttpGet]
         public IActionResult Edit(string Id)
         {
-            ViewBag.roleId = Id;
+            ViewBag.CompanyId = Id;
             return View();
+        }
+
+        [HttpPost]
+        public async Task<propVendor> Get(propVendor _vendordtls)
+        {
+             
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+            string endpoint = apiBaseUrl + "/Companies/GetCompanyById/" + _vendordtls.Id;
+            propVendor VendorDtls = new propVendor();
+
+            using (var httpclient = new HttpClient())
+            {
+                using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
+                {
+                    var data = await response.Content.ReadAsStringAsync();
+                    VendorDtls = JsonConvert.DeserializeObject<propVendor>(data);
+                }
+            }
+
+            return VendorDtls;
+
+        }
+
+
+        [HttpPost]
+        public async Task<string> Update(propVendorDTO vendordtls, List<ListOfCompanyContactsDTO> vendorContactdtls, List<ListOfCompanyBanksDTO> vendorBankdtls)
+        {
+            propVendorDTO VendorDtls = new propVendorDTO();
+            VendorDtls = vendordtls;
+            VendorDtls.ListOfCompanyContacts = vendorContactdtls;
+            VendorDtls.ListOfCompanyBanks = vendorBankdtls;
+
+
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+            string endpoint = apiBaseUrl + "/Companies/UpdateCompany/"+ vendordtls.Id;
+            var response = string.Empty;
+
+            using (var httpclient = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(VendorDtls);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+              
+
+                HttpResponseMessage result = await httpclient.PutAsync(endpoint, data);
+                var responsecode = (int)result.StatusCode;
+
+                if (result.IsSuccessStatusCode)
+                {
+                    var responseBodyAsText = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    return responseBodyAsText;
+                }
+                else
+                {
+                    return responsecode + " " + result.ReasonPhrase;
+                }
+            }
         }
 
         public IActionResult Privacy()

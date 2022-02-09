@@ -7,8 +7,8 @@ namespace AtoVen_MVC_UI.Models
 {
     public class ListOfCompanyBanks
     {
-        public string id { get; set; }
-        public string CompanyID { get; set; }
+        public int id { get; set; }
+        public int CompanyID { get; set; }
         public string Country { get; set; }
         public string BankKey { get; set; }
         public string BankName { get; set; }
@@ -21,6 +21,8 @@ namespace AtoVen_MVC_UI.Models
 
     public class ListOfCompanyBanksDTO
     {
+        public int Id { get; set; }
+        public int CompanyID { get; set; }
         public string Country { get; set; }
         public string CompanyName { get; set; }
         public string BankKey { get; set; }

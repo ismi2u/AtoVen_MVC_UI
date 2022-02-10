@@ -1,0 +1,50 @@
+﻿
+@model IEnumerable<AtoVen_MVC_UI.Models.propVendorDTO>
+
+
+   
+                    <!--begin::Table-->
+                    <table class="table table-row-dashed " id="role_listing">
+                        <!--begin::Table head-->
+                        <thead>
+                            <tr>                                
+                                <th>Company Name</th>
+                                <th>CR Number</th>
+                                <th>VAT No</th>
+                                <th>Email</th>
+                               
+                            </tr>
+                        </thead>
+                        <!--end::Table head-->
+                        <!--begin::Table body-->
+                        <tbody class="InfoTBody">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CompanyName)
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CommercialRegistrationNo)
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.VATNo)
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                        <!--end::Table body-->
+                    </table>
+                    <!--end::Table-->
+             
+    

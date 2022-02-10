@@ -1,4 +1,7 @@
-﻿@{
+﻿
+@model IEnumerable<AtoVen_MVC_UI.Models.Inbox>
+
+@{
     ViewBag.Title = "Create";
     Layout = "_AdminLayout";
 
@@ -69,174 +72,62 @@
                     <!--end::Table head-->
                     <!--begin::Table body-->
                     <tbody>
-                        <tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
 
 
-                            <!--begin::Author-->
-                            <td class="w-150px w-md-175px m-10">
-                                <a href="~/../demo4/apps/inbox/reply.html" class="d-flex align-items-center text-dark">
+                                <!--begin::Author-->
+                                <td class="w-150px w-md-175px m-10">
+
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px me-3 m-2">
-                                        <div class="symbol-label bg-light-danger">
-                                            <span class="text-danger">M</span>
+                                        <div>
+                                            <span class="text-danger"> @Html.DisplayFor(modelItem => item.companyRegisterNo)</span>
                                         </div>
                                     </div>
-                                    <!--end::Avatar-->
-                                    <!--begin::Name-->
-                                    <span class="fw-bold">Melody Macy</span>
-                                    <!--end::Name-->
-                                </a>
-                            </td>
-                            <!--end::Author-->
-                            <!--begin::Title-->
-                            <td>
-                                <div class="text-dark mb-1">
-                                    <!--begin::Heading-->
-                                    <a href="~/../demo4/apps/inbox/reply.html" class="text-dark">
-                                        <span class="fw-bolder">Digital PPV Customer Confirmation</span>
-                                        <span class="fw-bolder d-none d-md-inine">-</span>
-                                        <span class="d-none d-md-inine text-muted">Thank you for ordering UFC 240 Holloway vs Edgar Alternate camera angles...</span>
-                                    </a>
-                                    <!--end::Heading-->
-                                </div>
-
-                            </td>
-                            <!--end::Title-->
-                            <!--begin::Date-->
-                            <td class="w-100px text-end fs-7 pe-9">
-                                <span class="fw-bold">8:30 PM</span>
-                            </td>
-
-                            <td>
-                                <!--begin::Star-->
-                                <a href="#" data-bs-toggle="tooltip" title="Proceed">
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen029.svg-->
-                                    <input type="button" value="Proceed" class="btn btn-success  btn-sm w-10 p-3 " />
 
 
-                                    <!--end::Svg Icon-->
-                                </a>
-                                <!--end::Star-->
-                                <!--begin::Important-->
-                                <a href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Duplicate">
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen056.svg-->
-                                    <input type="button" value="Duplicate" class="btn btn-primary  btn-sm w-10 p-3" />
-                                    <!--end::Svg Icon-->
-                                </a>
-                                <!--end::Important-->
-                            </td>
-                            <!--end::Date-->
-                        </tr>
-                        <tr>
+                                </td>
+                                <!--end::Author-->
+                                <!--begin::Title-->
+                                <td>
+                                    <div class="text-dark mb-1">
+                                        <!--begin::Heading-->
 
-                            <!--begin::Author-->
-                            <td class="w-150px w-md-175px">
-                                <a href="~/../demo4/apps/inbox/reply.html" class="d-flex align-items-center text-dark">
-                                    <!--begin::Avatar-->
-                                    <div class="symbol symbol-35px me-3 m-2">
-                                        <span class="symbol-label" style="background-image:url(~/assets/media/avatars/300-1.jpg)"></span>
+                                        <span>You have a vendor request approval from:  @Html.DisplayFor(modelItem => item.companyName)</span>
+
+                                        <!--end::Heading-->
                                     </div>
-                                    <!--end::Avatar-->
-                                    <!--begin::Name-->
-                                    <span class="fw-bold">Max Smith</span>
-                                    <!--end::Name-->
-                                </a>
-                            </td>
-                            <!--end::Author-->
-                            <!--begin::Title-->
-                            <td>
-                                <div class="text-dark mb-1">
-                                    <!--begin::Heading-->
-                                    <a href="~/../demo4/apps/inbox/reply.html" class="text-dark">
-                                        <span class="fw-bolder">Your iBuy.com grocery shopping confirmation</span>
-                                        <span class="fw-bolder d-none d-md-inine">-</span>
-                                        <span class="d-none d-md-inine text-muted">Please make sure that you have one of the following cards with you when we deliver your order...</span>
-                                    </a>
-                                    <!--end::Heading-->
-                                </div>
-                            </td>
-                            <!--end::Title-->
-                            <!--begin::Date-->
-                            <td class="w-100px text-end fs-7 pe-9">
-                                <span class="fw-bold">day ago</span>
-                            </td>
-                            <!--end::Date-->
-                            <td>
-                                <!--begin::Star-->
-                                <a href="#" data-bs-toggle="tooltip" title="Proceed">
+
+                                </td>
+                                <!--end::Title-->
+                                <!--begin::Date-->
+                                <td class="w-100px text-end fs-7 pe-9">
+                                    <span class="fw-bold">  @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.recordDate)) </span>
+                                </td>
+
+                                <td>
+                                    <!--begin::Star-->
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen029.svg-->
-                                    <input type="button" value="Proceed" class="btn btn-success  btn-sm w-10 p-3 " />
+                                    @*<input type="button" value="Proceed" class="btn btn-success  btn-sm w-10 p-3 " />*@
 
-
-                                    <!--end::Svg Icon-->
-                                </a>
-                                <!--end::Star-->
-                                <!--begin::Important-->
-                                <a href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Duplicate">
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen056.svg-->
-                                    <input type="button" value="Duplicate" class="btn btn-primary btn-sm w-10 p-3" />
-                                    <!--end::Svg Icon-->
-                                </a>
-                                <!--end::Important-->
-                            </td>
-
-                        </tr>
-                        <tr>
-
-
-                            <!--begin::Author-->
-                            <td class="w-150px w-md-175px">
-                                <a href="~/../demo4/apps/inbox/reply.html" class="d-flex align-items-center text-dark">
-                                    <!--begin::Avatar-->
-                                    <div class="symbol symbol-35px me-3 m-2">
-                                        <span class="symbol-label" style="background-image:url(~/assets/media/avatars/300-5.jpg)"></span>
-                                    </div>
-                                    <!--end::Avatar-->
-                                    <!--begin::Name-->
-                                    <span class="fw-bold">Sean Bean</span>
-                                    <!--end::Name-->
-                                </a>
-                            </td>
-                            <!--end::Author-->
-                            <!--begin::Title-->
-                            <td>
-                                <div class="text-dark mb-1">
-                                    <!--begin::Heading-->
-                                    <a href="~/../demo4/apps/inbox/reply.html" class="text-dark">
-                                        <span class="fw-bolder">Your Order #224820998666029 has been Confirmed</span>
-                                        <span class="fw-bolder d-none d-md-inine">-</span>
-                                        <span class="d-none d-md-inine text-muted">Your Order #224820998666029 has been placed on Saturday, 29 June</span>
+                                    <a class="btn btn-success" href="@Url.Action("Proceed", "Inbox",new { id = item.id, companyID=item.companyID})">
+                                        Proceed
                                     </a>
-                                    <!--end::Heading-->
-                                </div>
-                            </td>
-                            <!--end::Title-->
-                            <!--begin::Date-->
-                            <td class="w-100px text-end fs-7 pe-9">
-                                <span class="fw-bold text-muted">11:20 PM</span>
-                            </td>
-                            <!--end::Date-->
-                            <td>
-                                <!--begin::Star-->
-                                <a href="#" data-bs-toggle="tooltip" title="Proceed">
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen029.svg-->
-                                    <input type="button" value="Proceed" class="btn btn-success  btn-sm w-10 p-3" />
+                                    @if (item.isDuplicateEntry)
+                                    {
+                                        <a class="btn btn-danger getAllDUp" id="aDuplicate" title="@item.companyID">
+                                            Duplicate
+                                        </a>
+                                    }
 
 
-                                    <!--end::Svg Icon-->
-                                </a>
-                                <!--end::Star-->
-                                <!--begin::Important-->
-                                <a href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Duplicate">
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen056.svg-->
-                                    <input type="button" value="Duplicate" class="btn btn-primary btn-sm w-10 p-3" />
-                                    <!--end::Svg Icon-->
-                                </a>
-                                <!--end::Important-->
-                            </td>
 
-                        </tr>
-
+                                </td>
+                                <!--end::Date-->
+                            </tr>
+                        }
                     </tbody>
                     <!--end::Table body-->
                 </table>
@@ -248,3 +139,115 @@
     <!--end::Content-->
 </div>
 <!--end::Inbox App - Messages -->
+
+<script>var hostUrl = "~/assets/";</script>
+<!--begin::Javascript-->
+<!--begin::Global Javascript Bundle(used by all pages)-->
+<script src="~/assets/plugins/global/plugins.bundle.js"></script>
+<script src="~/assets/js/scripts.bundle.js"></script>
+<!--end::Global Javascript Bundle-->
+<!--begin::Page Custom Javascript(used by this page)-->
+<script src="~/js/create-1.js"></script>
+<script src="~/assets/js/custom/widgets.js"></script>
+<script src="~/assets/js/custom/apps/chat/chat.js"></script>
+<script src="~/assets/js/custom/modals/create-app.js"></script>
+<script src="~/assets/js/custom/modals/upgrade-plan.js"></script>
+<script>
+    var ajaxCallURL = '/Inbox/Duplicate';
+
+    $(function () {
+        $(".getAllDUp").click(function () {
+            var $buttonClicked = $(this);
+            var id = $(this).attr('title');
+            var options = {
+                "backdrop": "static",
+                keyboard: true
+            };
+            $.ajax({
+                type: "GET",
+                url: ajaxCallURL,
+                data: "id=" + id,
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    debugger;
+                    $('#myModalContent').html(data);
+                    $('#myModal').modal(options);
+                    $('#myModal').modal('show');
+                },
+                error: function () {
+                    alert("Content load failed.");
+                }
+            });
+        });
+        $("#closbtn").click(function () {
+            debugger;
+            $('#myModal').modal('hide');
+        });
+    });
+</script>
+
+
+
+@*<div id='myModal'     class='modal'>
+        <div class="modal-dialog modal-lg" >
+            <div class="modal-content modal-lg" >
+                <button type="button" id="closbtn">
+                    x
+                </button>
+                <div style="height:10px;">
+                    </div>
+                <div id='myModalContent'  >
+
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+@*<div class="modal fade bd-example-modal-lg" id='myModal' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <button type="button" id="closbtn">
+            x
+        </button>
+        <div class="modal-content" id='myModalContent'>
+
+        </div>
+    </div>
+</div>*@
+
+
+<div class="container">
+   
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Duplicate Vendor(s)</h4>                    
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id='myModalContent'>
+                   
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" id="closbtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+

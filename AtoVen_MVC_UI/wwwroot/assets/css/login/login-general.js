@@ -56,11 +56,12 @@ var KTLogin = function() {
                 $('#kt_login_signin_submit').innerHTML = status === 'Valid' ? 'Log In ...' : 'Log In';
                 if (status == 'Valid') {
 
-                    var UserLogObj = {};
-                    UserLogObj.Email = $('#username').val();
+                   var UserLogObj = {};
+                   UserLogObj.Email = $('#username').val();
                     UserLogObj.Password = $('#password').val();
-                     UserLogObj.Remember = true;
-                    if ($("input[name='rememberme']:checked").val() == "Y") {
+                    
+                    console.log($("#rememberme").is(":checked"));
+                    if ($("#rememberme").is(":checked")) {
                         UserLogObj.Remember = true;
                     } else {
                         UserLogObj.Remember = false;
@@ -68,7 +69,7 @@ var KTLogin = function() {
                     var postData = {
                         userlogindtls: UserLogObj
                     }
-
+                    
                     $.ajax({
                         type: "POST",
                         async: true,
@@ -92,7 +93,7 @@ var KTLogin = function() {
                                     }
                                 });
                                 setTimeout(function () {
-                                    window.location.href = "/Home";
+                                    window.location.href = "/Inbox";
                                 }, 2000);
                             } else {
                                  Swal.fire({
@@ -270,10 +271,51 @@ var KTLogin = function() {
             e.preventDefault();
 
             validation.validate().then(function(status) {
-		        if (status == 'Valid') {
-                    // Submit form
-                    KTUtil.scrollTop();
-				} else {
+                if (status == 'Valid') {
+
+                    var UserLogObj = {};
+                    UserLogObj.Email = $('#email').val();
+                     
+                    var postData = {
+                        userlogindtls: UserLogObj
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        async: true,
+                        url: "Login/ForgotPassword",
+                        data: postData,
+                        dataType: "json",
+                        error: function () {
+                            alert("An error occoured!");
+                        },
+                        success: function (d) {
+                            console.log(d);
+                            
+                            if (d["status"] =="Success") {
+
+                                Swal.fire({
+                                    text: d["message"] ,
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+                            } else {
+                                Swal.fire({
+                                    text: d["message"],
+                                    icon: "error",
+                                    buttonsStyling: false,
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+
+                            }
+                        }
+                    });
+                } else {
 					swal.fire({
 		                text: "Sorry, looks like there are some errors detected, please try again.",
 		                icon: "error",

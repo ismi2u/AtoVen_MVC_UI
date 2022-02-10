@@ -61,5 +61,34 @@ namespace AtoVen_MVC_UI.Controllers
 
         }
 
+
+        [HttpPost]
+        public async Task<string> ForgotPassword(LoginDTO userlogindtls)
+        {
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+            string endpoint = apiBaseUrl + "/Account/ForgotPassword";
+            var tokenBased = string.Empty;
+            string Jsonresult = "{\"status\":\"failed\",\"message\":\"Unauthorized\"}";
+
+            using (var httpclient = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(userlogindtls);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                Login Logged = new Login();
+
+                HttpResponseMessage result = await httpclient.PostAsync(endpoint, data);
+                var responsecode = (int)result.StatusCode;
+
+                if (result.IsSuccessStatusCode)
+                {
+                   Jsonresult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                   return Jsonresult;
+                }
+            }
+
+            return Jsonresult;
+
+        }
+
     }
 }

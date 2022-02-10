@@ -137,6 +137,7 @@ namespace AtoVen_MVC_UI.Controllers
                 if (result.IsSuccessStatusCode)
                 {
                     var responseBodyAsText = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                     
                     return responseBodyAsText;
                 }
                 else

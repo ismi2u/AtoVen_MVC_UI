@@ -71,4 +71,5 @@ namespace AtoVen_MVC_UI.Models
         public List<ListOfCompanyBanksDTO> ListOfCompanyBanks { get; set; }
     }
 
+
 }

@@ -1042,7 +1042,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input class="form-check-input border" type="checkbox" value="" name="Others" id="Others" onclick="$('#others_field').toggle('2000');">
+                                                                        <input class="form-check-input border" type="checkbox" value="" name="VendorType" id="Others" onclick="$('#others_field').toggle('2000');">
                                                                         <span class="form-check-label" for="Contractor">Others</span>
                                                                     </label>
 
@@ -1104,53 +1104,6 @@ License: For each use you must have a valid license purchased only from above li
                                         <!-- Account Group End -->
                                         <!-- Account Correspondence Start -->
                                         <!--begin::Card-->
-                                        <div class="card mb-5" style="width: 100% !important;">
-                                            <!--begin::Card body-->
-                                            <div class="card-body p-6">
-                                                <div class="mb-0">
-                                                    <!--begin::Row-->
-                                                    <div class="row gx-10 mb-5">
-                                                        <label class="form-label fs-6 fw-bolder text-black mb-3">Account Correspondence</label>
-                                                        <div class="col-6">
-                                                            <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
-                                                                <input name="ClerkVendorName" type="text" class="form-control border" placeholder="Clerk Vendor Name" id="ClerkVendorName" />
-                                                                <label for="ClerkVendorName" class="required">Clerk Vendor Name</label>
-                                                            </div>
-                                                            <!--end::Input group-->
-                                                            <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
-                                                                <input name="ClerkNationalId" type="text" class="form-control border" placeholder="National Id" id="ClerkNationalId" />
-                                                                <label for="ClerkNationalId" class="required">National Id</label>
-                                                            </div>
-                                                            <!--end::Input group-->
-                                                            <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
-                                                                <input name="ClerkEmailId" type="text" class="form-control border" placeholder="Clerk E-Mail Id" id="ClerkEmailId" />
-                                                                <label for="clerk_email_id" class="required">Clerk E-Mail Id</label>
-                                                            </div>
-                                                            <!--end::Input group-->
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
-                                                                <input name="ClerkTelephoneNo" type="text" class="form-control border" placeholder="Clerk Telephone No" id="ClerkTelephoneNo" />
-                                                                <label for="ClerkTelephoneNo" class="required">Clerk Telephone No</label>
-                                                            </div>
-                                                            <!--end::Input group-->
-                                                            <!--begin::Input group-->
-                                                            <div class="form-floating mb-5">
-                                                                <input name="ClerkFaxNo" type="text" class="form-control border" placeholder="Clerk Fax Number" id="ClerkFaxNo" />
-                                                                <label for="ClerkFaxNo" class="required">Clerk Telephone No</label>
-                                                            </div>
-                                                            <!--end::Input group-->
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Row-->
-                                                </div>
-                                            </div>
-                                            <!--end::Card body-->
-                                        </div>
                                         <!--end::Card-->
                                         <!-- Account Correspondence End -->
                                         <!-- Bank Details Start -->
@@ -2098,19 +2051,19 @@ License: For each use you must have a valid license purchased only from above li
                             vendorBankdtls: vendorbankdtls
                         }
 
-                        console.log(postData);
+                        //console.log(postData);
                         $.ajax({
                             type: "POST",
                             async: true,
                             url: "Home/Register",
                             data: postData,
-                            dataType: "json",
                             error: function () {
                                 alert("An error occoured!");
                             },
                             success: function (data) {
                                 console.log(data);
-                                $("CompanyId").text(data.id);
+                                console.log(data.companyName);
+                                
                                 registerButton.innerHTML = "Register"
                                 // Show popup confirmation
                                 Swal.fire({

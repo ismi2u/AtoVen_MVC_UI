@@ -32,9 +32,10 @@ namespace AtoVen_MVC_UI.Controllers
             var email = HttpContext.Session.GetString("Email");
 
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
-            string endpoint = apiBaseUrl + "/ApprovalFlows/GetApprovalFlowByEmailId?email="+ email;
+            string endpoint = apiBaseUrl + "/ApprovalFlows/GetApprovalFlowByEmailIdInPending?email="+ email;
             using (var httpclient = new HttpClient())
             {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
                 using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
                 {
                     var data = await response.Content.ReadAsStringAsync();
@@ -96,7 +97,7 @@ namespace AtoVen_MVC_UI.Controllers
 
         public ActionResult Proceed(string  id,string companyID)
         {
-            ViewBag.id = id;
+            ViewBag.ApprovalFlowId = id;
             TempData["id"] = id;
             ViewBag.CompanyId = companyID;
 
@@ -115,6 +116,7 @@ namespace AtoVen_MVC_UI.Controllers
             string endpoint = apiBaseUrl + "/Companies/GetCompanyDuplicatesByCompId/" + id;
             using (var httpclient = new HttpClient())
             {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
                 using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
                 {
                     var data = await response.Content.ReadAsStringAsync();
@@ -129,15 +131,21 @@ namespace AtoVen_MVC_UI.Controllers
 
         [HttpPost]
       
-        public async Task<ActionResult> Approve(propVendorDTO vendordtls, List<ListOfCompanyContactsDTO> vendorContactdtls, List<ListOfCompanyBanksDTO> vendorBankdtls)
+        public async Task<Jsonresult> Approve(propVendorDTO vendordtls, List<ListOfCompanyContactsDTO> vendorContactdtls, List<ListOfCompanyBanksDTO> vendorBankdtls)
         {
+
+            var jsonresult = new Jsonresult
+            {
+                Status = "failed",
+                Message = "Something went wrong",
+            };
 
             propVendorDTO VendorDtls = new propVendorDTO();
 
             ApproveReject approveReject = new ApproveReject();
 
-            approveReject.id = int.Parse(TempData["id"].ToString());
-            approveReject.ApprovalStatus = 2;
+            //approveReject.id = int.Parse(TempData["id"].ToString());
+            //approveReject.ApprovalStatus = 2;
 
             VendorDtls = vendordtls;
             VendorDtls.ListOfCompanyContacts = vendorContactdtls;
@@ -147,42 +155,89 @@ namespace AtoVen_MVC_UI.Controllers
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
             string endpoint = apiBaseUrl + "/Companies/UpdateCompany/" + vendordtls.Id;
 
-            string endpoint1 = apiBaseUrl + "/ApprovalFlows/GetApprovalFlowByEmailId?id=" + TempData["id"].ToString();
+            //string endpoint1 = apiBaseUrl + "/ApprovalFlows/PutApprovalFlow/" + TempData["id"].ToString();
+           
+            using (var httpclient = new HttpClient())
+            {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
+                
+                var json = JsonConvert.SerializeObject(VendorDtls);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage result = await httpclient.PutAsync(endpoint, data);
+                var responsecode = (int)result.StatusCode;
+                var responseBodyAsText = result.Content.ReadAsStringAsync().Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    //var json1 = JsonConvert.SerializeObject(approveReject);
+                    //var data1 = new StringContent(json1, Encoding.UTF8, "application/json");
+                    //HttpResponseMessage result1 = await httpclient.PutAsync(endpoint1, data1);
+                    //var responsecode1 = (int)result1.StatusCode;
+                    jsonresult.Status = "Success";
+                    jsonresult.Message = "Successfully Approved";
+                    return jsonresult;
+                }
+                else
+                {
+                    jsonresult = JsonConvert.DeserializeObject<Jsonresult>(responseBodyAsText);
+                    return jsonresult;
+                }
+            }
+            
+        }
+
+        public async Task<Jsonresult> Reject()
+        {
+
+            var jsonresult = new Jsonresult
+            {
+                Status = "failed",
+                Message = "Something went wrong",
+            };
+
+            ApproveReject approveReject = new ApproveReject();
+
+            approveReject.id = int.Parse(TempData["id"].ToString());
+            approveReject.ApprovalStatus = 3;
+
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+
+            string endpoint1 = apiBaseUrl + "/ApprovalFlows/PutApprovalFlow/" + TempData["id"].ToString();
             var response = string.Empty;
 
             using (var httpclient = new HttpClient())
             {
-                var json = JsonConvert.SerializeObject(VendorDtls);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
 
 
+                var json1 = JsonConvert.SerializeObject(approveReject);
+                var data1 = new StringContent(json1, Encoding.UTF8, "application/json");
+                HttpResponseMessage result1 = await httpclient.PutAsync(endpoint1, data1);
+                var responsecode1 = (int)result1.StatusCode;
+                var responseBodyAsText = result1.Content.ReadAsStringAsync().Result;
 
-                HttpResponseMessage result = await httpclient.PutAsync(endpoint, data);
-                var responsecode = (int)result.StatusCode;
-
-                if (result.IsSuccessStatusCode)
+                if (result1.IsSuccessStatusCode)
                 {
-
-                    var json1 = JsonConvert.SerializeObject(approveReject);
-                    var data1 = new StringContent(json1, Encoding.UTF8, "application/json");
-
-
-
-                    HttpResponseMessage result1 = await httpclient.PutAsync(endpoint1, data1);
-                    var responsecode1 = (int)result.StatusCode;
-
+                    jsonresult.Status = "Success";
+                    jsonresult.Message = "Successfully Rejected";
+                    return jsonresult;
                 }
                 else
                 {
-                   
+                    jsonresult = JsonConvert.DeserializeObject<Jsonresult>(responseBodyAsText);
+                    return jsonresult;
                 }
+               
             }
 
-            return RedirectToAction("Index");
+            
         }
 
-            // GET: InboxController/Delete/5
-            public ActionResult Delete(int id)
+
+
+
+        // GET: InboxController/Delete/5
+        public ActionResult Delete(int id)
         {
             return View();
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +10,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 using Newtonsoft.Json;
-
+using System.Data;
 
 namespace AtoVen_MVC_UI.Controllers
 {
@@ -41,9 +42,11 @@ namespace AtoVen_MVC_UI.Controllers
             List<propVendor> _oVendorList = new List<propVendor>();
 
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
-            string endpoint = apiBaseUrl + "/Companies/GetCompanies";
+            //string endpoint = apiBaseUrl + "/Companies/GetCompanies";
+            string endpoint = apiBaseUrl + "/Companies/GetCompaniesApproved";
             using (var httpclient = new HttpClient())
             {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
                 using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
                 {
                     var data = await response.Content.ReadAsStringAsync();
@@ -127,6 +130,7 @@ namespace AtoVen_MVC_UI.Controllers
             {
                 var json = JsonConvert.SerializeObject(VendorDtls);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
+                string Jsonresult = "{\"status\":\"failed\",\"message\":\"Something went wrong!\"}";
 
                 //HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/x-www-form-urlencoded");
                 //string jsonContent = httpContent.ReadAsStringAsync().Result;
@@ -142,7 +146,7 @@ namespace AtoVen_MVC_UI.Controllers
                 }
                 else
                 {
-                    return responsecode + " " + result.ReasonPhrase;
+                    return Jsonresult;
                 }
             }
         }
@@ -164,6 +168,7 @@ namespace AtoVen_MVC_UI.Controllers
 
             using (var httpclient = new HttpClient())
             {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
                 using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
                 {
                     var data = await response.Content.ReadAsStringAsync();
@@ -191,6 +196,8 @@ namespace AtoVen_MVC_UI.Controllers
 
             using (var httpclient = new HttpClient())
             {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
+
                 var json = JsonConvert.SerializeObject(VendorDtls);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
 

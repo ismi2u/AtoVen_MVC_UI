@@ -91,12 +91,7 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--begin::Menu link-->
                                             <a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="/Home" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Vendor Registration</a>
                                             <!--end::Menu link-->
-                                        </div>
-                                        <div class="menu-item">
-                                            <!--begin::Menu link-->
-                                            <a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="/Login" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Login</a>
-                                            <!--end::Menu link-->
-                                        </div>
+                                        </div>  
                                         <!--end::Menu item-->
 
                                     </div>
@@ -1042,7 +1037,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input class="form-check-input border" type="checkbox" value="" name="VendorType" id="Others" onclick="$('#others_field').toggle('2000');">
+                                                                        <input class="form-check-input border" type="checkbox" value="Others" name="VendorType" id="Others" onclick="$('#others_field').toggle('2000');">
                                                                         <span class="form-check-label" for="Contractor">Others</span>
                                                                     </label>
 
@@ -2057,24 +2052,36 @@ License: For each use you must have a valid license purchased only from above li
                             async: true,
                             url: "Home/Register",
                             data: postData,
+                            dataType: "json",
                             error: function () {
                                 alert("An error occoured!");
                             },
                             success: function (data) {
-                                console.log(data);
-                                console.log(data.companyName);
-                                
-                                registerButton.innerHTML = "Register"
-                                // Show popup confirmation
-                                Swal.fire({
-                                    text: "Form has been successfully submitted!",
-                                    icon: "success",
-                                    buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
-                                    customClass: {
-                                        confirmButton: "btn btn-primary"
-                                    }
-                                });
+                                console.log(data.status);
+
+                                if (data.status == "Success") {
+                                    registerButton.innerHTML = "Register"
+                                    // Show popup confirmation
+                                    Swal.fire({
+                                        text: data.message,
+                                        icon: "success",
+                                        buttonsStyling: false,
+                                        confirmButtonText: "Ok, got it!",
+                                        customClass: {
+                                            confirmButton: "btn btn-primary"
+                                        }
+                                    });
+                                } else {
+                                    Swal.fire({
+                                        text: data.message,
+                                        icon: "error",
+                                        buttonsStyling: false,
+                                        confirmButtonText: "Ok, got it!",
+                                        customClass: {
+                                            confirmButton: "btn btn-primary"
+                                        }
+                                    });
+                                }
                             }
                         });
                     }

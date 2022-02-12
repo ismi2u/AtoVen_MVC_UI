@@ -28,12 +28,15 @@ namespace AtoVen_MVC_UI.Controllers
         }
 
         [HttpPost]
-        public async Task<string> Login(LoginDTO userlogindtls)
+        public async Task<Jsonresult> Login(LoginDTO userlogindtls)
         {
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
             string endpoint = apiBaseUrl + "/Account/Login";
             var tokenBased = string.Empty;
-            string Jsonresult = "{\"status\":\"failed\",\"message\":\"Unauthorized\"}";
+            var jsonresult = new Jsonresult {
+                Status = "failed",
+                Message = "Something went wrong",
+            };
 
             using (var httpclient = new HttpClient())
             {
@@ -43,21 +46,28 @@ namespace AtoVen_MVC_UI.Controllers
                
                 HttpResponseMessage result = await httpclient.PostAsync(endpoint, data);
                 var responsecode = (int)result.StatusCode;
-
+                var responseBodyAsText = result.Content.ReadAsStringAsync().Result;
+                
                 if (result.IsSuccessStatusCode)
                 {
-                    var responseBodyAsText = result.Content.ReadAsStringAsync().Result;
+                    
                     Logged = JsonConvert.DeserializeObject<Login>(responseBodyAsText);
                     HttpContext.Session.SetString("Token", Logged.Token);
                     HttpContext.Session.SetString("Role", Logged.Role[0]);
                     HttpContext.Session.SetString("Email", Logged.Email);
-                    Jsonresult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-                    return Jsonresult;
+                    jsonresult = JsonConvert.DeserializeObject<Jsonresult>(responseBodyAsText);
+
+                    jsonresult.Status = "Success";
+                    jsonresult.Message = "Successfully Logged In";
+                    return jsonresult;
+                }
+                else
+                {
+                    jsonresult = JsonConvert.DeserializeObject<Jsonresult>(responseBodyAsText);
+                    return jsonresult;
                 }
             }
-
-            return Jsonresult;
 
         }
 
@@ -88,6 +98,24 @@ namespace AtoVen_MVC_UI.Controllers
 
             return Jsonresult;
 
+        }
+
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Logout1()
+        {
+            HttpContext.Session.Remove("Token");
+            HttpContext.Session.Remove("Email");
+            HttpContext.Session.Remove("Role");
+            HttpContext.Session.Clear();
+            return RedirectToAction("/Login/Index");
         }
 
     }

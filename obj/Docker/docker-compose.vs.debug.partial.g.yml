@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  atoven_mvc_ui:
+    image: atovenmvcui:dev
+    container_name: AtoVen_MVC_UI
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "AtoVen_MVC_UI"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_atoven_mvc_ui$
+    volumes:
+      - C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI:/app
+      - C:\Users\habee\source\repos\AtoVen_MVC_UI:/src
+      - C:\Users\habee\vsdbg\vs2017u5:/remote_debugger:rw
+#$nuget_volume_mapping_atoven_mvc_ui$
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_atoven_mvc_ui$ \"/app/bin/Debug/net5.0/AtoVen_MVC_UI.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true

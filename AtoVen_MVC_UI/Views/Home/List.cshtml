@@ -15,7 +15,7 @@
             <div class="card-header align-items-center py-5 gap-2 gap-md-5">
                 <!--begin::Actions-->
                 <div class="d-flex flex-wrap gap-1">
-                    <a href="/Home/Create" class="btn btn-primary">Create</a>
+                   <!--  <a href="/Home/Create" class="btn btn-primary">Create</a> //-->
                 </div>
                 <!--end::Actions-->
                 <!--begin::Pagination-->
@@ -82,7 +82,7 @@
                 rows += "<td>" + item.commercialRegistrationNo + "</td>";
                 rows += "<td>" + item.vatNo + "</td>";
                 rows += "<td>" + item.email  + "</td>";
-                rows += "<td><a class='btn btn-sm btn-primary' href='/Home/Edit/" + item.id + "'>Edit</a></td>";
+                rows += "<td><a class='btn btn-sm btn-primary' href='/Home/Edit/" + item.id + "'>View</a></td>";
                 rows += "</tr>";
             });
             $('.InfoTBody').html(rows);

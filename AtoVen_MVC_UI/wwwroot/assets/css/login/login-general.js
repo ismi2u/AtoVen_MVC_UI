@@ -82,10 +82,9 @@ var KTLogin = function() {
                         success: function (d) {
                             console.log(d);
                             $('#kt_login_signin_submit').innerHTML = "Sign"
-                            if (d["token"]) {
-                                
+                            if (d.status=="Success") {                                
                                 Swal.fire({
-                                    text: "Logged In successfully!",
+                                    text: d.message,
                                     icon: "success",
                                     buttonsStyling: false,
                                     customClass: {

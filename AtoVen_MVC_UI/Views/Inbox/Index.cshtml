@@ -56,136 +56,127 @@
                 </div>
                 <!--end::Pagination-->
             </div>
-            <div class="card-body p-0">
-                <!--begin::Table-->
-                <table class="table table-row-dashed " id="kt_inbox_listing">
-                    <!--begin::Table head-->
-                    <thead class="d-none">
-                        <tr>
-
-                            <th>Actions</th>
-                            <th>Author</th>
-                            <th>Title</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <!--end::Table head-->
-                    <!--begin::Table body-->
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
+            <div class="col-lg-12">
+                <div class="card-header card-header-stretch">
+                    <div class="card-title">
+                        <h3 class="m-0 text-gray-800">Inbox</h3>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <!--begin::Table-->
+                    <table class="table table-row-dashed " id="kt_inbox_listing">
+                        <!--begin::Table head-->
+                        <thead class="d-none">
                             <tr>
 
-
-                                <!--begin::Author-->
-                                <td class="w-150px w-md-175px m-10">
-
-                                    <!--begin::Avatar-->
-                                    <div class="symbol symbol-35px me-3 m-2">
-                                        <div>
-                                            <span class="text-danger"> @Html.DisplayFor(modelItem => item.companyRegisterNo)</span>
-                                        </div>
-                                    </div>
-
-
-                                </td>
-                                <!--end::Author-->
-                                <!--begin::Title-->
-                                <td>
-                                    <div class="text-dark mb-1">
-                                        <!--begin::Heading-->
-
-                                        <span>You have a vendor request approval from:  @Html.DisplayFor(modelItem => item.companyName)</span>
-
-                                        <!--end::Heading-->
-                                    </div>
-
-                                </td>
-                                <!--end::Title-->
-                                <!--begin::Date-->
-                                <td class="w-100px text-end fs-7 pe-9">
-                                    <span class="fw-bold">  @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.recordDate)) </span>
-                                </td>
-
-                                <td>
-                                    <!--begin::Star-->
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen029.svg-->
-                                    @*<input type="button" value="Proceed" class="btn btn-success  btn-sm w-10 p-3 " />*@
-
-                                    <a class="btn btn-success" href="@Url.Action("Proceed", "Inbox",new { id = item.id, companyID=item.companyID})">
-                                        Proceed
-                                    </a>
-                                    @if (item.isDuplicateEntry)
-                                    {
-                                        <a class="btn btn-danger getAllDUp" id="aDuplicate" title="@item.companyID">
-                                            Duplicate
-                                        </a>
-                                    }
-
-
-
-                                </td>
-                                <!--end::Date-->
+                                <th>Actions</th>
+                                <th>Author</th>
+                                <th>Title</th>
+                                <th>Date</th>
                             </tr>
-                        }
-                    </tbody>
-                    <!--end::Table body-->
-                </table>
-                <!--end::Table-->
+                        </thead>
+                        <!--end::Table head-->
+                        <!--begin::Table body-->
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+
+                                    <!--begin::Author-->
+                                    <td class="w-150px w-md-175px m-10">
+
+                                        <!--begin::Avatar-->
+                                        <div class="symbol symbol-35px me-3 m-2">
+                                            <div>
+                                                <span class="text-danger"> @Html.DisplayFor(modelItem => item.companyRegisterNo)</span>
+                                            </div>
+                                        </div>
+
+
+                                    </td>
+                                    <!--end::Author-->
+                                    <!--begin::Title-->
+                                    <td>
+                                        <div class="text-dark mb-1">
+                                            <!--begin::Heading-->
+
+                                            <span>You have a vendor request approval from:  @Html.DisplayFor(modelItem => item.companyName)</span>
+
+                                            <!--end::Heading-->
+                                        </div>
+
+                                    </td>
+                                    <!--end::Title-->
+                                    <!--begin::Date-->
+                                    <td class="w-100px text-end fs-7 pe-9">
+                                        <span class="fw-bold">  @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.recordDate)) </span>
+                                    </td>
+
+                                    <td>
+                                        <!--begin::Star-->
+                                        <!--begin::Svg Icon | path: icons/duotune/general/gen029.svg-->
+                                        @*<input type="button" value="Proceed" class="btn btn-success  btn-sm w-10 p-3 " />*@
+
+                                        <a class="btn btn-success" href="@Url.Action("Proceed", "Inbox",new { id = item.id, companyID=item.companyID})">
+                                            Proceed
+                                        </a>
+                                        @if (item.isDuplicateEntry)
+                                        {
+                                            <a class="btn btn-danger getAllDUp" id="aDuplicate" title="@item.companyID">
+                                                Duplicate
+                                            </a>
+                                        }
+
+
+
+                                    </td>
+                                    <!--end::Date-->
+                                </tr>
+                            }
+                        </tbody>
+                        <!--end::Table body-->
+                    </table>
+                    <!--end::Table-->
+                </div>
             </div>
+            <!--end::Card-->
         </div>
-        <!--end::Card-->
-    </div>
-    <!--end::Content-->
-</div>
+            <!--end::row-->
+        </div>
+            <!--end::Content-->
+        </div>
 <!--end::Inbox App - Messages -->
 
-<script>var hostUrl = "~/assets/";</script>
-<!--begin::Javascript-->
-<!--begin::Global Javascript Bundle(used by all pages)-->
-<script src="~/assets/plugins/global/plugins.bundle.js"></script>
-<script src="~/assets/js/scripts.bundle.js"></script>
-<!--end::Global Javascript Bundle-->
-<!--begin::Page Custom Javascript(used by this page)-->
-<script src="~/js/create-1.js"></script>
-<script src="~/assets/js/custom/widgets.js"></script>
-<script src="~/assets/js/custom/apps/chat/chat.js"></script>
-<script src="~/assets/js/custom/modals/create-app.js"></script>
-<script src="~/assets/js/custom/modals/upgrade-plan.js"></script>
-<script>
-    var ajaxCallURL = '/Inbox/Duplicate';
 
-    $(function () {
-        $(".getAllDUp").click(function () {
-            var $buttonClicked = $(this);
-            var id = $(this).attr('title');
-            var options = {
-                "backdrop": "static",
-                keyboard: true
-            };
-            $.ajax({
-                type: "GET",
-                url: ajaxCallURL,
-                data: "id=" + id,
-                contentType: "application/json; charset=utf-8",
-                datatype: "json",
-                success: function (data) {
-                    debugger;
-                    $('#myModalContent').html(data);
-                    $('#myModal').modal(options);
-                    $('#myModal').modal('show');
-                },
-                error: function () {
-                    alert("Content load failed.");
-                }
-            });
-        });
-        $("#closbtn").click(function () {
-            debugger;
-            $('#myModal').modal('hide');
-        });
-    });
-</script>
+<div class="container">
+
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Duplicate Vendor(s)</h4>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id='myModalContent'>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" id="closbtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
 
@@ -207,45 +198,61 @@
 
 
 @*<div class="modal fade bd-example-modal-lg" id='myModal' tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <button type="button" id="closbtn">
-            x
-        </button>
-        <div class="modal-content" id='myModalContent'>
-
-        </div>
-    </div>
-</div>*@
-
-
-<div class="container">
-   
-
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Duplicate Vendor(s)</h4>                    
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body" id='myModalContent'>
-                   
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" id="closbtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+            <button type="button" id="closbtn">
+                x
+            </button>
+            <div class="modal-content" id='myModalContent'>
 
             </div>
         </div>
-    </div>
+    </div>*@
 
-</div>
+
+
+@section scripts {
+ 
+    <script src="~/assets/js/custom/modals/create-app.js"></script>
+    <script src="~/assets/js/custom/modals/upgrade-plan.js"></script>
+    <script>
+        var ajaxCallURL = '/Inbox/Duplicate';
+
+        $(function () {
+            $(".getAllDUp").click(function () {
+                var $buttonClicked = $(this);
+                var id = $(this).attr('title');
+                var options = {
+                    "backdrop": "static",
+                    keyboard: true
+                };
+                $.ajax({
+                    type: "GET",
+                    url: ajaxCallURL,
+                    data: "id=" + id,
+                    contentType: "application/json; charset=utf-8",
+                    datatype: "json",
+                    success: function (data) {
+                        debugger;
+                        $('#myModalContent').html(data);
+                        $('#myModal').modal(options);
+                        $('#myModal').modal('show');
+                    },
+                    error: function () {
+                        alert("Content load failed.");
+                    }
+                });
+            });
+            $("#closbtn").click(function () {
+                debugger;
+                $('#myModal').modal('hide');
+            });
+        });
+    </script>
+
+
+
+}
+
 
 
 

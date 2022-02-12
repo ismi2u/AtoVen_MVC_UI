@@ -1024,7 +1024,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Trader" id="Contractor">
+                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Trader" id="Trader">
                                                                         <span class="form-check-label" for="Contractor">Trader</span>
                                                                     </label>
                                                                     <!--end::Checkbox-->
@@ -1034,7 +1034,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Agent" id="Contractor">
+                                                                        <input name="VendorType" class="form-check-input border" type="checkbox" value="Agent" id="Agent">
                                                                         <span class="form-check-label" for="Contractor">Agent</span>
                                                                     </label>
                                                                     <!--end::Checkbox-->
@@ -1044,7 +1044,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <div class="fv-row mb-5">
                                                                     <!--begin::Checkbox-->
                                                                     <label class="form-check form-check-custom form-check-solid me-9">
-                                                                        <input class="form-check-input border" type="checkbox" value="" name="VendorType" id="Others" onclick="$('#others_field').toggle('2000');">
+                                                                        <input class="form-check-input border" type="checkbox" value="Others" name="VendorType" id="Others" onclick="$('#others_field').toggle('2000');">
                                                                         <span class="form-check-label" for="Contractor">Others</span>
                                                                     </label>
 
@@ -1596,7 +1596,8 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Card-->
                                         <!-- Notes End -->
 
-                                        <button type="button" class="btn btn-sm btn-primary" id="update">Update</button>
+                                        <button type="button" class="btn btn-sm btn-primary" id="update" style="display:none">Update</button>
+                                        <button type="button" class="btn btn-sm btn-primary" önclick="location.href=/Home/List">Back</button>
 
 
                                     </div>
@@ -2164,6 +2165,7 @@ License: For each use you must have a valid license purchased only from above li
                                 if (VendorTypeArr[i].trim() == "Others")
                                 {
                                     $("#Others_field").val(VendorTypeArr[i + 1].trim());
+                                    $('#others_field').click();
                                 }
 
                             }
@@ -2220,8 +2222,6 @@ License: For each use you must have a valid license purchased only from above li
                                 $("#add-row-bank").click();
                             }
                         }
-
-                        
                         
                     }
        

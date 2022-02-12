@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  atoven_mvc_ui:
+    image: ${DOCKER_REGISTRY-}atovenmvcui
+    build:
+      context: .
+      dockerfile: AtoVen_MVC_UI/Dockerfile

@@ -386,7 +386,6 @@ C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_
 C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.TagHelpers.output.cache
 C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.RazorCoreGenerate.cache
 C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\ApproverLevels\Index.cshtml.g.cs
-C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Home\Inbox.cshtml.g.cs
 C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\habee\Source\Repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Home\Register.cshtml.g.cs
@@ -548,3 +547,6 @@ F:\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.genruntimeconfig.c
 F:\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.csproj.AssemblyReference.cache
 F:\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Inbox\Proceed.cshtml.g.cs
 F:\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Inbox\Duplicate.cshtml.g.cs
+C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Inbox\Duplicate.cshtml.g.cs
+C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Inbox\Proceed.cshtml.g.cs
+C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Login\Logout.cshtml.g.cs

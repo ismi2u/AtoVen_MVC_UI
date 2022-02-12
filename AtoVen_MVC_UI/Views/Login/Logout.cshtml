@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "_AdminLayout";
+
+}
+
+
+@section scripts {
+
+    <script src="~/assets/js/custom/modals/create-app.js"></script>
+    <script src="~/assets/js/custom/modals/upgrade-plan.js"></script>
+    <script>
+        $.ajax({
+            type: "POST",
+            url: "/Login/Logout1",
+            data: "",
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            success: function (data) {
+               
+            },
+            error: function () {
+                alert("Content load failed.");
+            }
+        });
+    </script>
+}
+

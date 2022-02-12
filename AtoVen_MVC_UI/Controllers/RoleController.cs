@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,8 +34,11 @@ namespace AtoVen_MVC_UI.Controllers
 
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
             string endpoint = apiBaseUrl + "/Administration/ListRoles";
+
             using (var httpclient = new HttpClient())
             {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
+                
                 using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
                 {
                     var data = await response.Content.ReadAsStringAsync();
@@ -60,6 +64,8 @@ namespace AtoVen_MVC_UI.Controllers
             string endpoint = apiBaseUrl + "/Administration/CreateRole";
             using (var httpclient = new HttpClient())
             {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
+                
                 var json = JsonConvert.SerializeObject(RoleDtls);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -95,6 +101,8 @@ namespace AtoVen_MVC_UI.Controllers
 
             using (var httpclient = new HttpClient())
             {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
+                
                 HttpResponseMessage response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead);
                 data = response.ToString();
                 var responsecode = (int)response.StatusCode;
@@ -121,6 +129,8 @@ namespace AtoVen_MVC_UI.Controllers
             string endpoint = apiBaseUrl + "/Administration/EditRole";
             using (var httpclient = new HttpClient())
             {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
+                
                 var json = JsonConvert.SerializeObject(RoleDtls);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
 

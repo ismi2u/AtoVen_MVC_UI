@@ -34,6 +34,9 @@ namespace AtoVen_MVC_UI.Models
         public string VATNo { get; set; }       
 
         public bool IsVendorInitiated { get; set; }
+
+        public int ApprovalFlowID { get; set; }
+
         public List<ListOfCompanyContacts> ListOfCompanyContacts { get; set; }
         public List<ListOfCompanyBanks> ListOfCompanyBanks { get; set; }
     }
@@ -67,6 +70,7 @@ namespace AtoVen_MVC_UI.Models
         public string VATNo { get; set; }
 
         public bool IsVendorInitiated { get; set; }
+        public int ApprovalFlowID { get; set; }
         public List<ListOfCompanyContactsDTO> ListOfCompanyContacts { get; set; }
         public List<ListOfCompanyBanksDTO> ListOfCompanyBanks { get; set; }
     }

@@ -1,51 +1,107 @@
 ﻿
 @model IEnumerable<AtoVen_MVC_UI.Models.propVendorDTO>
 
+<h3>
+    Checked Record
+</h3>
+<table class="table" id="role_listing">
+    <!--begin::Table head-->
+    <thead class="thead-dark">
+        <tr>
+            <th><b>Company Name</b></th>
+            <th><b>CR Number</b></th>
+            <th><b>VAT No</b></th>
+            <th><b>Email</b></th>
 
-   
-                    <!--begin::Table-->
-                    <h3>Possible Duplicates</h3>
-                    <table class="table table-row-dashed " id="role_listing">
-                        <!--begin::Table head-->
-                        <thead>
-                            <tr>                                
-                                <th>Company Name</th>
-                                <th>CR Number</th>
-                                <th>VAT No</th>
-                                <th>Email</th>
-                               
-                            </tr>
-                        </thead>
-                        <!--end::Table head-->
-                        <!--begin::Table body-->
-                        <tbody class="InfoTBody">
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CompanyName)
+        </tr>
+    </thead>
+    <!--end::Table head-->
+    <!--begin::Table body-->
+    <tbody class="InfoTBody">
+        @foreach (var item in Model)
+        {
 
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CommercialRegistrationNo)
+            if (item.Id == int.Parse(ViewData["Id"].ToString()))
+            {
+                <tr>
 
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.VATNo)
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
 
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommercialRegistrationNo)
 
-                                    </td>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VATNo)
 
-                                </tr>
-                            }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
 
-                        </tbody>
-                        <!--end::Table body-->
-                    </table>
-                    <!--end::Table-->
-             
-    
+                    </td>
+
+                </tr>
+            }
+        }
+
+    </tbody>
+    <!--end::Table body-->
+</table>
+<!--begin::Table-->
+<h3>Potential Duplicates Found</h3>
+<table class="table table-row-dashed  " id="role_listing">
+    <!--begin::Table head-->
+    <thead class="thead-dark">
+        <tr>
+            <th><b>Company Name</b></th>
+            <th><b>CR Number</b></th>
+            <th><b>VAT No</b></th>
+            <th><b>Email</b></th>
+
+        </tr>
+    </thead>
+    <!--end::Table head-->
+    <!--begin::Table body-->
+    <tbody class="InfoTBody">
+        @foreach (var item in Model)
+        {
+            if (item.Id != int.Parse(ViewData["Id"].ToString()))
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommercialRegistrationNo)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VATNo)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+
+                    </td>
+
+                </tr>
+            }
+        }
+
+    </tbody>
+    <!--end::Table body-->
+</table>
+<!--end::Table-->
+<br />
+
+
+
+
+    <a class="btn btn-secondary">
+        Close
+    </a>
+

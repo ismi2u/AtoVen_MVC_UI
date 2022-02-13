@@ -123,7 +123,7 @@
                                         </a>
                                         @if (item.isDuplicateEntry)
                                         {
-                                            <a class="btn btn-danger getAllDUp" id="aDuplicate" title="@item.companyID">
+                                            <a class="btn btn-danger getAllDUp" id="aDuplicate" title="@item.companyID-@item.id">
                                                 Duplicate
                                             </a>
                                         }
@@ -170,6 +170,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" id="closbtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
                 </div>
 
             </div>
@@ -228,7 +229,7 @@
                 $.ajax({
                     type: "GET",
                     url: ajaxCallURL,
-                    data: "id=" + id,
+                    data: "id=" + id 
                     contentType: "application/json; charset=utf-8",
                     datatype: "json",
                     success: function (data) {
@@ -242,6 +243,7 @@
                     }
                 });
             });
+                       
             $("#closbtn").click(function () {
                 debugger;
                 $('#myModal').modal('hide');

@@ -30,7 +30,6 @@ namespace AtoVen_MVC_UI.Controllers
 
             List<Inbox> _oVendorList = new List<Inbox>();
             var email = HttpContext.Session.GetString("Email");
-
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
             string endpoint = apiBaseUrl + "/ApprovalFlows/GetApprovalFlowByEmailIdInPending?email="+ email;
             using (var httpclient = new HttpClient())
@@ -38,8 +37,12 @@ namespace AtoVen_MVC_UI.Controllers
                 httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
                 using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
                 {
-                    var data = await response.Content.ReadAsStringAsync();
-                    _oVendorList = JsonConvert.DeserializeObject<List<Inbox>>(data);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var data = await response.Content.ReadAsStringAsync();
+                        _oVendorList = JsonConvert.DeserializeObject<List<Inbox>>(data);
+                    }
                 }
             }
 
@@ -110,10 +113,11 @@ namespace AtoVen_MVC_UI.Controllers
         {
             List<propVendorDTO> propVendorDTO = new List<propVendorDTO>();
 
-
+            ViewData["Id"] = id;
 
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
             string endpoint = apiBaseUrl + "/Companies/GetCompanyDuplicatesByCompId/" + id;
+
             using (var httpclient = new HttpClient())
             {
                 httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));

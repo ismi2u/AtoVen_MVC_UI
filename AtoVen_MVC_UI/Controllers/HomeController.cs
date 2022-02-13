@@ -64,9 +64,8 @@ namespace AtoVen_MVC_UI.Controllers
             
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
             string endpoint = apiBaseUrl + "/Validation/VATValidator?VATNumber="+ VATNo.VATNumber;
-            
+
             //var values = new Dictionary<string, string>();
-           
             using (var httpclient = new HttpClient())
             {
                 HttpResponseMessage result = await httpclient.PostAsync(endpoint, null);
@@ -84,7 +83,7 @@ namespace AtoVen_MVC_UI.Controllers
                 }
 
             }
-            
+
         }
 
 

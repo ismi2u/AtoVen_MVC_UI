@@ -38,6 +38,20 @@ License: For each use you must have a valid license purchased only from above li
     <link href="~/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
+    <style>
+        .swal2-popup {
+            max-height: 300px !important;
+            max-width: 300px !important;
+        }
+
+        .swal2-icon {
+            font-size: 13px !important;
+        }
+
+        .swal2-text {
+            max-height: 70px;
+        }
+    </style>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -157,18 +171,18 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--begin::Input group-->
 
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" value="Atominos Consulting" />
+                                                                <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" />
                                                                 <label for="CompanyName" class="required">Company Name</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input required name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" autocomplete="off" value="CR00001"  />
+                                                                <input required name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" autocomplete="off"  />
                                                                 <label for="CommRegNo" class="required">Commercial Registration No.</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
-                                                            <div class="mb-5">
+                                                            <div class="fv-row mb-5">
                                                                 <input name="Language" type="text" class="form-control  border" value="EN" id="Language" readonly>
                                                             </div>
                                                             <!--end::Input group-->
@@ -182,13 +196,13 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="PhoneNo" type="text" class="form-control border" placeholder="Phone Number" id="PhoneNo" value="044 123 456 789" />
+                                                                        <input name="PhoneNo" type="text" class="form-control border" placeholder="Phone Number" id="PhoneNo" />
                                                                         <label for="PhoneNo" class="required">Phone Number</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating form-floating">
-                                                                        <input name="FaxNumber" type="text" class="form-control border" placeholder="Fax Number" id="FaxNumber" value="044 123 456 790">
+                                                                        <input name="FaxNumber" type="text" class="form-control border" placeholder="Fax Number" id="FaxNumber">
                                                                         <label for="FaxNumber" class="required">Fax Number</label>
                                                                     </div>
                                                                 </div>
@@ -199,13 +213,13 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress" value="test@gmail.com">
+                                                                        <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress">
                                                                         <label for="EmailAddress" class="required">E-Mail Address</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="MobileNo" type="text" class="form-control border" placeholder="Mobile Number" id="MobileNo" value="90030654123">
+                                                                        <input name="MobileNo" type="text" class="form-control border" placeholder="Mobile Number" id="MobileNo">
                                                                         <label for="MobileNo" class="required">Mobile Number</label>
                                                                     </div>
                                                                 </div>
@@ -213,7 +227,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="fv-row mb-5 form-floating">
-                                                                <input name="Website" type="text" class="form-control border" placeholder="Website" id="Website" value="https://wwww.atominosconsulting.com">
+                                                                <input name="Website" type="text" class="form-control border" placeholder="Website" id="Website">
                                                                 <label for="Website" class="required">Website</label>
                                                             </div>
                                                             <!--end::Input group-->
@@ -234,7 +248,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                     <option value="" selected>--select--</option>
                                                                     <option value="1">Afghanistan</option>
                                                                     <option value="2">Åland Islands</option>
-                                                                    <option value="3" selected>Albania</option>
+                                                                    <option value="3">Albania</option>
                                                                     <option value="4">Algeria</option>
                                                                     <option value="5">American Samoa</option>
                                                                     <option value="6">Andorra</option>
@@ -490,7 +504,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 <select name="RegionId" id="RegionId" class="form-control border">
                                                                     <option value="">--select--</option>
                                                                     <option value="1">Bavaria</option>
-                                                                    <option value="2" selected>Baden-Württemberg</option>
+                                                                    <option value="2">Baden-Württemberg</option>
                                                                     <option value="3">North Rhine-Westphalia</option>
                                                                     <option value="4">Saxony</option>
                                                                     <option value="5">Lower Saxony</option>
@@ -511,7 +525,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input name="District" type="text" id="District" class="form-control border" placeholder="District" value="VLR">
+                                                                <input name="District" type="text" id="District" class="form-control border" placeholder="District">
                                                                 <label for="District" class="required">District</label>
                                                             </div>
                                                             <!--end::Input group-->
@@ -519,14 +533,14 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="Postalcode" type="text" id="Postalcode" class="form-control border" placeholder="Postal Code" value="635751">
+                                                                        <input name="Postalcode" type="text" id="Postalcode" class="form-control border" placeholder="Postal Code">
                                                                         <label for="Postalcode" class="required">Postal Code</label>
                                                                     </div>
 
                                                                 </div>
                                                                 <div class="col-8">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="City" type="text" id="City" class="form-control border" placeholder="City" value="VNB">
+                                                                        <input name="City" type="text" id="City" class="form-control border" placeholder="City">
                                                                         <label for="City" class="required">City</label>
                                                                     </div>
 
@@ -541,14 +555,14 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-8">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="Street" type="text" id="Street" class="form-control border" placeholder="Street" value="MUNI">
-                                                                        <label for="Street">Street</label>
+                                                                        <input name="Street" type="text" id="Street" class="form-control border" placeholder="Street">
+                                                                        <label for="Street" class="required">Street</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="HouseNo" type="text" id="HouseNo" class="form-control border" placeholder="House No." value="100">
-                                                                        <label for="HouseNo">House No.</label>
+                                                                        <input name="HouseNo" type="text" id="HouseNo" class="form-control border" placeholder="House No.">
+                                                                        <label for="HouseNo" class="required">House No.</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -557,20 +571,20 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating  mb-5">
-                                                                        <input name="Building" type="text" id="Building" class="form-control border" placeholder="Building" value="APR">
-                                                                        <label for="Building">Building</label>
+                                                                        <input name="Building" type="text" id="Building" class="form-control border" placeholder="Building">
+                                                                        <label for="Building" class="required">Building</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating  mb-5">
-                                                                        <input name="Floor" type="text" id="Floor" class="form-control border" placeholder="Floor" value="G">
-                                                                        <label for="Floor">Floor</label>
+                                                                        <input name="Floor" type="text" id="Floor" class="form-control border" placeholder="Floor">
+                                                                        <label for="Floor" class="required">Floor</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating  mb-5">
-                                                                        <input name="Room" type="text" id="Room" class="form-control border" placeholder="Room" value="3">
-                                                                        <label for="Room">Room</label>
+                                                                        <input name="Room" type="text" id="Room" class="form-control border" placeholder="Room">
+                                                                        <label for="Room" class="required">Room</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -578,7 +592,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <label class="form-label fs-6 fw-bolder text-black mb-3">PO Box Address</label>
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" value="456321" />
+                                                                <input name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" />
                                                                 <label for="PoBox" class="required">Po Box</label>
                                                             </div>
                                                             <!--end::Input group-->
@@ -614,31 +628,31 @@ License: For each use you must have a valid license purchased only from above li
                                                                             <div class="row gx-10 mb-5">
                                                                                 <div class="col-lg-6">
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
+                                                                                    <div class="fv-row form-floating mb-5">
                                                                                         <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" />
                                                                                         <label for="cp_firstName0" class="required">First Name</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
+                                                                                    <div class="fv-row form-floating mb-5">
                                                                                         <input type="text" class="form-control border" name="cp_lastName0" id="cp_lastName0" placeholder="Last Name" />
                                                                                         <label for="cp_lastName0" class="required">Last Name</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
+                                                                                    <div class="fv-row form-floating mb-5">
                                                                                         <input type="text" class="form-control border" name="cp_address0" id="cp_address0" placeholder="Form of Address" />
                                                                                         <label for="cp_address0" class="required">Form of Address</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
+                                                                                    <div class="fv-row form-floating mb-5">
                                                                                         <input type="text" class="form-control border" name="cp_position0" id="cp_position0" placeholder="Position" />
                                                                                         <label for="cp_position0" class="required">Position</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
+                                                                                    <div class="fv-row form-floating mb-5">
                                                                                         <input type="text" class="form-control border" name="cp_department0" id="cp_department0" placeholder="Department" />
                                                                                         <label for="cp_department0" class="required">Department</label>
                                                                                     </div>
@@ -646,41 +660,41 @@ License: For each use you must have a valid license purchased only from above li
                                                                                 </div>
                                                                                 <div class="col-lg-6">
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_phoneno0" id="cp_phoneno0" placeholder="Phone No." value="044 456 321 456" />
+                                                                                    <div class="fv-row form-floating mb-5">
+                                                                                        <input type="text" class="form-control border" name="cp_phoneno0" id="cp_phoneno0" placeholder="Phone No."  />
                                                                                         <label for="cp_phoneno0" class="required">Phone No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_mobileno0" id="cp_mobileno0" placeholder="Mobile No." value="044 987654321" />
+                                                                                    <div class="fv-row form-floating mb-5">
+                                                                                        <input type="text" class="form-control border" name="cp_mobileno0" id="cp_mobileno0" placeholder="Mobile No."  />
                                                                                         <label for="cp_mobileno0" class="required">Mobile No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_faxno0" id="cp_faxno0" placeholder="Fax No." value="044 987654321" />
+                                                                                    <div class="fv-row form-floating mb-5">
+                                                                                        <input type="text" class="form-control border" name="cp_faxno0" id="cp_faxno0" placeholder="Fax No." />
                                                                                         <label for="cp_faxno0" class="required">Fax No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_emil0" id="cp_emil0" placeholder="E-Mail Address" value="testCP@gmail.com" />
+                                                                                    <div class="fv-row form-floating mb-5">
+                                                                                        <input type="text" class="form-control border" name="cp_emil0" id="cp_emil0" placeholder="E-Mail Address"/>
                                                                                         <label for="cp_emil0" class="required">E-Mail Address</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
+                                                                                    <div class="fv-row form-floating mb-5">
                                                                                         <input type="text" class="form-control border" name="cp_language0" id="cp_language0" placeholder="Language" readonly value="EN" />
                                                                                         <label for="cp_language0" class="required">Language</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
-                                                                                    <div class="form-floating mb-5">
+                                                                                    <div class="fv-row form-floating mb-5">
                                                                                         <select class=" form-control border" name="cp_country0" id="cp_country0">
                                                                                             <option value="" selected>--select--</option>
                                                                                             <option value="1">Afghanistan</option>
-                                                                                            <option value="2" selectd>Aland Islands</option>
+                                                                                            <option value="2">Aland Islands</option>
                                                                                             <option value="3">Albania</option>
                                                                                             <option value="4">Algeria</option>
                                                                                             <option value="5">American Samoa</option>
@@ -964,7 +978,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                                 </svg>
                                                                                 Add more
                                                                             </button>
-                                                                            <input type="hidden" id="ContactRow" value="" />
+                                                                            <input type="hidden" id="ContactRow" value="1" />
                                                                         </th>
                                                                     </tr>
                                                                 </tfoot>
@@ -1128,7 +1142,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                 </thead>
                                                                 <tbody id="bank_dtls">
                                                                     <tr class="border-bottom border-bottom-dashed" id="rowBD0">
-                                                                        <td>
+                                                                        <td class="fv-row">
                                                                             <select class="form-control border" name="bd_country0" id="bd_country0">
                                                                                 <option value="">--Select--</option>
                                                                                 <option value="1">Afghanistan</option>
@@ -1382,26 +1396,26 @@ License: For each use you must have a valid license purchased only from above li
                                                                                 <option value="249">Zimbabwe</option>
                                                                             </select>
                                                                         </td>
-                                                                        <td>
+                                                                        <td class="fv-row">
                                                                             <input class="form-control border" type="text" name="bank_key0" id="bank_key0" placeholder="" />
                                                                         </td>
-                                                                        <td>
+                                                                        <td class="fv-row">
                                                                             <input class="form-control border" type="text" name="bank_name0" id="bank_name0" placeholder="" />
                                                                         </td>
-                                                                        <td>
+                                                                        <td class="fv-row">
                                                                             <input class="form-control border" type="text" name="swift_code0" id="swift_code0" placeholder="" />
                                                                         </td>
-                                                                        <td>
+                                                                        <td class="fv-row">
                                                                             <input class="form-control border" type="text" name="bank_account0" id="bank_account0" placeholder="" />
                                                                         </td>
-                                                                        <td>
+                                                                        <td class="fv-row">
                                                                             <input class="form-control border" type="text" name="account_holder0" id="account_holder0" placeholder="" />
                                                                         </td>
-                                                                        <td>
-                                                                            <input class="form-control border" type="text" name="iban0" id="iban0" placeholder="" onblur="ValidateIBANNo(0)"/>
-                                                                            <span id="opiban0"><</span>
+                                                                        <td class="fv-row">
+                                                                            <input class="form-control border" type="text" name="iban0" id="iban0" placeholder="" onblur="ValidateIBANNo(0)" />
+                                                                            <span id="opiban0"></span>
                                                                         </td>
-                                                                        <td>
+                                                                        <td class="fv-row">
                                                                             <select class="form-control border" name="bd_currency0" id="bd_currency0">
                                                                                 <option value="" selected>--select--</option>
                                                                                 <option value="USD">USD</option>
@@ -1434,7 +1448,7 @@ License: For each use you must have a valid license purchased only from above li
                                                                                 </svg>
                                                                                 Add more
                                                                             </button>
-                                                                            <input type="hidden" id="BankRow" value="" />
+                                                                            <input type="hidden" id="BankRow" value="1" />
                                                                         </th>
                                                                     </tr>
                                                                 </tfoot>
@@ -1462,7 +1476,7 @@ License: For each use you must have a valid license purchased only from above li
                                                         <div class="col-lg-6">
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input name="VATNo" id="VATNo" type="text" class="form-control border error" placeholder="VAT Number" onblur="ValidateVATNo()" value="GB429214460" />
+                                                                <input name="VATNo" id="VATNo" type="text" class="form-control border error" placeholder="VAT Number" onblur="ValidateVATNo()" />
                                                                 <label>VAT Number</label>
                                                             </div>
                                                         </div>
@@ -1538,8 +1552,8 @@ License: For each use you must have a valid license purchased only from above li
                                                         <label class="form-label fs-6 fw-bolder text-black mb-3">Notes</label>
                                                         <div class="col-6">
                                                             <!--begin::Input group-->
-                                                            <div class="mb-5">
-                                                                <textarea name="Notes" id="Notes" class="form-control border" rows="3" placeholder="">Testing Notes</textarea>
+                                                            <div class="fv-row mb-5">
+                                                                <textarea name="Notes" id="Notes" class="form-control border" rows="3" placeholder=""></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1575,19 +1589,13 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted fw-bold me-1">2021©</span>
-                            <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Atominos</a>
+                            <a href="https://www.atominosconsulting.com/ target="_blank" class="text-gray-800 text-hover-primary">Atominos</a>
                         </div>
                         <!--end::Copyright-->
                         <!--begin::Menu-->
                         <ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
                             <li class="menu-item">
-                                <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="https://keenthemes.com/support" target="_blank" class="menu-link px-2">Support</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+                                <a href="https://www.atominosconsulting.com/ target="_blank" class="menu-link px-2">About</a>
                             </li>
                         </ul>
                         <!--end::Menu-->
@@ -1742,22 +1750,45 @@ License: For each use you must have a valid license purchased only from above li
                     url: "Home/VATValidate",
                     data: { VATNumber: $("#VATNo").val() },
 
-                    error: function () {
-                        alert("An error occoured!");
+                    error: function (x, e) {
+                        var msg = "";
+                        if (x.status == 0) {
+                            msg = 'You are offline!!\n Please Check Your Network.';
+                        } else if (x.status == 404) {
+                            msg = 'Requested URL not found.';
+                        } else if (x.status == 500) {
+                            msg = 'Internel Server Error.';
+                        } else if (e == 'parsererror') {
+                            msg = 'Error.\nParsing JSON Request failed.';
+                        } else if (e == 'timeout') {
+                            msg = 'Request Time out.';
+                        } else {
+                            msg = 'Unknow Error.\n' + x.responseText;
+                        }
+
+                        Swal.fire({
+                            text: msg,
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, got it!",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        });
                     },
                     success: function (d) {
-                        if (d == "Invalid VAT Number") {
-                            $("#VATNo").addClass("is-invalid");
-                            console.log(d);
-                            $("#opVATNo").text(d)
-                            $("#opVATNo").removeClass("text-success")
-                            $("#opVATNo").addClass("text-danger")
-                        } else {
+                        console.log(d);
+                        if (d == "Valid VAT Number") {
                             $("#VATNo").removeClass("is-invalid");
                             console.log(d);
                             $("#opVATNo").text(d)
                             $("#opVATNo").addClass("text-success")
                             $("#opVATNo").removeClass("text-danger")
+                        } else {
+                            $("#VATNo").addClass("is-invalid");
+                            $("#opVATNo").text(d)
+                            $("#opVATNo").removeClass("text-success")
+                            $("#opVATNo").addClass("text-danger")
                         }
                     }
                 });
@@ -1773,23 +1804,45 @@ License: For each use you must have a valid license purchased only from above li
                 url: "Home/IBANValidate",
                 data: { IbanNumber: $("#iban" + rowno).val() },
 
-                error: function () {
-                    alert("An error occoured!");
+                error: function (x, e) {
+                    var msg = "";
+                    if (x.status == 0) {
+                        msg='You are offline!!\n Please Check Your Network.';
+                    } else if (x.status == 404) {
+                        msg='Requested URL not found.';
+                    } else if (x.status == 500) {
+                        msg='Internel Server Error.';
+                    } else if (e == 'parsererror') {
+                        msg='Error.\nParsing JSON Request failed.';
+                    } else if (e == 'timeout') {
+                        msg='Request Time out.';
+                    } else {
+                        msg='Unknow Error.\n' + x.responseText;
+                    }
+
+                    Swal.fire({
+                        text: msg,
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
                 },
                 success: function (d) {
-                    if (d == "Invalid IBAN Number") {
-                        $("#iban" + rowno).addClass("is-invalid");
-                        console.log(d);
-                        $("#opiban" + rowno).removeClass("text-success")
-                        $("#opiban" + rowno).addClass("text-danger")
-                        $("#opiban" + rowno).text(d)
-                    } else {
+                    console.log(d);
+                    if (d == "Valid IBAN Number") {
                         $("#iban" + rowno).removeClass("is-invalid");
-                        console.log(d);
                         $("#opiban" + rowno).text(d)
                         $("#opiban" + rowno).addClass("text-success")
                         $("#opiban" + rowno).removeClass("text-danger")
-
+                        
+                    } else {
+                        $("#iban" + rowno).addClass("is-invalid");                       
+                        $("#opiban" + rowno).removeClass("text-success")
+                        $("#opiban" + rowno).addClass("text-danger")
+                        $("#opiban" + rowno).text(d)
                     }
                 }
             });
@@ -1816,10 +1869,24 @@ License: For each use you must have a valid license purchased only from above li
                             }
                         }
                     },
+                    'Language': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Company Registration No. is required'
+                            }
+                        }
+                    },
                     'PhoneNo': {
                         validators: {
                             notEmpty: {
                                 message: 'Phone No. is required'
+                            }
+                        }
+                    },
+                    'FaxNumber': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Fax No. is required'
                             }
                         }
                     },
@@ -1836,7 +1903,7 @@ License: For each use you must have a valid license purchased only from above li
                     'MobileNo': {
                         validators: {
                             notEmpty: {
-                                message: 'Phone No. is required'
+                                message: 'Mobile No. is required'
                             }
                         }
                     },
@@ -1931,6 +1998,146 @@ License: For each use you must have a valid license purchased only from above li
                             }
                         }
                     },
+                    'Notes': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Notes is required'
+                            }
+                        }
+                    },
+                    'cp_firstName0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'First Name is required'
+                            }
+                        }
+                    },
+                    'cp_lastName0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Last Name is required'
+                            }
+                        }
+                    },
+                    'cp_address0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Address is required'
+                            }
+                        }
+                    },
+                    'cp_position0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Designation is required'
+                            }
+                        }
+                    },
+                    'cp_department0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Department is required'
+                            }
+                        }
+                    },
+                    'cp_phoneno0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Phone No is required'
+                            }
+                        }
+                    },
+                    'cp_mobileno0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Mobile No is required'
+                            }
+                        }
+                    },
+                    'cp_faxno0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Fax No is required'
+                            }
+                        }
+                    },
+                    'cp_emil0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Email is required'
+                            }
+                        }
+                    },
+                    'cp_language0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'language is required'
+                            }
+                        }
+                    },
+                    'cp_country0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Country is required'
+                            }
+                        }
+                    },
+                    'bd_country0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Country is required'
+                            }
+                        }
+                    },
+                    'bank_key0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Bank Key is required'
+                            }
+                        }
+                    },
+                    'bank_name0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Bank Name is required'
+                            }
+                        }
+                    },
+                    'swift_code0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Swift Code is required'
+                            }
+                        }
+                    },
+                    'bank_account0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Bank Account is required'
+                            }
+                        }
+                    },
+                    'account_holder0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Bank Account is required'
+                            }
+                        }
+                    },
+                    'iban0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'IBAN is required'
+                            }
+                        }
+                    },
+                    'bd_currency0': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Currency is required'
+                            }
+                        }
+                    },
                 },
 
                 plugins: {
@@ -1949,8 +2156,11 @@ License: For each use you must have a valid license purchased only from above li
 
             registerButton.addEventListener('click', function () {
                 fv.validate().then(function (status) {
-                    registerButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
+                    //registerButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
                     if (status === 'Valid') {
+                        registerButton.innerHTML = 'Form is validated. Submitting ...';
+                        $('#register').removeClass('btn-danger');
+                        $('#register').addClass('btn-primary');
 
                         var VenObj = {};
                         VenObj.CompanyName = $('#CompanyName').val();
@@ -1977,8 +2187,7 @@ License: For each use you must have a valid license purchased only from above li
                             vendortype.push($(this).val());
                         });
 
-                        if ($("#others_field").val() != "")
-                        {
+                        if ($("#others_field").val() != "") {
                             vendortype.push($("#others_field").val());
                         }
 
@@ -2049,12 +2258,38 @@ License: For each use you must have a valid license purchased only from above li
                         //console.log(postData);
                         $.ajax({
                             type: "POST",
+                            beforeSend: function () {
+                                document.getElementById('register').setAttribute("data-kt-indicator", "on");
+                            },
                             async: true,
                             url: "Home/Register",
                             data: postData,
                             dataType: "json",
-                            error: function () {
-                                alert("An error occoured!");
+                            error: function (x, e) {
+                                var msg = "";
+                                if (x.status == 0) {
+                                    msg = 'You are offline!!\n Please Check Your Network.';
+                                } else if (x.status == 404) {
+                                    msg = 'Requested URL not found.';
+                                } else if (x.status == 500) {
+                                    msg = 'Internel Server Error.';
+                                } else if (e == 'parsererror') {
+                                    msg = 'Error.\nParsing JSON Request failed.';
+                                } else if (e == 'timeout') {
+                                    msg = 'Request Time out.';
+                                } else {
+                                    msg = 'Unknow Error.\n' + x.responseText;
+                                }
+
+                                Swal.fire({
+                                    text: msg,
+                                    icon: "error",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
                             },
                             success: function (data) {
                                 console.log(data.status);
@@ -2082,8 +2317,15 @@ License: For each use you must have a valid license purchased only from above li
                                         }
                                     });
                                 }
+                            },
+                            complete: function () {
+                                document.getElementById('register').removeAttribute("data-kt-indicator");
                             }
                         });
+                    } else {
+                        registerButton.innerHTML = 'Please enter the correct values';
+                        $('#register').removeClass('btn-danger');
+                        $('#register').addClass('btn-danger');
                     }
                 });
             });

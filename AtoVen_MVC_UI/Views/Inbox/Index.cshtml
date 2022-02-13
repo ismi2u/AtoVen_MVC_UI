@@ -83,10 +83,10 @@
 
 
                                     <!--begin::Author-->
-                                    <td class="w-150px w-md-175px m-10">
+                                    <td class="w-200px w-md-230px m-10">
 
                                         <!--begin::Avatar-->
-                                        <div class="symbol symbol-35px me-3 m-2">
+                                        <div class="symbol symbol-35px px-8 me-3 m-2">
                                             <div>
                                                 <span class="text-danger"> @Html.DisplayFor(modelItem => item.companyRegisterNo)</span>
                                             </div>
@@ -97,7 +97,7 @@
                                     <!--end::Author-->
                                     <!--begin::Title-->
                                     <td>
-                                        <div class="text-dark mb-1">
+                                        <div class="text-dark m-1 p-1">
                                             <!--begin::Heading-->
 
                                             <span>You have a vendor request approval from:  @Html.DisplayFor(modelItem => item.companyName)</span>
@@ -108,7 +108,7 @@
                                     </td>
                                     <!--end::Title-->
                                     <!--begin::Date-->
-                                    <td class="w-100px text-end fs-7 pe-9">
+                                    <td class="w-100px text-end fs-7 p-6">
                                         <span class="fw-bold">  @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.recordDate)) </span>
                                     </td>
 
@@ -117,12 +117,12 @@
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen029.svg-->
                                         @*<input type="button" value="Proceed" class="btn btn-success  btn-sm w-10 p-3 " />*@
 
-                                        <a class="btn btn-success" href="@Url.Action("Proceed", "Inbox",new { id = item.id, companyID=item.companyID})">
+                                        <a class="btn btn-sm btn-success" href="@Url.Action("Proceed", "Inbox",new { id = item.id, companyID=item.companyID})">
                                             Proceed
                                         </a>
                                         @if (item.isDuplicateEntry)
                                         {
-                                            <a class="btn btn-danger getAllDUp" id="aDuplicate" title="@item.companyID-@item.id">
+                                            <a class="btn btn-sm btn-danger getAllDUp" id="aDuplicate" title="@item.companyID-@item.id">
                                                 Duplicate
                                             </a>
                                         }

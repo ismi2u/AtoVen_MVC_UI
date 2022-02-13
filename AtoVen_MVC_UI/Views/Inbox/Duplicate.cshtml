@@ -24,7 +24,9 @@
             <th><b>CR Number</b></th>
             <th><b>VAT No</b></th>
             <th><b>Email</b></th>
-
+            <th><b>Mobile NUmber</b></th>
+            <th><b>Website</b></th>
+            <th><b>Phone No.</b></th>
         </tr>
     </thead>
     <!--end::Table head-->
@@ -53,6 +55,18 @@
                         @Html.DisplayFor(modelItem => item.Email)
 
                     </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MobileNo)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Website)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNo)
+
+                    </td>
 
                 </tr>
             }
@@ -74,6 +88,9 @@
             <th><b>CR Number</b></th>
             <th><b>VAT No</b></th>
             <th><b>Email</b></th>
+            <th><b>Mobile NUmber</b></th>
+            <th><b>Website</b></th>
+            <th><b>Phone NUmber</b></th>
             <th><b>Action</b></th>
 
         </tr>
@@ -85,29 +102,41 @@
         {
             if (item.Id != int.Parse(ViewData["Id"].ToString()))
             {
-        <tr>
+                <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyName)
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommercialRegistrationNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommercialRegistrationNo)
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VATNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VATNo)
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
 
-            </td>
-            <td>
-                <a class="btn btn-primary" href="@Url.Action("Detail", "Home",new { Id=item.Id})" target='_blank'>View</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MobileNo)
 
-            </td>
-        </tr>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Website)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNo)
+
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="@Url.Action("Detail", "Home",new { Id=item.Id})" target='_blank'>View</a>
+
+                    </td>
+                </tr>
             }
         }
 

@@ -72,35 +72,51 @@ var KTLogin = function() {
                     
                     $.ajax({
                         type: "POST",
+                        beforeSend: function () {
+                            document.getElementById('kt_login_signin_submit').setAttribute("data-kt-indicator", "on");
+                        },
                         async: true,
                         url: "Login/Login",
                         data: postData,
                         dataType: "json",
-                        error: function () {
-                            alert("An error occoured!");
+                        error: function (x, e) {
+                            var msg = "";
+                            if (x.status == 0) {
+                                msg = 'You are offline!!\n Please Check Your Network.';
+                            } else if (x.status == 404) {
+                                msg = 'Requested URL not found.';
+                            } else if (x.status == 500) {
+                                msg = 'Internel Server Error.';
+                            } else if (e == 'parsererror') {
+                                msg = 'Error.\nParsing JSON Request failed.';
+                            } else if (e == 'timeout') {
+                                msg = 'Request Time out.';
+                            } else {
+                                msg = 'Unknow Error.\n' + x.responseText;
+                            }
+
+                            Swal.fire({
+                                text: msg,
+                                icon: "error",
+                                buttonsStyling: false,
+                                confirmButtonText: "Ok, got it!",
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            });
                         },
                         success: function (d) {
                             console.log(d);
                             $('#kt_login_signin_submit').innerHTML = "Sign"
                             if (d.status=="Success") {                                
-                                Swal.fire({
-                                    text: d.message,
-                                    icon: "success",
-                                    buttonsStyling: false,
-                                    customClass: {
-                                        confirmButton: "btn btn-primary"
-                                    }
-                                });
                                 
-                                setTimeout(function () {
-                                    if (d.userRole == "Vendor")
-                                    {
-                                        window.location.href = "/MyRegisteredCompany";
-                                    }
-                                    else {
-                                        window.location.href = "/Inbox";
-                                    }
-                                }, 2000);
+                                
+                                if (d.userRole == "Vendor") {
+                                    window.location.href = "/MyRegisteredCompany";
+                                }
+                                else {
+                                    window.location.href = "/Inbox";
+                                }
                             } else {
                                  Swal.fire({
                                     text: d["message"],
@@ -112,6 +128,9 @@ var KTLogin = function() {
                                 });
 
                             }
+                        },
+                        complete: function () {
+                            document.getElementById('kt_login_signin_submit').removeAttribute("data-kt-indicator");
                         }
                     });
 
@@ -292,8 +311,31 @@ var KTLogin = function() {
                         url: "Login/ForgotPassword",
                         data: postData,
                         dataType: "json",
-                        error: function () {
-                            alert("An error occoured!");
+                        error: function (x, e) {
+                            var msg = "";
+                            if (x.status == 0) {
+                                msg = 'You are offline!!\n Please Check Your Network.';
+                            } else if (x.status == 404) {
+                                msg = 'Requested URL not found.';
+                            } else if (x.status == 500) {
+                                msg = 'Internel Server Error.';
+                            } else if (e == 'parsererror') {
+                                msg = 'Error.\nParsing JSON Request failed.';
+                            } else if (e == 'timeout') {
+                                msg = 'Request Time out.';
+                            } else {
+                                msg = 'Unknow Error.\n' + x.responseText;
+                            }
+
+                            Swal.fire({
+                                text: msg,
+                                icon: "error",
+                                buttonsStyling: false,
+                                confirmButtonText: "Ok, got it!",
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            });
                         },
                         success: function (d) {
                             console.log(d);

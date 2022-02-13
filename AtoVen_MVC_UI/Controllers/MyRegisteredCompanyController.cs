@@ -1,17 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AtoVen_MVC_UI.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using AtoVen_MVC_UI.Models;
-using System.Text;
-using Microsoft.Extensions.Configuration;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Data;
-using Microsoft.AspNetCore.Authorization;
+using System.Globalization;
+using System.IO;
+using System.Net;
+using System.Web;
+using System.Text;
+
 
 namespace AtoVen_MVC_UI.Controllers
 {
@@ -24,16 +27,10 @@ namespace AtoVen_MVC_UI.Controllers
             _config = configuration;
         }
 
-        [HttpGet]
-        public IActionResult Index()
+        
+        public async Task<ActionResult> Index()
         {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<List<propVendor>> GetList()
-        {
-            List<propVendor> _oVendorList = new List<propVendor>();
+            propVendorVM _oVendorList = new propVendorVM();
 
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
             //string endpoint = apiBaseUrl + "/Companies/GetCompanies";
@@ -43,13 +40,17 @@ namespace AtoVen_MVC_UI.Controllers
                 httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
                 using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
                 {
+                   
                     var data = await response.Content.ReadAsStringAsync();
-                    _oVendorList = JsonConvert.DeserializeObject<List<propVendor>>(data);
+                    _oVendorList = JsonConvert.DeserializeObject<propVendorVM>(data);
+
                 }
             }
-
-            return _oVendorList;
+            
+            return View(_oVendorList);
         }
+
+        
 
     }
 }

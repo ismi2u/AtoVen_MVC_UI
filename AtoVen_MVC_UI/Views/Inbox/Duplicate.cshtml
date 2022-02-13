@@ -1,10 +1,22 @@
 ﻿
 @model IEnumerable<AtoVen_MVC_UI.Models.propVendorDTO>
+<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+<link rel="shortcut icon" href="~/images/cropped-favicon-32x32.png" />
+<!--begin::Fonts-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+<!--end::Fonts-->
+<!--begin::Page Vendor Stylesheets(used by this page)-->
+<link href="~/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+<!--end::Page Vendor Stylesheets-->
+<!--begin::Global Stylesheets Bundle(used by all pages)-->
+<link href="~/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+<link href="~/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
 
 <h3>
     Checked Record
 </h3>
-<table class="table" id="role_listing">
+<table class="table  table-bordered" id="role-listing">
     <!--begin::Table head-->
     <thead class="thead-dark">
         <tr>
@@ -49,16 +61,20 @@
     </tbody>
     <!--end::Table body-->
 </table>
+<br />
 <!--begin::Table-->
 <h3>Potential Duplicates Found</h3>
-<table class="table table-row-dashed  " id="role_listing">
+
+<table class="table table-bordered" id="DuplicateTable">
     <!--begin::Table head-->
+
     <thead class="thead-dark">
         <tr>
             <th><b>Company Name</b></th>
             <th><b>CR Number</b></th>
             <th><b>VAT No</b></th>
             <th><b>Email</b></th>
+            <th><b>Action</b></th>
 
         </tr>
     </thead>
@@ -69,26 +85,29 @@
         {
             if (item.Id != int.Parse(ViewData["Id"].ToString()))
             {
-                <tr>
+        <tr>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CompanyName)
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
 
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CommercialRegistrationNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommercialRegistrationNo)
 
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.VATNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VATNo)
 
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
 
-                    </td>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="@Url.Action("Detail", "Home",new { Id=item.Id})" target='_blank'>View</a>
 
-                </tr>
+            </td>
+        </tr>
             }
         }
 
@@ -100,8 +119,30 @@
 
 
 
-
-    <a class="btn btn-secondary">
+<div style="float:right">
+    <a class="btn btn-primary" href="@Url.Action("Proceed", "Inbox",new { id = ViewData["ApprovalId"].ToString(), companyID=ViewData["Id"].ToString()})">
+        Proceed
+    </a>
+    <a class="btn btn-secondary" href="/Inbox">
         Close
     </a>
-
+</div>
+<script>var hostUrl = "~/assets/";</script>
+<!--begin::Global Javascript Bundle(used by all pages)-->
+<script src="~/assets/plugins/global/plugins.bundle.js"></script>
+<script src="~/assets/js/scripts.bundle.js"></script>
+<!--end::Global Javascript Bundle-->
+<!--begin::Page Vendors Javascript(used by this page)-->
+<script src="~/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+<!--end::Page Vendors Javascript-->
+<!--begin::Page Custom Javascript(used by this page)-->
+<script src="~/assets/js/custom/apps/inbox/listing.js"></script>
+<script src="~/assets/js/widgets.bundle.js"></script>
+<script src="~/assets/js/custom/widgets.js"></script>
+<script src="~/assets/js/custom/apps/chat/chat.js"></script>
+<script src="~/assets/js/custom/intro.js"></script>
+<script>
+    $("document").ready(function () {
+        $('#DuplicateTable').DataTable();
+    });
+</script>

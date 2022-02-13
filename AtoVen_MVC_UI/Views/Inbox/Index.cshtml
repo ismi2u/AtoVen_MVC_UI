@@ -17,6 +17,9 @@
         <div class="card">
             <div class="card-header align-items-center py-5 gap-2 gap-md-5">
                 <!--begin::Actions-->
+                <div class="card-title">
+                    <h3 class="m-0 text-gray-800">Inbox</h3>
+                </div>
                 <div class="d-flex flex-wrap gap-1">
                     <!--begin::Checkbox-->
                     <!--end::Checkbox-->
@@ -57,11 +60,7 @@
                 <!--end::Pagination-->
             </div>
             <div class="col-lg-12">
-                <div class="card-header card-header-stretch">
-                    <div class="card-title">
-                        <h3 class="m-0 text-gray-800">Inbox</h3>
-                    </div>
-                </div>
+
                 <div class="card-body p-0">
                     <!--begin::Table-->
                     <table class="table table-row-dashed " id="kt_inbox_listing">
@@ -142,42 +141,36 @@
             </div>
             <!--end::Card-->
         </div>
-            <!--end::row-->
-        </div>
-            <!--end::Content-->
-        </div>
+        <!--end::row-->
+    </div>
+    <!--end::Content-->
+</div>
 <!--end::Inbox App - Messages -->
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
 
-
-<div class="container">
-
-
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
+            <!-- Modal Header -->
+            @*<div class="modal-header">
                     <h4 class="modal-title">Duplicate Vendor(s)</h4>
-                </div>
+                </div>*@
 
-                <!-- Modal body -->
-                <div class="modal-body" id='myModalContent'>
-
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" id="closbtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  
-                </div>
+            <!-- Modal body -->
+            <div class="modal-body" id='myModalContent'>
 
             </div>
+
+            <!-- Modal footer -->
+            @*<div class="modal-footer">
+                    <button type="button" id="closbtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>*@
+
         </div>
     </div>
-
 </div>
+
 
 
 
@@ -212,7 +205,7 @@
 
 
 @section scripts {
- 
+
     <script src="~/assets/js/custom/modals/create-app.js"></script>
     <script src="~/assets/js/custom/modals/upgrade-plan.js"></script>
     <script>
@@ -229,7 +222,7 @@
                 $.ajax({
                     type: "GET",
                     url: ajaxCallURL,
-                    data: "id=" + id 
+                    data: "id=" + id,
                     contentType: "application/json; charset=utf-8",
                     datatype: "json",
                     success: function (data) {
@@ -243,7 +236,7 @@
                     }
                 });
             });
-                       
+
             $("#closbtn").click(function () {
                 debugger;
                 $('#myModal').modal('hide');

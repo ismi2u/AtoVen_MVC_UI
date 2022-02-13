@@ -33,4 +33,6 @@ namespace AtoVen_MVC_UI.Models
         public string Iban { get; set; }
         public string Currency { get; set; }
     }
+
+    
 }

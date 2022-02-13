@@ -31,7 +31,7 @@ namespace AtoVen_MVC_UI.Controllers
             List<Inbox> _oVendorList = new List<Inbox>();
             var email = HttpContext.Session.GetString("Email");
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
-            string endpoint = apiBaseUrl + "/ApprovalFlows/GetApprovalFlowByEmailIdInPending?email="+ email;
+            string endpoint = apiBaseUrl + "/ApprovalFlows/GetApprovalFlowByEmailIdInPending?email=" + email;
             using (var httpclient = new HttpClient())
             {
                 httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
@@ -98,7 +98,7 @@ namespace AtoVen_MVC_UI.Controllers
         }
 
 
-        public ActionResult Proceed(string  id,string companyID)
+        public ActionResult Proceed(string id, string companyID)
         {
             ViewBag.ApprovalFlowId = id;
             TempData["id"] = id;
@@ -113,10 +113,11 @@ namespace AtoVen_MVC_UI.Controllers
         {
             List<propVendorDTO> propVendorDTO = new List<propVendorDTO>();
 
-            ViewData["Id"] = id;
+            ViewData["Id"] = id.Split("-")[0];
+            ViewData["ApprovalId"] = id.Split("-")[0];
 
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
-            string endpoint = apiBaseUrl + "/Companies/GetCompanyDuplicatesByCompId/" + id;
+            string endpoint = apiBaseUrl + "/Companies/GetCompanyDuplicatesByCompId/" + id.Split("-")[0];
 
             using (var httpclient = new HttpClient())
             {
@@ -134,7 +135,7 @@ namespace AtoVen_MVC_UI.Controllers
 
 
         [HttpPost]
-      
+
         public async Task<Jsonresult> Approve(propVendorDTO vendordtls, List<ListOfCompanyContactsDTO> vendorContactdtls, List<ListOfCompanyBanksDTO> vendorBankdtls)
         {
 
@@ -160,11 +161,11 @@ namespace AtoVen_MVC_UI.Controllers
             string endpoint = apiBaseUrl + "/Companies/UpdateCompany/" + vendordtls.Id;
 
             //string endpoint1 = apiBaseUrl + "/ApprovalFlows/PutApprovalFlow/" + TempData["id"].ToString();
-           
+
             using (var httpclient = new HttpClient())
             {
                 httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
-                
+
                 var json = JsonConvert.SerializeObject(VendorDtls);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -187,7 +188,7 @@ namespace AtoVen_MVC_UI.Controllers
                     return jsonresult;
                 }
             }
-            
+
         }
 
         public async Task<Jsonresult> Reject()
@@ -231,10 +232,10 @@ namespace AtoVen_MVC_UI.Controllers
                     jsonresult = JsonConvert.DeserializeObject<Jsonresult>(responseBodyAsText);
                     return jsonresult;
                 }
-               
+
             }
 
-            
+
         }
 
 

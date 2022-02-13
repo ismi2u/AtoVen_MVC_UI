@@ -40,4 +40,7 @@ namespace AtoVen_MVC_UI.Models
         public string Language { get; set; }
         public string Country { get; set; }
     }
+
+
+    
 }

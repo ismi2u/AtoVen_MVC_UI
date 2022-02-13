@@ -52,9 +52,13 @@ var KTLogin = function() {
         $('#kt_login_signin_submit').on('click', function (e) {
             e.preventDefault();
 
-            validation.validate().then(function (status) {
+            validation.validate().then(function (status)
+            {
+                
+
                 $('#kt_login_signin_submit').innerHTML = status === 'Valid' ? 'Log In ...' : 'Log In';
                 if (status == 'Valid') {
+                   document.getElementById('kt_login_signin_submit').setAttribute("data-kt-indicator", "on");
 
                    var UserLogObj = {};
                    UserLogObj.Email = $('#username').val();
@@ -72,9 +76,6 @@ var KTLogin = function() {
                     
                     $.ajax({
                         type: "POST",
-                        beforeSend: function () {
-                            document.getElementById('kt_login_signin_submit').setAttribute("data-kt-indicator", "on");
-                        },
                         async: true,
                         url: "Login/Login",
                         data: postData,
@@ -128,9 +129,6 @@ var KTLogin = function() {
                                 });
 
                             }
-                        },
-                        complete: function () {
-                            document.getElementById('kt_login_signin_submit').removeAttribute("data-kt-indicator");
                         }
                     });
 
@@ -147,7 +145,9 @@ var KTLogin = function() {
 		            }).then(function() {
 						KTUtil.scrollTop();
 					});
-				}
+                }
+
+                document.getElementById('kt_login_signin_submit').removeAttribute("data-kt-indicator");
 		    });
         });
 

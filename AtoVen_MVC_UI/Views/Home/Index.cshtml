@@ -2158,6 +2158,8 @@ License: For each use you must have a valid license purchased only from above li
                 fv.validate().then(function (status) {
                     //registerButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
                     if (status === 'Valid') {
+                        document.getElementById('register').setAttribute("data-kt-indicator", "on");
+
                         registerButton.innerHTML = 'Form is validated. Submitting ...';
                         $('#register').removeClass('btn-danger');
                         $('#register').addClass('btn-primary');
@@ -2258,9 +2260,6 @@ License: For each use you must have a valid license purchased only from above li
                         //console.log(postData);
                         $.ajax({
                             type: "POST",
-                            beforeSend: function () {
-                                document.getElementById('register').setAttribute("data-kt-indicator", "on");
-                            },
                             async: true,
                             url: "Home/Register",
                             data: postData,
@@ -2317,9 +2316,6 @@ License: For each use you must have a valid license purchased only from above li
                                         }
                                     });
                                 }
-                            },
-                            complete: function () {
-                                document.getElementById('register').removeAttribute("data-kt-indicator");
                             }
                         });
                     } else {
@@ -2327,6 +2323,7 @@ License: For each use you must have a valid license purchased only from above li
                         $('#register').removeClass('btn-danger');
                         $('#register').addClass('btn-danger');
                     }
+                    document.getElementById('register').removeAttribute("data-kt-indicator");
                 });
             });
         });

@@ -41,179 +41,182 @@
                                                 <div class="row gx-10 mb-5">
                                                     <!--begin::Col-->
                                                     <div class="col-lg-6">
-                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" class="form-label fs-6 fw-bolder text-black mb-3">Company Information</label>
-                                                        <!--begin::Input group-->
+                                                        <div class="mb-5">
+                                                            <label class="form-label fs-6 fw-bolder text-black mb-3 border-bottom border-dark">Company Information</label>
+                                                            <!--begin::Input group-->
+                                                        </div>
+                                                            <div class="mb-5">
+                                                                <input name="CompanyId" type="hidden" class="form-control border" id="CompanyId" value="@ViewBag.CompanyId" />
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="CompanyName">Company Name</label>
+                                                                <br />
+                                                                <p id="CompanyName"></p>
 
-                                                        <div class="mb-5">
-                                                            <input name="CompanyId" type="hidden" class="form-control border" id="CompanyId" value="@ViewBag.CompanyId" />
-                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="CompanyName" >Company Name</label>
-                                                            <br/>
-                                                            <p id="CompanyName"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="CommRegNo">Commercial Registration No.</label>
+                                                                <br />
+                                                                <p id="CommRegNo"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="Language">Language</label>
+                                                                <br />
+                                                                <p id="Language"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                        </div>
+                                                        <!--end::Col-->
+                                                        <!--begin::Col-->
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3 border-bottom border-dark">Communication</label>
+                                                              </div> <!--begin::Input group-->
 
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-5">
-                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="CommRegNo">Commercial Registration No.</label>
-                                                            <br />
-                                                            <p id="CommRegNo"></p>
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-5">
-                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="Language">Language</label>
-                                                            <br />
-                                                            <p id="Language"></p>
-                                                        </div>
-                                                        <!--end::Input group-->
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div class="mb-5">
+                                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="PhoneNo">Phone Number</label>
+                                                                            <br />
+                                                                            <p id="PhoneNo"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div class="mb-5">
+                                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="FaxNumber">Fax Number</label>
+                                                                            <br />
+                                                                            <p id="FaxNumber"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!--end::Input group-->
+                                                                <!--begin::Input group-->
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div class="mb-5">
+                                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="EmailAddress">E-Mail Address</label>
+                                                                            <br /><p id="EmailAddress"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div class="mb-5">
+                                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="MobileNo">Mobile Number</label>
+                                                                            <br /> <p id="MobileNo"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--end::Input group-->
+                                                                <!--begin::Input group-->
+                                                                <div class="mb-5">
+                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="Website">Website</label>
+                                                                    <br /> <p id="Website"></p>
+                                                                </div>
+                                                                <!--end::Input group-->
+
+                                                            </div>
+                                                        <!--end::Col-->
                                                     </div>
-                                                    <!--end::Col-->
-                                                    <!--begin::Col-->
-                                                    <div class="col-lg-6">
-                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" class="form-label fs-6 fw-bolder text-black mb-3">Communication</label>
-                                                        <!--begin::Input group-->
-
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <div class="mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="PhoneNo">Phone Number</label>
-                                                                    <br />
-                                                                    <p id="PhoneNo"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="FaxNumber">Fax Number</label>
-                                                                    <br />
-                                                                    <p id="FaxNumber"></p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <div class="mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="EmailAddress" >E-Mail Address</label>
-                                                                    <br /><p id="EmailAddress"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="MobileNo" >Mobile Number</label>
-                                                                    <br /> <p id="MobileNo"></p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-5">
-                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="Website" >Website</label>
-                                                            <br /> <p id="Website"></p>
-                                                        </div>
-                                                        <!--end::Input group-->
-
-                                                    </div>
-                                                    <!--end::Col-->
-                                                </div>
                                                 <!--end::Row-->
                                                 <!--begin::Row-->
                                                 <div class="row gx-10 mb-5">
-                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" class="form-label fs-6 fw-bolder text-black  mb-3">Address</label>
-                                                    <!--begin::Col-->
-                                                    <div class="col-lg-6">
+                                                    <div class="mb-5">
+                                                        <label class="form-label fs-6 fw-bolder text-black mb-3 border-bottom border-dark">Address</label>
+                                                     </div>   <!--begin::Col-->
+                                                        <div class="col-lg-6">
 
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-5">
-                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="CountryId" >Country</label>
-                                                            <br /><p id="CountryId"></p>
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-5">
-                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="RegionId" >Region</label>
-                                                            <br /><p id="RegionId"></p>
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-5">
-                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="District" >District</label>
-                                                            <br /><p id="District"></p>
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <div class="mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="Postalcode" >Postal Code</label>
-                                                                    <br /> <p id="Postalcode"></p>
-                                                                </div>
-
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="CountryId">Country</label>
+                                                                <br /><p id="CountryId"></p>
                                                             </div>
-                                                            <div class="col-8">
-                                                                <div class="mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="City" >City</label>
-                                                                    <br /> <p id="City"></p>
-                                                                </div>
-
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="RegionId">Region</label>
+                                                                <br /><p id="RegionId"></p>
                                                             </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="District">District</label>
+                                                                <br /><p id="District"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <div class="mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Postalcode">Postal Code</label>
+                                                                        <br /> <p id="Postalcode"></p>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-8">
+                                                                    <div class="mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="City">City</label>
+                                                                        <br /> <p id="City"></p>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Input group-->
                                                         </div>
-                                                        <!--end::Input group-->
+                                                        <!--end::Col-->
+                                                        <!--begin::Col-->
+                                                        <div class="col-lg-6">
+                                                            <!--begin::Input group-->
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    <div class="mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Street">Street</label>
+                                                                        <br /><p id="Street"></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="HouseNo">House No.</label>
+                                                                        <br /><p id="HouseNo"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <div class=" mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Building">Building</label>
+                                                                        <br /><p id="Building"></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class=" mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Floor">Floor</label>
+                                                                        <br /><p id="Floor"></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class=" mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Room">Room</label>
+                                                                        <br /><p id="Room"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                             
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="PoBox">Po Box Address</label>
+                                                                <br /> <p id="PoBox"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                        </div>
+                                                        <!--end::Col-->
+                                                        <!--end::Row-->
                                                     </div>
-                                                    <!--end::Col-->
-                                                    <!--begin::Col-->
-                                                    <div class="col-lg-6">
-                                                        <!--begin::Input group-->
-                                                        <div class="row">
-                                                            <div class="col-8">
-                                                                <div class="mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="Street">Street</label>
-                                                                    <br /><p id="Street"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <div class="mb-5">
-                                                                   <label class="form-label fs-6 fw-bolder text-black mb-3" for="HouseNo">House No.</label>
-                                                                   <br /><p id="HouseNo"></p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <!--begin::Input group-->
-                                                        <div class="row">
-                                                            <div class="col-4">
-                                                                <div class=" mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="Building">Building</label>
-                                                                    <br /><p id="Building"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <div class=" mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="Floor">Floor</label>
-                                                                    <br /><p id="Floor"></p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <div class=" mb-5">
-                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="Room">Room</label>
-                                                                    <br /><p id="Room"></p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" class="form-label fs-6 fw-bolder text-black mb-3">PO Box Address</label>
-                                                        <!--begin::Input group-->
-                                                        <div class="mb-5">
-                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="PoBox" >Po Box</label>
-                                                            <br /> <p id="PoBox"></p>
-                                                        </div>
-                                                        <!--end::Input group-->
-                                                    </div>
-                                                    <!--end::Col-->
-                                                    <!--end::Row-->
                                                 </div>
-                                            </div>
 
                                         </div>
                                         <!--end::Card body-->
@@ -269,7 +272,7 @@
                                             <div class="mb-0">
                                                 <!--begin::Row-->
                                                 <div class="row gx-10 mb-5">
-                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" class="required form-label fs-6 fw-bolder text-black mb-3">Vendor Type</label>
+                                                    <label class="form-label fs-6 fw-bolder text-black mb-3">Vendor Type</label>
                                                     <div class="row gx-10 mb-5">
                                                         <div class="col-lg-2">
                                                             <br /> <p id="VendorType"></p>
@@ -618,7 +621,7 @@
                         $('#EmailAddress').text(d.email);
                         $('#MobileNo').text(d.mobileNo);
                         $('#Website').text(d.website);
-                        $('#vendorType').text(d.vendorType);
+                        $('#VendorType').text(d.vendorType);
                         $('#AccountGroup').text(d.accountGroup);
                         $('#Notes').text(d.notes);
                         $('#VATNo').text(d.vatNo);

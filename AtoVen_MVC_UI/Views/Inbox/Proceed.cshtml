@@ -1923,9 +1923,12 @@
                 fv.validate().then(function (status) {
                     //approveButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
                     if (status === 'Valid') {
+
                         approveButton.innerHTML = 'Form is validated. Submitting ...';
-                        $('#register').removeClass('btn-danger');
-                        $('#register').addClass('btn-primary');
+                        $('#approve').removeClass('btn-danger');
+                        $('#approve').addClass('btn-primary');
+                        document.getElementById('approve').setAttribute("data-kt-indicator", "on");
+
                         var VenObj = {};
                         VenObj.Id = $('#CompanyId').val();
                         VenObj.CompanyName = $('#CompanyName').val();
@@ -2101,6 +2104,7 @@
                         $('#register').removeClass('btn-danger');
                         $('#register').addClass('btn-danger');
                     }
+                    document.getElementById('approve').removeAttribute("data-kt-indicator");
                 });
             });
         });

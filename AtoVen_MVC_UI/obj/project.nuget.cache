@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Eqkce3WbaV3p7Vc4ViVkxePjNp2RtAw+aVsuZzXPPijoKwUi1ANswcE7bTUHJsQ/o2q2LJlJHSpxCGYZ7BjNgw==",
+  "dgSpecHash": "ehNDcyuJhmiRh1Gbk+pCXP453bJGhi70LHtpgJ7BqnRm2t/dTWimFpwGG0o25oXlXzaJ35teDVCaHH+441SXdg==",
   "success": true,
   "projectFilePath": "C:\\Users\\habee\\source\\repos\\AtoVen_MVC_UI\\AtoVen_MVC_UI\\AtoVen_MVC_UI.csproj",
   "expectedPackageFiles": [
@@ -112,7 +112,8 @@
     "C:\\Users\\habee\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\habee\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\habee\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\habee\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\habee\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\habee\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
   ],
   "logs": []
 }

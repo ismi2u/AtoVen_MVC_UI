@@ -15,6 +15,14 @@
             <div class="card-header align-items-center py-5 gap-2 gap-md-5">
                 <!--begin::Actions-->
                 <div class="d-flex flex-wrap gap-1">
+                    <h3>Role</h3>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                <!--begin::Actions-->
+                <div class="d-flex flex-wrap gap-1">
                     <a href="/Role/Create" class="btn btn-primary">Create</a>
                 </div>
                 <!--end::Actions-->
@@ -58,27 +66,25 @@
     </div>
     <!--end::Content-->
 </div>
-<!--end::Inbox App - Messages -->
-<script>var hostUrl = "~/assets/";</script>
-<!--begin::Javascript-->
-<!--begin::Global Javascript Bundle(used by all pages)-->
-<script src="~/assets/plugins/global/plugins.bundle.js"></script>
-<script src="~/assets/js/scripts.bundle.js"></script>
-<script>
-    $(document).ready(function () {
-        var urlRequest = "/Role/GetList"
-        $.post(urlRequest, function (data) { // do ajax getrequest    
-            var rows = '';
-            $.each(data, function (index, item) { //build tbody content using each function    
-                rows += "<tr>";
-                rows += "<td>" + item.name + "</td>";
-                rows += "<td><a class='btn btn-sm btn-primary' href='/Role/Edit/" + item.id + "'>Edit</a></td>";
-                rows += "</tr>";
-            });
-            $('.InfoTBody').html(rows); 
-        }).done(function () {
-            $('#role_listing').DataTable(); 
-        })
-    });
 
-</script>
+@section scripts {
+    
+    <script>
+        $(document).ready(function () {
+            var urlRequest = "/Role/GetList"
+            $.post(urlRequest, function (data) { // do ajax getrequest
+                var rows = '';
+                $.each(data, function (index, item) { //build tbody content using each function
+                    rows += "<tr>";
+                    rows += "<td>" + item.name + "</td>";
+                    rows += "<td><a class='btn btn-sm btn-primary' href='/Role/Edit/" + item.id + "'>Edit</a></td>";
+                    rows += "</tr>";
+                });
+                $('.InfoTBody').html(rows);
+            }).done(function () {
+                $('#role_listing').DataTable();
+            })
+        });
+
+    </script>
+}

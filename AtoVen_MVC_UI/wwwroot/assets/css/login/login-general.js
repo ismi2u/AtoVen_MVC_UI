@@ -91,8 +91,15 @@ var KTLogin = function() {
                                         confirmButton: "btn btn-primary"
                                     }
                                 });
+                                
                                 setTimeout(function () {
-                                    window.location.href = "/Inbox";
+                                    if (d.userRole == "Vendor")
+                                    {
+                                        window.location.href = "/MyRegisteredCompany";
+                                    }
+                                    else {
+                                        window.location.href = "/Inbox";
+                                    }
                                 }, 2000);
                             } else {
                                  Swal.fire({
@@ -111,7 +118,7 @@ var KTLogin = function() {
                  
 				} else {
 					swal.fire({
-		                text: "Sorry, looks like there are some errors detected, please try again.",
+		                text: "Kindly enter your username and password",
 		                icon: "error",
 		                buttonsStyling: false,
 		                confirmButtonText: "Ok, got it!",

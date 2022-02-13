@@ -6,7 +6,7 @@
 
 
 <!--begin::Layout-->
-<div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
+<div class="flex-lg-row-fluid">
 
     <form id="frm" method="post">
         <!--begin::Content-->
@@ -15,28 +15,30 @@
             <!-- Company Information Start -->
             <!--begin::Card-->
             <div class="card">
-                <!--begin::Card body-->
                 <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-                    <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-                        <div class="mb-0">
-                            <!--begin::Row-->
-                            <div class="row gx-10 mb-5">
-                                <!--begin::Col-->
-                                <div class="col-lg-12">
-                                    <label class="form-label fs-6 fw-bolder text-black mb-3">Create Role</label>
-                                </div>
-                                <div class="col-lg-6">
+                    <!--begin::Actions-->
+                    <div class="d-flex flex-wrap gap-1">
+                        <h3>Create Role</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-docs mb-2">
+                <!--begin::Card body-->
+                <div class="card-body">
+                    <div class="py-5">
+                        <div class="row">
+                            <div class="mb-5">
+                                <div class="col-lg-4">
                                     <div class="fv-row form-floating mb-5">
                                         <input required name="RoleName" type="text" class="form-control border" placeholder="Role Name" id="RoleName" autocomplete="off" />
                                         <label for="RoleName" class="required">Role Name</label>
                                     </div>
                                 </div>
-
                             </div>
-                            <div class="row gx-10 mb-5">
+                            <div class="mb-5">
                                 <div class="col-lg-12">
                                     <button type="button" class="btn btn-sm btn-primary" id="create">Create</button>
-                                    <a href="/Role" class="btn btn-sm btn-default">Back</a>
+                                    <a href="/Role" class="btn btn-sm btn-secondary">Back</a>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +47,6 @@
                 <!--end::Card body-->
             </div>
             <!--end::Card-->
-
-
         </div>
         <!--end::Content-->
     </form>
@@ -68,76 +68,75 @@
 </div>
 <!--end::Scrolltop-->
 <!--end::Main-->
-<script>var hostUrl = "~/assets/";</script>
-<!--begin::Javascript-->
-<!--begin::Global Javascript Bundle(used by all pages)-->
-<script src="~/assets/plugins/global/plugins.bundle.js"></script>
-<script src="~/assets/js/scripts.bundle.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function (e) {
-        const CreateButton = document.getElementById('create');
-        const frmForm = document.getElementById('frm');
-        const fv = FormValidation.formValidation(frmForm, {
-            fields: {
-                'RoleName': {
-                    validators: {
-                        notEmpty: {
-                            message: 'Role Name is required'
+
+@section scripts {
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function (e) {
+            const CreateButton = document.getElementById('create');
+            const frmForm = document.getElementById('frm');
+            const fv = FormValidation.formValidation(frmForm, {
+                fields: {
+                    'RoleName': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Role Name is required'
+                            }
                         }
                     }
-                }
-            },
-            plugins: {
-                trigger: new FormValidation.plugins.Trigger(),
-                bootstrap: new FormValidation.plugins.Bootstrap5({
-                    rowSelector: '.fv-row',
-                    eleInvalidClass: '',
-                    eleValidClass: ''
-                })
-            },
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    bootstrap: new FormValidation.plugins.Bootstrap5({
+                        rowSelector: '.fv-row',
+                        eleInvalidClass: '',
+                        eleValidClass: ''
+                    })
+                },
 
-        }).on('core.form.validating', function () {
-            CreateButton.innerHTML = 'Validating ...';
+            }).on('core.form.validating', function () {
+                CreateButton.innerHTML = 'Validating ...';
 
-        });
+            });
 
-        CreateButton.addEventListener('click', function () {
-            fv.validate().then(function (status) {
-                CreateButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
-                if (status === 'Valid') {
-                    var RoleObj = {};
-                    RoleObj.RoleName = $('#RoleName').val();
-                    var postData = {
-                        roledtls: RoleObj
-                    }
-                    $.ajax({
-                        type: "POST",
-                        async: true,
-                        url: "/Role/Create",
-                        data: postData,
-
-                        error: function () {
-                            alert("An error occoured!");
-                        },
-                        success: function (d) {
-                            console.log(d);
-                            CreateButton.innerHTML = "Create"
-                            Swal.fire({
-                                text: "Role is created successfully!",
-                                icon: "success",
-                                buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn btn-primary"
-                                }
-                            });
+            CreateButton.addEventListener('click', function () {
+                fv.validate().then(function (status) {
+                    CreateButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
+                    if (status === 'Valid') {
+                        var RoleObj = {};
+                        RoleObj.RoleName = $('#RoleName').val();
+                        var postData = {
+                            roledtls: RoleObj
                         }
-                    });
-                }
+                        $.ajax({
+                            type: "POST",
+                            async: true,
+                            url: "/Role/Create",
+                            data: postData,
+
+                            error: function () {
+                                alert("An error occoured!");
+                            },
+                            success: function (d) {
+                                console.log(d);
+                                CreateButton.innerHTML = "Create"
+                                Swal.fire({
+                                    text: "Role is created successfully!",
+                                    icon: "success",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
+}
 
 
 

@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 using Newtonsoft.Json;
 
-
 namespace AtoVen_MVC_UI.Controllers
 {
     public class LoginController : Controller
@@ -24,6 +23,10 @@ namespace AtoVen_MVC_UI.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Session.Remove("Token");
+            HttpContext.Session.Remove("Email");
+            HttpContext.Session.Remove("Role");
+            HttpContext.Session.Clear(); 
             return View();
         }
 
@@ -52,14 +55,16 @@ namespace AtoVen_MVC_UI.Controllers
                 {
                     
                     Logged = JsonConvert.DeserializeObject<Login>(responseBodyAsText);
+                    var strRole = Logged.Role[0];
                     HttpContext.Session.SetString("Token", Logged.Token);
-                    HttpContext.Session.SetString("Role", Logged.Role[0]);
+                    HttpContext.Session.SetString("Role", strRole);
                     HttpContext.Session.SetString("Email", Logged.Email);
 
                     jsonresult = JsonConvert.DeserializeObject<Jsonresult>(responseBodyAsText);
 
                     jsonresult.Status = "Success";
                     jsonresult.Message = "Successfully Logged In";
+                    jsonresult.UserRole = strRole;
                     return jsonresult;
                 }
                 else

@@ -61,28 +61,26 @@
     <!--end::Content-->
 </div>
 <!--end::Inbox App - Messages -->
-<script>var hostUrl = "~/assets/";</script>
-<!--begin::Javascript-->
-<!--begin::Global Javascript Bundle(used by all pages)-->
-<script src="~/assets/plugins/global/plugins.bundle.js"></script>
-<script src="~/assets/js/scripts.bundle.js"></script>
-<script>
-    $(document).ready(function () {
-        var urlRequest = "/User/GetList"
-        $.post(urlRequest, function (data) { // do ajax getrequest
-            var rows = '';
-            $.each(data, function (index, item) { //build tbody content using each function
-                rows += "<tr>";
-                rows += "<td>" + item.userName + "</td>";
-                rows += "<td>" + item.email + "</td>";
-                rows += "<td>" + item.approverLevel + "</td>";
-                rows += "<td><a class='btn btn-sm btn-primary' href='/User/Edit/" + item.id + "'>Edit</a></td>";
-                rows += "</tr>";
-            });
-            $('.InfoTBody').html(rows);
-        }).done(function () {
-            $('#role_listing').DataTable();
-        })
-    });
+@section scripts {
+     
+    <script>
+        $(document).ready(function () {
+            var urlRequest = "/User/GetList"
+            $.post(urlRequest, function (data) { // do ajax getrequest
+                var rows = '';
+                $.each(data, function (index, item) { //build tbody content using each function
+                    rows += "<tr>";
+                    rows += "<td>" + item.userName + "</td>";
+                    rows += "<td>" + item.email + "</td>";
+                    rows += "<td>" + item.approverLevel + "</td>";
+                    rows += "<td><a class='btn btn-sm btn-primary' href='/User/Edit/" + item.id + "'>Edit</a></td>";
+                    rows += "</tr>";
+                });
+                $('.InfoTBody').html(rows);
+            }).done(function () {
+                $('#role_listing').DataTable();
+            })
+        });
 
-</script>
+    </script>
+    }

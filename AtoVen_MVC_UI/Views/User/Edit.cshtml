@@ -98,123 +98,121 @@
 </div>
 <!--end::Scrolltop-->
 <!--end::Main-->
-<script>var hostUrl = "~/assets/";</script>
-<!--begin::Javascript-->
-<!--begin::Global Javascript Bundle(used by all pages)-->
-<script src="~/assets/plugins/global/plugins.bundle.js"></script>
-<script src="~/assets/js/scripts.bundle.js"></script>
-<script>
-    $(function () {
-        var ddlRole = $("#Role");
-        ddlRole.empty().append('<option selected="selected" value="0" disabled = "disabled">Loading.....</option>');
-        $.ajax({
-            type: "POST",
-            async: true,
-            url: "/User/getUserRole",
-            data: '{}',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (response) {
-                console.log(response)
-                ddlRole.empty().append('<option selected="selected" value="">--select--</option>');
-                $.each(response, function (i) {
-                    ddlRole.append($('<option>',
-                    {
-                        value: response[i].id,
-                        text: response[i].name
+
+@section scripts {
+     
+    <script>
+        $(function () {
+            var ddlRole = $("#Role");
+            ddlRole.empty().append('<option selected="selected" value="0" disabled = "disabled">Loading.....</option>');
+            $.ajax({
+                type: "POST",
+                async: true,
+                url: "/User/getUserRole",
+                data: '{}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    console.log(response)
+                    ddlRole.empty().append('<option selected="selected" value="">--select--</option>');
+                    $.each(response, function (i) {
+                        ddlRole.append($('<option>',
+                            {
+                                value: response[i].id,
+                                text: response[i].name
+                            },
+                            '</option>'));
+                    });
+
+                    GetDetails();
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+
+        function GetDetails() {
+            $.ajax({
+                type: "POST",
+                async: true,
+                url: "/User/Get",
+                data: { Id: $("#UserId").val() },
+                dataType: "json",
+                error: function () {
+                    alert("An error occoured!");
+                },
+                success: function (d) {
+
+                    console.log(d);
+
+                    $("#UserName").val(d.user.userName);
+                    $("#Email").val(d.user.email);
+                    $('#ApproverLevel').val(d.user.approverLevel).trigger('change');
+                    $('#Role').val(d.roleids[0]).trigger('change');;
+
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function (e) {
+            const CreateButton = document.getElementById('update');
+            const frmForm = document.getElementById('frm');
+            const fv = FormValidation.formValidation(frmForm, {
+                fields: {
+                    'UserName': {
+                        validators: {
+                            notEmpty: {
+                                message: 'User Name is required'
+                            },
+                            emailAddress: {
+                                message: 'The value is not a valid email address'
+                            }
+                        }
                     },
-                    '</option>'));
-                });
-
-                GetDetails();
-            },
-            failure: function (response) {
-                alert(response.responseText);
-            },
-            error: function (response) {
-                alert(response.responseText);
-            }
-        });
-    });
-
-    function GetDetails() {
-        $.ajax({
-            type: "POST",
-            async: true,
-            url: "/User/Get",
-            data: { Id: $("#UserId").val() },
-            dataType: "json",
-            error: function () {
-                alert("An error occoured!");
-            },
-            success: function (d) {
-                
-                console.log(d);
-
-                $("#UserName").val(d.user.userName);
-                $("#Email").val(d.user.email);
-                $('#ApproverLevel').val(d.user.approverLevel).trigger('change');
-                $('#Role').val(d.roleids[0]).trigger('change');;
-
-            }
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', function (e) {
-        const CreateButton = document.getElementById('update');
-        const frmForm = document.getElementById('frm');
-        const fv = FormValidation.formValidation(frmForm, {
-            fields: {
-                'UserName': {
-                    validators: {
-                        notEmpty: {
-                            message: 'User Name is required'
-                        },
-                        emailAddress: {
-                            message: 'The value is not a valid email address'
+                    'Password': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Password is required'
+                            }
                         }
-                    }
-                },
-                'Password': {
-                    validators: {
-                        notEmpty: {
-                            message: 'Password is required'
+                    },
+                    'Email': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Email is required'
+                            },
+                            emailAddress: {
+                                message: 'The value is not a valid email address'
+                            }
                         }
-                    }
-                },
-                'Email': {
-                    validators: {
-                        notEmpty: {
-                            message: 'Email is required'
-                        },
-                        emailAddress: {
-                            message: 'The value is not a valid email address'
+                    },
+                    'ApproverLevel': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Approver Level is required'
+                            }
                         }
-                    }
-                },
-                'ApproverLevel': {
-                    validators: {
-                        notEmpty: {
-                            message: 'Approver Level is required'
+                    },
+                    'Role': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Role is required'
+                            }
                         }
-                    }
+                    },
                 },
-                'Role': {
-                    validators: {
-                        notEmpty: {
-                            message: 'Role is required'
-                        }
-                    }
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    bootstrap: new FormValidation.plugins.Bootstrap5({
+                        rowSelector: '.fv-row',
+                        eleInvalidClass: '',
+                        eleValidClass: ''
+                    })
                 },
-            },
-            plugins: {
-                trigger: new FormValidation.plugins.Trigger(),
-                bootstrap: new FormValidation.plugins.Bootstrap5({
-                    rowSelector: '.fv-row',
-                    eleInvalidClass: '',
-                    eleValidClass: ''
-                })
-            },
 
             }).on('core.form.validating', function () {
                 CreateButton.innerHTML = 'Validating ...';
@@ -261,7 +259,9 @@
                     }
                 });
             });
-    });
+        });
 
-   
-</script>
+
+    </script>
+
+}

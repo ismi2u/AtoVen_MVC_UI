@@ -1,6 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Users List";
-    Layout = "_AdminLayout";
+    ViewBag.Title = "My Registraion";
+    Layout = "_VendorLayout";
 
 }
 
@@ -63,30 +63,32 @@
     <!--end::Content-->
 </div>
 <!--end::Inbox App - Messages -->
-@section scripts {
-    
-    <script>
-        $(document).ready(function () {
-            var urlRequest = "/Home/GetList"
-            $.post(urlRequest, function (data) { // do ajax getrequest
-                console.log(data);
-                var rows = '';
-                $.each(data, function (index, item) { //build tbody content using each function
+<script>var hostUrl = "~/assets/";</script>
+<!--begin::Javascript-->
+<!--begin::Global Javascript Bundle(used by all pages)-->
+<script src="~/assets/plugins/global/plugins.bundle.js"></script>
+<script src="~/assets/js/scripts.bundle.js"></script>
+<script>
+    $(document).ready(function () {
+        var urlRequest = "/MyRegisteredCompany/GetList"
+        $.post(urlRequest, function (data) { // do ajax getrequest
+            console.log(data);
+            var rows = '';
+            $.each(data, function (index, item) { //build tbody content using each function
 
-                    rows += "<tr>";
-                    rows += "<td>" + item.id + "</td>";
-                    rows += "<td>" + item.companyName + "</td>";
-                    rows += "<td>" + item.commercialRegistrationNo + "</td>";
-                    rows += "<td>" + item.vatNo + "</td>";
-                    rows += "<td>" + item.email + "</td>";
-                    rows += "<td><a class='btn btn-sm btn-primary' href='/Home/Edit/" + item.id + "'>Edit</a>&nbsp;<a class='btn btn-sm btn-primary' href='/Home/Detail/" + item.id + "'>View</a>&nbsp;</td>";
-                    rows += "</tr>";
-                });
-                $('.InfoTBody').html(rows);
-            }).done(function () {
-                $('#role_listing').DataTable();
-            })
-        });
+                rows += "<tr>";
+                rows += "<td>" + item.id + "</td>";
+                rows += "<td>" + item.companyName + "</td>";
+                rows += "<td>" + item.commercialRegistrationNo + "</td>";
+                rows += "<td>" + item.vatNo + "</td>";
+                rows += "<td>" + item.email  + "</td>";
+                rows += "<td><a class='btn btn-sm btn-primary' href='/Home/Edit/" + item.id + "'>View</a></td>";
+                rows += "</tr>";
+            });
+            $('.InfoTBody').html(rows);
+        }).done(function () {
+            $('#role_listing').DataTable();
+        })
+    });
 
-    </script>
-    }
+</script>

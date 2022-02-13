@@ -11,10 +11,11 @@ using Microsoft.Extensions.Configuration;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AtoVen_MVC_UI.Controllers
 {
-   
+    
     public class HomeController : Controller
     {
 
@@ -158,6 +159,13 @@ namespace AtoVen_MVC_UI.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Detail(string Id)
+        {
+            ViewBag.CompanyId = Id;
+            return View();
+        }
+
         [HttpPost]
         public async Task<propVendor> Get(propVendor _vendordtls)
         {
@@ -217,6 +225,7 @@ namespace AtoVen_MVC_UI.Controllers
                 }
             }
         }
+
 
         public IActionResult Privacy()
         {

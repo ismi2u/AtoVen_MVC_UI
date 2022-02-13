@@ -550,3 +550,6 @@ F:\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Inbox\Duplicate.csht
 C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Inbox\Duplicate.cshtml.g.cs
 C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Inbox\Proceed.cshtml.g.cs
 C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Login\Logout.cshtml.g.cs
+C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Shared\_VendorLayout.cshtml.g.cs
+C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\MyRegisteredCompany\Index.cshtml.g.cs
+C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\Razor\Views\Home\Detail.cshtml.g.cs

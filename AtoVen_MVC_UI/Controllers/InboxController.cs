@@ -239,7 +239,34 @@ namespace AtoVen_MVC_UI.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult Detail(string Id)
+        {
+            ViewBag.CompanyId = Id;
+            return View();
+        }
 
+        [HttpPost]
+        public async Task<propVendor> Get(propVendor _vendordtls)
+        {
+
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+            string endpoint = apiBaseUrl + "/Companies/GetCompanyById/" + _vendordtls.Id;
+            propVendor VendorDtls = new propVendor();
+
+            using (var httpclient = new HttpClient())
+            {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
+                using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
+                {
+                    var data = await response.Content.ReadAsStringAsync();
+                    VendorDtls = JsonConvert.DeserializeObject<propVendor>(data);
+                }
+            }
+
+            return VendorDtls;
+
+        }
 
         // GET: InboxController/Delete/5
         public ActionResult Delete(int id)

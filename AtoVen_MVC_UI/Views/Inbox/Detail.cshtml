@@ -1,0 +1,737 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "_AdminLayout";
+
+}
+
+<!--begin::Root-->
+<div class="d-flex flex-column flex-root">
+
+    <!--begin::Page-->
+    <div class="wrapper page d-flex flex-row flex-column-fluid">
+        <!--begin::Aside-->
+        <!--end::Aside-->
+        <!--begin::Wrapper-->
+        <div class="d-flex flex-column flex-row-fluid" id="kt_wrapper">
+
+
+            <!--begin::Content-->
+            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <!--begin::Toolbar-->
+                <!--end::Toolbar-->
+                <!--begin::Post-->
+                <div class="post d-flex flex-column-fluid" id="kt_post">
+                    <!--begin::Container-->
+                    <div id="kt_content_container" class="container-xxl mt-2 mb-2">
+                        <!--begin::Layout-->
+                        <div class="d-flex flex-column flex-lg-row">
+                            <form id="frm" method="post">
+                                <!--begin::Content-->
+                                <div class="flex-lg-row-fluid mb-10 mb-lg-0 me-lg-7 me-xl-10">
+
+                                    <!-- Company Information Start -->
+                                    <!--begin::Card-->
+                                    <div class="card mb-5" style="width: 100% !important;">
+                                        <!--begin::Card body-->
+                                        <div class="card-body p-6">
+                                            <!--begin::Form-->
+
+                                            <div class="mb-0">
+                                                <!--begin::Row-->
+                                                <div class="row gx-10 mb-5">
+                                                    <!--begin::Col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-5">
+                                                            <label class="form-label fs-6 fw-bolder text-black mb-3 border-bottom border-dark">Company Information</label>
+                                                            <!--begin::Input group-->
+                                                        </div>
+                                                            <div class="mb-5">
+                                                                <input name="CompanyId" type="hidden" class="form-control border" id="CompanyId" value="@ViewBag.CompanyId" />
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="CompanyName">Company Name</label>
+                                                                <br />
+                                                                <p id="CompanyName"></p>
+
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="CommRegNo">Commercial Registration No.</label>
+                                                                <br />
+                                                                <p id="CommRegNo"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="Language">Language</label>
+                                                                <br />
+                                                                <p id="Language"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                        </div>
+                                                        <!--end::Col-->
+                                                        <!--begin::Col-->
+                                                        <div class="col-lg-6">
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3 border-bottom border-dark">Communication</label>
+                                                              </div> <!--begin::Input group-->
+
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div class="mb-5">
+                                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="PhoneNo">Phone Number</label>
+                                                                            <br />
+                                                                            <p id="PhoneNo"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div class="mb-5">
+                                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="FaxNumber">Fax Number</label>
+                                                                            <br />
+                                                                            <p id="FaxNumber"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!--end::Input group-->
+                                                                <!--begin::Input group-->
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <div class="mb-5">
+                                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="EmailAddress">E-Mail Address</label>
+                                                                            <br /><p id="EmailAddress"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <div class="mb-5">
+                                                                            <label class="form-label fs-6 fw-bolder text-black mb-3" for="MobileNo">Mobile Number</label>
+                                                                            <br /> <p id="MobileNo"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--end::Input group-->
+                                                                <!--begin::Input group-->
+                                                                <div class="mb-5">
+                                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" for="Website">Website</label>
+                                                                    <br /> <p id="Website"></p>
+                                                                </div>
+                                                                <!--end::Input group-->
+
+                                                            </div>
+                                                        <!--end::Col-->
+                                                    </div>
+                                                <!--end::Row-->
+                                                <!--begin::Row-->
+                                                <div class="row gx-10 mb-5">
+                                                    <div class="mb-5">
+                                                        <label class="form-label fs-6 fw-bolder text-black mb-3 border-bottom border-dark">Address</label>
+                                                     </div>   <!--begin::Col-->
+                                                        <div class="col-lg-6">
+
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="CountryId">Country</label>
+                                                                <br /><p id="CountryId"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="RegionId">Region</label>
+                                                                <br /><p id="RegionId"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="District">District</label>
+                                                                <br /><p id="District"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <div class="mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Postalcode">Postal Code</label>
+                                                                        <br /> <p id="Postalcode"></p>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-8">
+                                                                    <div class="mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="City">City</label>
+                                                                        <br /> <p id="City"></p>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                        </div>
+                                                        <!--end::Col-->
+                                                        <!--begin::Col-->
+                                                        <div class="col-lg-6">
+                                                            <!--begin::Input group-->
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    <div class="mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Street">Street</label>
+                                                                        <br /><p id="Street"></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="HouseNo">House No.</label>
+                                                                        <br /><p id="HouseNo"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                            <!--begin::Input group-->
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <div class=" mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Building">Building</label>
+                                                                        <br /><p id="Building"></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class=" mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Floor">Floor</label>
+                                                                        <br /><p id="Floor"></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class=" mb-5">
+                                                                        <label class="form-label fs-6 fw-bolder text-black mb-3" for="Room">Room</label>
+                                                                        <br /><p id="Room"></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                             
+                                                            <!--begin::Input group-->
+                                                            <div class="mb-5">
+                                                                <label class="form-label fs-6 fw-bolder text-black mb-3" for="PoBox">Po Box Address</label>
+                                                                <br /> <p id="PoBox"></p>
+                                                            </div>
+                                                            <!--end::Input group-->
+                                                        </div>
+                                                        <!--end::Col-->
+                                                        <!--end::Row-->
+                                                    </div>
+                                                </div>
+
+                                        </div>
+                                        <!--end::Card body-->
+                                    </div>
+                                    <!--end::Card-->
+                                    <!-- Company Information End -->
+                                    <!-- Contact Information Start -->
+                                    <!--begin::Card-->
+                                    <div class="card mb-5" style="width: 100% !important;">
+                                        <!--begin::Card body-->
+                                        <div class="card-body p-6">
+
+
+                                            <div class="mb-0">
+                                                <!--begin::Row-->
+                                                <div class="row gx-10 mb-5">
+                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" class="form-label fs-6 fw-bolder text-black mb-3">Contact Person </label>
+                                                    <!--begin::col-12 -->
+                                                    <div class="col-lg-12">
+                                                        <!--begin::Table-->
+                                                        <table class="table g-5 gs-0 mb-0" data-kt-element="items">
+                                                            <tbody id="contact-person-body">
+                                                                
+                                                            </tbody>
+                                                            <tfoot>
+                                                                <tr class="border-top border-top-dashed align-top fs-6 fw-bolder">
+                                                                    <th class="text-primary">
+                                                                       
+                                                                        <input type="hidden" id="ContactRow" value="" />
+                                                                    </th>
+                                                                </tr>
+                                                            </tfoot>
+                                                        </table>
+
+                                                    </div>
+                                                    <!--end::col-12 -->
+
+                                                </div>
+                                                <!--end::Row-->
+
+                                            </div>
+
+                                        </div>
+                                        <!--end::Card body-->
+                                    </div>
+                                    <!--end::Card-->
+                                    <!-- Contact Information End -->
+                                    <!-- Vendor Type Start -->
+                                    <!--begin::Card-->
+                                    <div class="card mb-5" style="width: 100% !important;">
+                                        <!--begin::Card body-->
+                                        <div class="card-body p-6">
+                                            <div class="mb-0">
+                                                <!--begin::Row-->
+                                                <div class="row gx-10 mb-5">
+                                                    <label class="form-label fs-6 fw-bolder text-black mb-3">Vendor Type</label>
+                                                    <div class="row gx-10 mb-5">
+                                                        <div class="col-lg-2">
+                                                            <br /> <p id="VendorType"></p>
+                                                        </div> 
+                                                    </div>
+                                                    <!--end::Row-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end::Card body-->
+                                    </div>
+                                    <!--end::Card-->
+                                    <!-- Vendor Type End -->
+                                    <!-- Account Group Start -->
+                                    <!--begin::Card-->
+                                    <div class="card mb-5" style="width: 100% !important;">
+                                        <!--begin::Card body-->
+                                        <div class="card-body p-6">
+                                            <div class="mb-0">
+                                                <!--begin::Row-->
+                                                <div class="row gx-10 mb-5">
+                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" class="required form-label fs-6 fw-bolder text-black mb-3">Account Group</label>
+                                                    <div class="row gx-10 mb-5">
+                                                        <div class="col-lg-3">
+                                                            <br /> <p id="AccountGroup"><</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Row-->
+                                            </div>
+                                        </div>
+                                        <!--end::Card body-->
+                                    </div>
+                                    <!--end::Card-->
+                                     
+                                    <!-- Bank Details Start -->
+                                    <!--begin::Card-->
+                                    <div class="card mb-5" style="width: 100% !important;">
+                                        <!--begin::Card body-->
+                                        <div class="card-body p-6">
+                                            <div class="mb-0">
+                                                <!--begin::Row-->
+                                                <div class="row gx-10 mb-5">
+                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" class="required form-label fs-6 text-black mb-3">Bank Details</label>
+
+                                                    <div class="table-responsive mb-10">
+                                                        <table class="table g-5 gs-0 mb-0">
+                                                            <thead>
+                                                                <tr class="border-bottom fs-7 fw-bolder text-uppercase">
+                                                                    <th class="min-w-100px w-200px">COUNTRY</th>
+                                                                    <th class="min-w-100px w-200px">BANK KEY</th>
+                                                                    <th class="min-w-100px w-200px">BANK NAME</th>
+                                                                    <th class="min-w-100px w-200px">SWIFT CODE</th>
+                                                                    <th class="min-w-100px w-200px">BANK ACCOUNT</th>
+                                                                    <th class="min-w-150px w-250px">ACCOUNT HOLDER	</th>
+                                                                    <th class="min-w-100px w-200px">IBAN	</th>
+                                                                    <th class="min-w-100px w-200px">CURRENCY	</th>
+                                                                    <th class="min-w-75px w-75px">&nbsp;	</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="bank_dtls">
+                                                                
+                                                            </tbody>
+                                                            <tfoot>
+                                                                <tr class="border-top border-top-dashed align-top fs-6 fw-bolder">
+                                                                    <th class="text-primary">
+                                                                        
+                                                                        <input type="hidden" id="BankRow" value="" />
+                                                                    </th>
+                                                                </tr>
+                                                            </tfoot>
+
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                                <!--end::Row-->
+                                            </div>
+                                        </div>
+                                        <!--end::Card body-->
+                                    </div>
+                                    <!--end::Card-->
+                                    <!-- Bank Details End -->
+                                    <!-- VAT Details Start -->
+                                    <!--begin::Card-->
+                                    <div class="card mb-5" style="width: 100% !important;">
+                                        <!--begin::Card body-->
+                                        <div class="card-body p-6">
+                                            <div class="mb-0">
+                                                <!--begin::Row-->
+                                                <div class="row gx-10 mb-5">
+                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" class="required form-label fs-6 fw-bolder text-black mb-3">VAT Details</label>
+                                                    <div class="col-lg-6">
+                                                        <!--begin::Input group-->
+                                                        <div class="mb-5">
+                                                           <label class="form-label fs-6 fw-bolder text-black mb-3">VAT Number</label>
+                                                           <br /> <p id="VATNo">VAT Number</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-floating mb-5">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" class="required form-label fs-6 fw-bolder text-black mb-3">Attachment</label>
+                                                    <div class="row gx-10 mb-5">
+                                                        <div class="col-lg-12">
+                                                            <div class="table-responsive">
+                                                                <table class="table g-5 gs-0 mb-0 fw-bolder p-5">
+                                                                    <thead class="table-primary">
+                                                                        <tr>
+                                                                            <th class="text-center">#</th>
+                                                                            <th>File Name</th>
+                                                                            <th>ISSUE DATE </th>
+                                                                            <th>EXPIRY DATE</th>
+                                                                            <th>CERTIFICATION NUMBER</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="text-center">1</td>
+                                                                            <td>Valid Commerical Registration	<i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Valid Commerical Registration"></i></td>
+                                                                            <td>-</td>
+                                                                            <td>-</td>
+                                                                            <td>-</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-center">2</td>
+                                                                            <td>Tax Registration Document (VAT, GST, Extra)	<i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Tax Registration Document (VAT, GST, Extra)"></i></td>
+                                                                            <td>-</td>
+                                                                            <td>-</td>
+                                                                            <td>-</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-center">3</td>
+                                                                            <td>Attested Copy of Bank Account Details <i class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Attested Copy of Bank Account Details"></i>	</td>
+                                                                            <td>-</td>
+                                                                            <td>-</td>
+                                                                            <td>-</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Row-->
+                                            </div>
+                                        </div>
+                                        <!--end::Card body-->
+                                    </div>
+                                    <!--end::Card-->
+                                    <!-- VAT Details End -->
+                                    <!-- Notes Start -->
+                                    <!--begin::Card-->
+                                    <div class="card mb-5" style="width: 100% !important;">
+                                        <!--begin::Card body-->
+                                        <div class="card-body p-6">
+                                            <div class="mb-0">
+                                                <!--begin::Row-->
+                                                <div class="row gx-10 mb-5">
+                                                    <label class="form-label fs-6 fw-bolder text-black mb-3" class="form-label fs-6 fw-bolder text-black mb-3">Notes</label>
+                                                    <div class="col-6">
+                                                        <!--begin::Input group-->
+                                                        <div class="mb-5">
+                                                            <br /> <p id="Notes"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Row-->
+                                            </div>
+                                        </div>
+                                        <!--end::Card body-->
+                                    </div>
+                                    <!--end::Card-->
+                                    <!-- Notes End -->
+
+                                    <a href="/Inbox/Index" class="btn btn-sm btn-secondary">Back</a>
+
+
+                                </div>
+                                <!--end::Content-->
+                            </form>
+                            <!--end::Form-->
+                            <!--begin::Sidebar-->
+                            <!--end::Sidebar-->
+                        </div>
+                        <!--end::Layout-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Post-->
+            </div>
+            <!--end::Content-->
+
+        </div>
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
+</div>
+<!--end::Root-->
+<!--begin::Drawers-->
+<!--begin::Activities drawer-->
+<!--end::Activities drawer-->
+<!--begin::Chat drawer-->
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+    <!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+    <span class="svg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+            <path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
+        </svg>
+    </span>
+    <!--end::Svg Icon-->
+</div>
+<!--end::Scrolltop-->
+<!--end::Main-->
+<!--start::Modal-->
+<!-- The Modal -->
+<div class="modal fade" id="file_att">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add Attachments</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%">
+                        <thead>
+                            <tr>
+                                <th nowrap>S.No</th>
+                                <th nowrap>File Name</th>
+                                <th nowrap>Date of Issue</th>
+                                <th nowrap>Date of Expiry</th>
+                                <th nowrap>Certificate Number</th>
+                                <th nowrap>File</th>
+                                <th nowrap>File Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td><label class="form-label fs-6 fw-bolder text-black mb-3" >Copy of Valid Commercial Registration</label></td>
+                                <td><input class="form-control border DOI" placeholder="Date of Issue" id="VCR_DOI" /></td>
+                                <td><input class="form-control border DOE" placeholder="Date of Expiry" id="VCR_DOE" /></td>
+                                <td><input type="text" class="form-control border" placeholder="" id="comm_reg_cn" name="comm_reg_cn" /></td>
+                                <td><input type="file" class="form-control border" placeholder="" id="comm_reg_cn_file" name="comm_reg_cn_file" /></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>02</td>
+                                <td><label class="form-label fs-6 fw-bolder text-black mb-3" >Subscription of the chamber of commerce</label></td>
+                                <td><input class="form-control border DOI" placeholder="Date of Issue" id="SCC_DOI" /></td>
+                                <td><input class="form-control border DOE" placeholder="Date of Expiry" id="SCC_DOE" /></td>
+                                <td><input type="text" class="form-control border" placeholder="" id="chamber_cn" name="chamber_cn" /></td>
+                                <td><input type="file" class="form-control border" placeholder="" id="chamber_cn_file" name="chamber_cn_file" /></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>03</td>
+                                <td><label class="form-label fs-6 fw-bolder text-black mb-3" >Agency Certificate authority</label></td>
+                                <td><input class="form-control border DOI" placeholder="Date of Issue" id="SCC_DOI" /></td>
+                                <td><input class="form-control border DOE" placeholder="Date of Expiry" id="SCC_DOE" /></td>
+                                <td><input type="text" class="form-control border" placeholder="" id="agency_cert_cn" name="agency_cert_cn" /></td>
+                                <td><input type="file" class="form-control border" placeholder="" id="agency_cert_cn_file" name="agency_cert_cn_file" /></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--end::Modal-->
+
+@section scripts {
+   
+    <script type="">
+        $(".DOI").daterangepicker({
+            autoUpdateInput: false,
+            singleDatePicker: true,
+            showDropdowns: true,
+            minYear: 1901,
+            maxYear: parseInt(moment().format("YYYY"), 10)
+        }
+        );
+        $(".DOI").on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(picker.startDate.format('MM/DD/YYYY'));
+        });
+
+        $(".DOE").daterangepicker({
+            autoUpdateInput: false,
+            singleDatePicker: true,
+            showDropdowns: true,
+            minYear: 1901,
+            maxYear: parseInt(moment().format("YYYY"), 10)
+        }
+        );
+
+        $(".DOE").on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(picker.startDate.format('MM/DD/YYYY'));
+        });
+
+        function GetDetails() {
+            $.ajax({
+                type: "POST",
+                async: true,
+                url: "/Home/Get",
+                data: { Id: $("#CompanyId").val() },
+                dataType: "json",
+                error: function () {
+                    alert("An error occoured!");
+                },
+                success: function (d) {
+                    console.log(d);
+                    if (d.companyName !== "undefined") {
+                        $('#CompanyName').text(d.companyName);
+                        $('#CommRegNo').text(d.commercialRegistrationNo);
+                        $('#Language').text(d.language);
+                        $('#CountryId').text(d.country).trigger('change');
+                        $('#RegionId').text(d.region).trigger('change');
+                        $('#District').text(d.district);
+                        $('#Postalcode').text(d.postalCode);
+                        $('#City').text(d.city);
+                        $('#Street').text(d.street);
+                        $('#HouseNo').text(d.houseNo);
+                        $('#Building').text(d.building);
+                        $('#Floor').text(d.floor);
+                        $('#Room').text(d.room);
+                        $('#PoBox').text(d.poBox);
+                        $('#PhoneNo').text(d.phoneNo);
+                        $('#FaxNumber').text(d.faxNumber);
+                        $('#EmailAddress').text(d.email);
+                        $('#MobileNo').text(d.mobileNo);
+                        $('#Website').text(d.website);
+                        $('#VendorType').text(d.vendorType);
+                        $('#AccountGroup').text(d.accountGroup);
+                        $('#Notes').text(d.notes);
+                        $('#VATNo').text(d.vatNo);
+
+                        var listOfCompanyContacts = d.listOfCompanyContacts;
+                        console.log(listOfCompanyContacts);
+                        $("#ContactRow").val(listOfCompanyContacts.length);
+                        var new_row = "";
+                        var row = "";
+                        for (b = 0; b < listOfCompanyContacts.length; b++) {
+                            row = b;
+                            //Adding New tr
+                            new_row = '<tr class="border-bottom border-bottom-dashed">'
+
+                            //Adding first td for elements
+                            new_row = new_row + '<td class="pe-7">'
+
+                            //Adding DIV ROW
+                            new_row = new_row + '<div class="row gx-10 mb-5">'
+
+                            //Adding first col-6 
+                            new_row = new_row + '<div class="col-lg-6">'
+
+                            //Adding Fields
+                            new_row = new_row + '<div class="mb-5"><label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_firstName' + row + '">First Name</label></div><div class="mb-5"><p>' + listOfCompanyContacts[b].firstName + '</p><label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_lastName' + row + '">Last Name</label><p>' + listOfCompanyContacts[b].lastName + '</p></div><div class="mb-5"><label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_address' + row + '">Form of Address</label></div><div class="mb-5"><p>' + listOfCompanyContacts[b].address + '</p> <label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_position' + row + '">Position</label><p>' + listOfCompanyContacts[b].designation + '</p> </div><div class="mb-5"> <label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_department' + row + '">Department</label><p>' + listOfCompanyContacts[b].department + '</p> </div>'
+
+                            new_row = new_row + '</div>'
+                            //Closing first col-6
+
+                            //Adding first col-6 
+                            new_row = new_row + '<div class="col-lg-6">'
+
+                            //Adding Fields
+                            new_row = new_row + '<div class="mb-5"><label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_phoneno' + row + '">Phone No.</label><p>' + listOfCompanyContacts[b].phoneNo + '</p> </div><div class="mb-5"><label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_mobileno' + row + '">Mobile No.</label><p>' + listOfCompanyContacts[b].mobileNo + '</p></div><div class="mb-5"><label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_faxno' + row + '">Fax No.</label><p>' + listOfCompanyContacts[b].faxNo + '</p></div><div class="mb-5"><label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_emil' + row + '">E-Mail Address</label><p>' + listOfCompanyContacts[b].email + '</p></div><div class="mb-5"><label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_language' + row + '">language</label><p>' + listOfCompanyContacts[b].language + '</p></div><div class="mb-5"><label class="form-label fs-6 fw-bolder text-black mb-3" for="cp_country' + row + '">Country</label><p>' + listOfCompanyContacts[b].country + '</p>'
+                            new_row = new_row + '</div>'
+
+                            new_row = new_row + '</div>'
+                            //Closing first col-6
+
+                            new_row = new_row + '</div>'
+                            //Closing DIV ROW
+
+                            new_row = new_row + '</td>'
+
+                            new_row = new_row + '<td class="pt-5 text-end">&nbsp;</td>'
+
+                            new_row = new_row + '</tr>';
+
+                            $('#contact-person-body').append(new_row);
+                           
+                        }
+
+
+                        var listOfCompanyBanks = d.listOfCompanyBanks;
+                        console.log(d.listOfCompanyBanks);
+                        $("#BankRow").val(listOfCompanyBanks.length);
+                        var new_row_bd = '';
+                        var rowBD = '';
+                        for (a = 0; a < listOfCompanyBanks.length; a++) {
+                            rowBD = a;
+                            new_row_bd = '<tr id="rowBD' + rowBD + '" class="border-bottom border-bottom-dashed">'
+
+                            //Adding first td for elements
+                            new_row_bd = new_row_bd + '<td>'
+                            new_row_bd = new_row_bd + listOfCompanyBanks[a].country;
+                            new_row_bd = new_row_bd + '</td>'
+
+                            new_row_bd = new_row_bd + '<td>'
+                            new_row_bd = new_row_bd + listOfCompanyBanks[a].bankKey;
+                            new_row_bd = new_row_bd + '</td>'
+
+                            new_row_bd = new_row_bd + '<td>'
+                            new_row_bd = new_row_bd + listOfCompanyBanks[a].bankName;
+                            new_row_bd = new_row_bd + '</td>'
+
+                            new_row_bd = new_row_bd + '<td>'
+                            new_row_bd = new_row_bd + listOfCompanyBanks[a].swiftCode;
+                            new_row_bd = new_row_bd + '</td>'
+
+                            new_row_bd = new_row_bd + '<td>'
+                            new_row_bd = new_row_bd + listOfCompanyBanks[a].bankAccount;
+                            new_row_bd = new_row_bd + '</td>'
+
+                            new_row_bd = new_row_bd + '<td>'
+                            new_row_bd = new_row_bd + listOfCompanyBanks[a].accountHolderName;
+                            new_row_bd = new_row_bd + '</td>'
+
+                            new_row_bd = new_row_bd + '<td>'
+                            new_row_bd = new_row_bd + listOfCompanyBanks[a].iban;
+                            new_row_bd = new_row_bd + '</td>'
+
+
+                            new_row_bd = new_row_bd + '<td>'
+                            new_row_bd = new_row_bd + listOfCompanyBanks[a].currency;
+                            new_row_bd = new_row_bd + '</td>'
+
+
+                            new_row_bd = new_row_bd + '<td class="pt-5 text-end"></td>'
+
+                            new_row_bd = new_row_bd + '</tr>';
+                            $('#bank_dtls').append(new_row_bd);
+                        }
+
+                    }
+
+                }
+            });
+        }
+
+        GetDetails();
+
+    </script>
+}

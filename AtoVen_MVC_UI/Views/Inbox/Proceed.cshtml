@@ -67,7 +67,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="fv-row form-floating mb-5">
-                                    <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress">
+                                    <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress" readpnly>
                                     <label for="EmailAddress" class="required">E-Mail Address</label>
                                 </div>
                             </div>
@@ -2178,7 +2178,8 @@
                                 $("#" + VendorTypeArr[i]).prop('checked', true);
 
                                 if (VendorTypeArr[i].trim() == "Others") {
-                                    $("#Others_field").val(VendorTypeArr[i + 1].trim());
+                                    $("#others_field").val(VendorTypeArr[i + 1].trim());
+                                    $('#others_field').css("display", "block");
                                 }
 
                             }

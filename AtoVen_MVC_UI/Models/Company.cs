@@ -22,7 +22,7 @@ namespace AtoVen_MVC_UI.Models
         public string Building { get; set; }
         public string Floor { get; set; }
         public string Room { get; set; }
-        public string PoBox { get; set; }
+        public string PoBox { get; set; } = "";
         public string PhoneNo { get; set; }
         public string FaxNumber { get; set; }
         public string Email { get; set; }
@@ -57,7 +57,7 @@ namespace AtoVen_MVC_UI.Models
         public string Building { get; set; }
         public string Floor { get; set; }
         public string Room { get; set; }
-        public string PoBox { get; set; }
+        public string PoBox { get; set; } = "";
         public string PhoneNo { get; set; }
         public string FaxNumber { get; set; }
         public string Email { get; set; }

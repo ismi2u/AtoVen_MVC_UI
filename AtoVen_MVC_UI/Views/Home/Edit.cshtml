@@ -88,7 +88,7 @@
                                                         <div class="row">
                                                             <div class="col-6">
                                                                 <div class="fv-row form-floating mb-5">
-                                                                    <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress" readpnly>
+                                                                    <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress">
                                                                     <label for="EmailAddress" class="required">E-Mail Address</label>
                                                                 </div>
                                                             </div>
@@ -466,7 +466,7 @@
                                                         <!--end::Input group-->
                                                         <label class="form-label fs-6 fw-bolder text-black mb-3">PO Box Address</label>
                                                         <!--begin::Input group-->
-                                                        <div class="fv-row form-floating mb-5">
+                                                        <div class="form-floating mb-5">
                                                             <input name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" />
                                                             <label for="PoBox" class="required">Po Box</label>
                                                         </div>
@@ -1855,7 +1855,12 @@
                         VenObj.Building = $('#Building').val();
                         VenObj.Floor = $('#Floor').val();
                         VenObj.Room = $('#Room').val();
-                        VenObj.PoBox = $('#PoBox').val();
+                        VenObj.Room = $('#Room').val();
+                        if ($('#PoBox').val() == "") {
+                            VenObj.PoBox = "";
+                        } else {
+                            VenObj.PoBox = $('#PoBox').val();
+                        }
                         VenObj.PhoneNo = $('#PhoneNo').val();
                         VenObj.FaxNumber = $('#FaxNumber').val();
                         VenObj.Email = $('#EmailAddress').val();

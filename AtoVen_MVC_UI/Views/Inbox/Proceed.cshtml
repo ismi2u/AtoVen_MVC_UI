@@ -445,9 +445,9 @@
                         <!--end::Input group-->
                         <label class="form-label fs-6 fw-bolder text-black mb-3">PO Box Address</label>
                         <!--begin::Input group-->
-                        <div class="fv-row form-floating mb-5">
+                        <div class="form-floating mb-5">
                             <input name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" />
-                            <label for="PoBox" class="required">Po Box</label>
+                            <label for="PoBox">Po Box</label>
                         </div>
                         <!--end::Input group-->
                     </div>
@@ -1944,7 +1944,12 @@
                         VenObj.Building = $('#Building').val();
                         VenObj.Floor = $('#Floor').val();
                         VenObj.Room = $('#Room').val();
-                        VenObj.PoBox = $('#PoBox').val();
+                        VenObj.Room = $('#Room').val();
+                        if ($('#PoBox').val() == "") {
+                            VenObj.PoBox = "";
+                        } else {
+                            VenObj.PoBox = $('#PoBox').val();
+                        }
                         VenObj.PhoneNo = $('#PhoneNo').val();
                         VenObj.FaxNumber = $('#FaxNumber').val();
                         VenObj.Email = $('#EmailAddress').val();
@@ -2080,7 +2085,7 @@
                                             confirmButton: "btn btn-primary"
                                         }
                                     });
-
+                                    document.getElementById('approve').removeAttribute("data-kt-indicator");
                                     setTimeout(function () {
                                         window.location.href = "/Inbox/Index";
                                     }, 1000);
@@ -2101,10 +2106,10 @@
                         });
                     } else {
                         approveButton.innerHTML = 'Please enter the correct values';
-                        $('#register').removeClass('btn-danger');
-                        $('#register').addClass('btn-danger');
+                        $('#approve').removeClass('btn-danger');
+                        $('#approve').addClass('btn-danger');
                     }
-                    document.getElementById('approve').removeAttribute("data-kt-indicator");
+                    
                 });
             });
         });

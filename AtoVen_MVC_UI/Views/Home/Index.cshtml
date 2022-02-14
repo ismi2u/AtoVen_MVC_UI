@@ -2159,10 +2159,8 @@ License: For each use you must have a valid license purchased only from above li
                     //registerButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
                     if (status === 'Valid') {
                         document.getElementById('register').setAttribute("data-kt-indicator", "on");
-                        registerButton.innerHTML = "Register";
-                        registerButton.innerHTML = 'Form is validated. Submitting ...';
-                        document.getElementById("register").disabled = true;
 
+                        registerButton.innerHTML = 'Form is validated. Submitting ...';
                         $('#register').removeClass('btn-danger');
                         $('#register').addClass('btn-primary');
 
@@ -2183,7 +2181,7 @@ License: For each use you must have a valid license purchased only from above li
                         if ($('#PoBox').val() == "") {
                             VenObj.PoBox = "";
                         } else {
-                            VenObj.PoBox = $('#PoBox').val();
+                             VenObj.PoBox = $('#PoBox').val();
                         }
                        
                         VenObj.PhoneNo = $('#PhoneNo').val();
@@ -2296,7 +2294,6 @@ License: For each use you must have a valid license purchased only from above li
                                         confirmButton: "btn btn-primary"
                                     }
                                 });
-                                document.getElementById("register").disabled = false;
                             },
                             success: function (data) {
                                 console.log(data.status);
@@ -2304,7 +2301,6 @@ License: For each use you must have a valid license purchased only from above li
                                 if (data.status == "Success") {
                                     registerButton.innerHTML = "Register"
                                     document.getElementById('register').removeAttribute("data-kt-indicator");
-                                    document.getElementById("register").disabled = false;
                                     // Show popup confirmation
                                     Swal.fire({
                                         text: data.message,
@@ -2315,10 +2311,6 @@ License: For each use you must have a valid license purchased only from above li
                                             confirmButton: "btn btn-primary"
                                         }
                                     });
-
-                                    setTimeout(function () {
-                                        location.reload();
-                                    }, 300);
                                 } else {
                                     Swal.fire({
                                         text: data.message,

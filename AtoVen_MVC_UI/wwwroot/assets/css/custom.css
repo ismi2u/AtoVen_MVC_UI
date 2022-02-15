@@ -1,0 +1,22 @@
+﻿ 
+.swal2-popup {
+    max-height: 300px !important;
+    max-width: 300px !important;
+}
+
+.swal2-icon {
+    font-size: 13px !important;
+}
+
+.swal2-text {
+    max-height: 70px;
+}
+
+:-webkit-autofill,
+:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+    background-color: transparent !important;
+}

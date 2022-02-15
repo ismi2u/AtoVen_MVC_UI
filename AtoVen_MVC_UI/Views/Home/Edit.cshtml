@@ -45,14 +45,14 @@
                                                         <!--begin::Input group-->
 
                                                         <div class="fv-row form-floating mb-5">
-                                                            <input name="CompanyId" type="hidden" class="form-control border" id="CompanyId" value="@ViewBag.CompanyId" />
-                                                            <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" />
+                                                            <input name="CompanyId" type="hid den" class="form-control border" id="CompanyId" value="@ViewBag.CompanyId" />
+                                                            <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                                                             <label for="CompanyName" class="required">Company Name</label>
                                                         </div>
                                                         <!--end::Input group-->
                                                         <!--begin::Input group-->
                                                         <div class="fv-row form-floating mb-5">
-                                                            <input required name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" autocomplete="off" />
+                                                            <input required name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" autocomplete="off" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                                                             <label for="CommRegNo" class="required">Commercial Registration No.</label>
                                                         </div>
                                                         <!--end::Input group-->
@@ -505,13 +505,13 @@
                                                                                 <!--begin::Input group-->
                                                                                 <div class="fv-row form-floating mb-5">
                                                                                     <input type="hidden" class="form-control" id="cp_id0" name="cp_id0" />
-                                                                                    <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" />
+                                                                                    <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                                                                                     <label for="cp_firstName0" class="required">First Name</label>
                                                                                 </div>
                                                                                 <!--end::Input group-->
                                                                                 <!--begin::Input group-->
                                                                                 <div class="fv-row form-floating mb-5">
-                                                                                    <input type="text" class="form-control border" name="cp_lastName0" id="cp_lastName0" placeholder="Last Name" />
+                                                                                    <input type="text" class="form-control border" name="cp_lastName0" id="cp_lastName0" placeholder="Last Name" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                                                                                     <label for="cp_lastName0" class="required">Last Name</label>
                                                                                 </div>
                                                                                 <!--end::Input group-->
@@ -1430,7 +1430,14 @@
                                     <!--end::Card-->
                                     <!-- Notes End -->
 
-                                    <button type="button" class="btn btn-sm btn-primary" id="update">Update</button>
+                                    <button type="button" class="btn btn-sm btn-primary" id="update" data-kt-indicator="off">
+                                        <span class="indicator-label" id="update-label">
+                                            Update
+                                        </span>
+                                        <span class="indicator-progress">
+                                            Update <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                        </span>
+                                    </button>
                                     <a href="/Home/List" class="btn btn-sm btn-secondary">Back</a>
 
 
@@ -1684,7 +1691,7 @@
 
 
         document.addEventListener('DOMContentLoaded', function (e) {
-            const registerButton = document.getElementById('update');
+            const updateButton = document.getElementById('update');
             const frmForm = document.getElementById('frm');
             const fv = FormValidation.formValidation(frmForm, {
                 fields: {
@@ -1828,18 +1835,22 @@
                     })
                 },
             }).on('core.form.validating', function () {
-                registerButton.innerHTML = 'Validating ...';
+                //updateButton.innerHTML = 'Validating ...';
 
             });
 
 
-            registerButton.addEventListener('click', function () {
+            updateButton.addEventListener('click', function () {
                 fv.validate().then(function (status) {
-                    //registerButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
+                    //updateButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
                     if (status === 'Valid') {
-                        registerButton.innerHTML = 'Form is validated. Submitting ...';
-                        $('#register').removeClass('btn-danger');
-                        $('#register').addClass('btn-primary');
+                        //updateButton.innerHTML = 'Form is validated. Submitting ...';
+                        $('#update').removeClass('btn-danger');
+                        $('#update').addClass('btn-primary');
+
+                        updateButton.setAttribute("data-kt-indicator", "on");
+                        document.getElementById('update').disabled = true;
+
                         var VenObj = {};
                         VenObj.Id = $('#CompanyId').val();
                         VenObj.CompanyName = $('#CompanyName').val();
@@ -1969,11 +1980,14 @@
                                         confirmButton: "btn btn-primary"
                                     }
                                 });
+
+                                updateButton.removeAttribute("data-kt-indicator", "on");
+                                document.getElementById('update').disabled = false;
                             },
                             success: function (data) {
                                 console.log(data);
                                 $("CompanyId").text(data.id);
-                                registerButton.innerHTML = "Update"
+                                document.getElementById('update-label').innerHTML = "Update"
                                 // Show popup confirmation
                                 Swal.fire({
                                     text: "Form has been successfully submitted!",
@@ -1984,12 +1998,17 @@
                                         confirmButton: "btn btn-primary"
                                     }
                                 });
+
+                                updateButton.removeAttribute("data-kt-indicator", "on");
+                                document.getElementById('update').disabled = false;
                             }
                         });
                     } else {
-                        registerButton.innerHTML = 'Please enter the correct values';
-                        $('#register').removeClass('btn-danger');
-                        $('#register').addClass('btn-danger');
+                        document.getElementById('update-label').innerHTML = 'Please enter the correct values';
+                        $('#update').removeClass('btn-danger');
+                        $('#update').addClass('btn-danger');
+                        updateButton.removeAttribute("data-kt-indicator", "on");
+                        document.getElementById('update').disabled = false;
                     }
                 });
             });

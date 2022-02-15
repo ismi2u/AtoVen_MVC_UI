@@ -25,13 +25,13 @@
                         <div class="fv-row form-floating mb-5">
                             <input name="ApprovalFlowId" type="hidden" class="form-control border" id="ApprovalFlowId" value="@ViewBag.ApprovalFlowId" />
                             <input name="CompanyId" type="hidden" class="form-control border" id="CompanyId" value="@ViewBag.CompanyId" />
-                            <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" />
+                            <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                             <label for="CompanyName" class="required">Company Name</label>
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="fv-row form-floating mb-5">
-                            <input required name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" autocomplete="off" />
+                            <input required name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" autocomplete="off" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                             <label for="CommRegNo" class="required">Commercial Registration No.</label>
                         </div>
                         <!--end::Input group-->
@@ -486,13 +486,13 @@
                                             <!--begin::Input group-->
                                             <div class="fv-row form-floating mb-5">
                                                 <input type="hidden" class="form-control" id="cp_id0" name="cp_id0" />
-                                                <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" />
+                                                <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                                                 <label for="cp_firstName0" class="required">First Name</label>
                                             </div>
                                             <!--end::Input group-->
                                             <!--begin::Input group-->
                                             <div class="fv-row form-floating mb-5">
-                                                <input type="text" class="form-control border" name="cp_lastName0" id="cp_lastName0" placeholder="Last Name" />
+                                                <input type="text" class="form-control border" name="cp_lastName0" id="cp_lastName0" placeholder="Last Name" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                                                 <label for="cp_lastName0" class="required">Last Name</label>
                                             </div>
                                             <!--end::Input group-->
@@ -1414,8 +1414,24 @@
 <!--end::Card-->
 <!-- Notes End -->
 
-<button type="submit" class="btn btn-sm btn-primary proceed" id="approve">Approve</button>
-<button type="button" class="btn btn-sm btn-primary proceed" id="reject">Reject</button>
+<button type="button" class="btn btn-sm btn-primary" id="approve" data-kt-indicator="off">
+    <span class="indicator-label" id="approve-label">
+        Approve
+    </span>
+    <span class="indicator-progress">
+        Approve <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+    </span>
+    
+</button>
+<button type="button" class="btn btn-sm btn-primary" id="reject" data-kt-indicator="off">
+    <span class="indicator-label" id="reject-label">
+        Reject
+    </span>
+    <span class="indicator-progress">
+        Reject <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+    </span>
+    
+</button>
 
 
 
@@ -1859,14 +1875,17 @@
                     })
                 },
             }).on('core.form.validating', function () {
-                approveButton.innerHTML = 'Validating ...';
+                //approveButton.innerHTML = 'Validating ...';
 
             });
 
             rejectButton.addEventListener('click', function () {
+                rejectButton.setAttribute("data-kt-indicator", "on");
+                document.getElementById('approve').disabled = true;
+                document.getElementById('reject').disabled = true;
                 $.ajax({
                     type: "POST",
-                    async: false,
+                    async: true,
                     url: "/Inbox/Reject",
                     data: "",
                     dataType: "json",
@@ -1886,6 +1905,10 @@
                             msg = 'Unknow Error.\n' + x.responseText;
                         }
 
+                        rejectButton.removeAttribute("data-kt-indicator", "on");
+                        document.getElementById('approve').disabled = false;
+                        document.getElementById('reject').disabled = false;
+
                         Swal.fire({
                             text: msg,
                             icon: "error",
@@ -1895,10 +1918,12 @@
                                 confirmButton: "btn btn-primary"
                             }
                         });
+
+
                     },
                     success: function (d) {
                         if (d.status == "Success") {
-                            rejectButton.innerHTML = "Reject"
+                            document.getElementById('reject-label').innerHTML = "Reject"
                             // Show popup confirmation
                             Swal.fire({
                                 text: "Rejected Successfully",
@@ -1909,6 +1934,10 @@
                                     confirmButton: "btn btn-primary"
                                 }
                             });
+
+                            rejectButton.removeAttribute("data-kt-indicator", "on");
+                            document.getElementById('reject').disabled = false;
+                            document.getElementById('approve').disabled = false;
 
                             setTimeout(function () {
                                 window.location.href = "/Inbox/Index";
@@ -1922,12 +1951,17 @@
             approveButton.addEventListener('click', function () {
                 fv.validate().then(function (status) {
                     //approveButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
-                    if (status === 'Valid') {
 
-                        approveButton.innerHTML = 'Form is validated. Submitting ...';
+                    if (status === 'Valid') {
+                        console.log('Came');
+                        //approveButton.innerHTML = 'Form is validated. Submitting ...';
                         $('#approve').removeClass('btn-danger');
                         $('#approve').addClass('btn-primary');
-                        document.getElementById('approve').setAttribute("data-kt-indicator", "on");
+
+
+                        approveButton.setAttribute("data-kt-indicator", "on");
+                        document.getElementById('approve').disabled = true;
+                        document.getElementById('reject').disabled = true;
 
                         var VenObj = {};
                         VenObj.Id = $('#CompanyId').val();
@@ -2039,9 +2073,10 @@
                         }
 
                         console.log(postData);
+                        /** Ajax Submit Start ***/
                         $.ajax({
                             type: "POST",
-                            async: false,
+                            async: true,
                             url: "/Inbox/Approve",
                             data: postData,
                             dataType: "json",
@@ -2061,6 +2096,10 @@
                                     msg = 'Unknow Error.\n' + x.responseText;
                                 }
 
+                                approveButton.removeAttribute("data-kt-indicator", "on");
+                                document.getElementById('approve').disabled = false;
+                                document.getElementById('reject').disabled = false;
+
                                 Swal.fire({
                                     text: msg,
                                     icon: "error",
@@ -2074,7 +2113,7 @@
                             success: function (d) {
                                 console.log(d);
                                 if (d.status == "Success") {
-                                    approveButton.innerHTML = "Approve"
+                                    document.getElementById('approve-label').innerHTML = "Approve"
                                     // Show popup confirmation
                                     Swal.fire({
                                         text: "Approved Successfully",
@@ -2085,10 +2124,12 @@
                                             confirmButton: "btn btn-primary"
                                         }
                                     });
-                                    document.getElementById('approve').removeAttribute("data-kt-indicator");
+
+
                                     setTimeout(function () {
                                         window.location.href = "/Inbox/Index";
                                     }, 1000);
+
                                 }
                                 else {
                                     Swal.fire({
@@ -2100,12 +2141,19 @@
                                             confirmButton: "btn btn-primary"
                                         }
                                     });
-
+                                    approveButton.removeAttribute("data-kt-indicator", "on");
+                                    document.getElementById('approve').disabled = false;
+                                    document.getElementById('reject').disabled = false;
                                 }
                             }
                         });
+                        /** Ajax Submit End ***/
+                       
+
                     } else {
-                        approveButton.innerHTML = 'Please enter the correct values';
+                        document.getElementById('approve').disabled = false;
+                        document.getElementById('reject').disabled = false;
+                        document.getElementById('approve-label').innerHTML = 'Please enter the correct values';
                         $('#approve').removeClass('btn-danger');
                         $('#approve').addClass('btn-danger');
                     }

@@ -4,31 +4,15 @@
 
 }
 <!DOCTYPE html>
-<!--
-Author: Keenthemes
-Product Name: Metronic - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin Dashboard Theme
-Purchase: https://1.envato.market/EA4JP
-Website: http://www.keenthemes.com
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
 <html lang="en">
 <!--begin::Head-->
 <head>
     <base href="../../">
     <title>Atominos - Vendor Management</title>
     <meta charset="utf-8" />
-    <meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
-    <meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
-    <meta property="og:url" content="https://keenthemes.com/metronic" />
-    <meta property="og:site_name" content="Keenthemes | Metronic" />
+   
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
     <link rel="shortcut icon" href="~/images/cropped-favicon-32x32.png" />
     <!--begin::Fonts-->
@@ -37,21 +21,9 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="~/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/custom.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
-    <style>
-        .swal2-popup {
-            max-height: 300px !important;
-            max-width: 300px !important;
-        }
-
-        .swal2-icon {
-            font-size: 13px !important;
-        }
-
-        .swal2-text {
-            max-height: 70px;
-        }
-    </style>
+   
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -151,7 +123,7 @@ License: For each use you must have a valid license purchased only from above li
                         <div id="kt_content_container" class="container-xxl mt-2 mb-2">
                             <!--begin::Layout-->
                             <div class="d-flex flex-column flex-lg-row">
-                                <form id="frm" method="post">
+                                <form id="frm" method="post" autocomplete="off">
                                     <!--begin::Content-->
                                     <div class="flex-lg-row-fluid mb-10 mb-lg-0 me-lg-7 me-xl-10">
 
@@ -171,13 +143,13 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--begin::Input group-->
 
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" />
+                                                                <input required name="CompanyName" type="text" class="form-control border" placeholder="Company Name" id="CompanyName" autocomplete="off" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                                                                 <label for="CompanyName" class="required">Company Name</label>
                                                             </div>
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input required name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" autocomplete="off"  />
+                                                                <input required name="CommRegNo" type="text" class="form-control border" placeholder="Commercial Registration No." id="CommRegNo" autocomplete="off"  oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                                                                 <label for="CommRegNo" class="required">Commercial Registration No.</label>
                                                             </div>
                                                             <!--end::Input group-->
@@ -196,13 +168,13 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="PhoneNo" type="text" class="form-control border" placeholder="Phone Number" id="PhoneNo" />
+                                                                        <input name="PhoneNo" type="text" class="form-control border" placeholder="Phone Number" id="PhoneNo" autocomplete="off" />
                                                                         <label for="PhoneNo" class="required">Phone Number</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating form-floating">
-                                                                        <input name="FaxNumber" type="text" class="form-control border" placeholder="Fax Number" id="FaxNumber">
+                                                                        <input name="FaxNumber" type="text" class="form-control border" placeholder="Fax Number" id="FaxNumber" autocomplete="off" >
                                                                         <label for="FaxNumber" class="required">Fax Number</label>
                                                                     </div>
                                                                 </div>
@@ -213,13 +185,14 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress">
+                                                                        <input name="EmailAddress" type="text" class="form-control border" placeholder="E-Mail Address" id="EmailAddress" onblur="ValidateEmail()"  autocomplete="off">
                                                                         <label for="EmailAddress" class="required">E-Mail Address</label>
+                                                                        <span id="opemailaddress"></span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-6">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="MobileNo" type="text" class="form-control border" placeholder="Mobile Number" id="MobileNo">
+                                                                        <input name="MobileNo" type="text" class="form-control border" placeholder="Mobile Number" id="MobileNo" autocomplete="off">
                                                                         <label for="MobileNo" class="required">Mobile Number</label>
                                                                     </div>
                                                                 </div>
@@ -227,7 +200,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="fv-row mb-5 form-floating">
-                                                                <input name="Website" type="text" class="form-control border" placeholder="Website" id="Website">
+                                                                <input name="Website" type="text" class="form-control border" placeholder="Website" id="Website" autocomplete="off">
                                                                 <label for="Website" class="required">Website</label>
                                                             </div>
                                                             <!--end::Input group-->
@@ -244,7 +217,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <select name="CountryId" class="form-control border" id="CountryId">
+                                                                <select name="CountryId" class="form-control border" id="CountryId" autocomplete="off" style="background-color: transparent !important;">
                                                                     <option value="" selected>--select--</option>
                                                                     <option value="1">Afghanistan</option>
                                                                     <option value="2">Åland Islands</option>
@@ -501,7 +474,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <select name="RegionId" id="RegionId" class="form-control border">
+                                                                <select name="RegionId" id="RegionId" class="form-control border" autocomplete="off">
                                                                     <option value="">--select--</option>
                                                                     <option value="1">Bavaria</option>
                                                                     <option value="2">Baden-Württemberg</option>
@@ -525,7 +498,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <!--end::Input group-->
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input name="District" type="text" id="District" class="form-control border" placeholder="District">
+                                                                <input name="District" type="text" id="District" class="form-control border" placeholder="District" autocomplete="off">
                                                                 <label for="District" class="required">District</label>
                                                             </div>
                                                             <!--end::Input group-->
@@ -533,14 +506,14 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="Postalcode" type="text" id="Postalcode" class="form-control border" placeholder="Postal Code">
+                                                                        <input name="Postalcode" type="text" id="Postalcode" class="form-control border" placeholder="Postal Code" autocomplete="off">
                                                                         <label for="Postalcode" class="required">Postal Code</label>
                                                                     </div>
 
                                                                 </div>
                                                                 <div class="col-8">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="City" type="text" id="City" class="form-control border" placeholder="City">
+                                                                        <input name="City" type="text" id="City" class="form-control border" placeholder="City" autocomplete="off">
                                                                         <label for="City" class="required">City</label>
                                                                     </div>
 
@@ -555,13 +528,13 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-8">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="Street" type="text" id="Street" class="form-control border" placeholder="Street">
+                                                                        <input name="Street" type="text" id="Street" class="form-control border" placeholder="Street" autocomplete="off">
                                                                         <label for="Street" class="required">Street</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating mb-5">
-                                                                        <input name="HouseNo" type="text" id="HouseNo" class="form-control border" placeholder="House No.">
+                                                                        <input name="HouseNo" type="text" id="HouseNo" class="form-control border" placeholder="House No." autocomplete="off">
                                                                         <label for="HouseNo" class="required">House No.</label>
                                                                     </div>
                                                                 </div>
@@ -571,19 +544,19 @@ License: For each use you must have a valid license purchased only from above li
                                                             <div class="row">
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating  mb-5">
-                                                                        <input name="Building" type="text" id="Building" class="form-control border" placeholder="Building">
+                                                                        <input name="Building" type="text" id="Building" class="form-control border" placeholder="Building" autocomplete="off">
                                                                         <label for="Building" class="required">Building</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating  mb-5">
-                                                                        <input name="Floor" type="text" id="Floor" class="form-control border" placeholder="Floor">
+                                                                        <input name="Floor" type="text" id="Floor" class="form-control border" placeholder="Floor" autocomplete="off">
                                                                         <label for="Floor" class="required">Floor</label>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <div class="fv-row form-floating  mb-5">
-                                                                        <input name="Room" type="text" id="Room" class="form-control border" placeholder="Room">
+                                                                        <input name="Room" type="text" id="Room" class="form-control border" placeholder="Room" autocomplete="off">
                                                                         <label for="Room" class="required">Room</label>
                                                                     </div>
                                                                 </div>
@@ -592,7 +565,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             <label class="form-label fs-6 fw-bolder text-black mb-3">PO Box Address</label>
                                                             <!--begin::Input group-->
                                                             <div class="form-floating mb-5">
-                                                                <input name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" />
+                                                                <input name="PoBox" type="text" class="form-control border" placeholder="Po Box" id="PoBox" autocomplete="off" />
                                                                 <label for="PoBox">Po Box</label>
                                                             </div>
                                                             <!--end::Input group-->
@@ -629,31 +602,31 @@ License: For each use you must have a valid license purchased only from above li
                                                                                 <div class="col-lg-6">
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" />
+                                                                                        <input type="text" class="form-control mb-2 border" name="cp_firstName0" id="cp_firstName0" placeholder="First Name" autocomplete="off" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();" />
                                                                                         <label for="cp_firstName0" class="required">First Name</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_lastName0" id="cp_lastName0" placeholder="Last Name" />
+                                                                                        <input type="text" class="form-control border" name="cp_lastName0" id="cp_lastName0" placeholder="Last Name" autocomplete="off" oninput="this.value = this.value.toLocaleUpperCase();" onkeyup="this.value = this.value.toLocaleUpperCase();" onkeypress="this.value = this.value.toUpperCase();" onkeydown="this.value = this.value.toLocaleUpperCase();" onblur="this.value = this.value.toLocaleUpperCase();"/>
                                                                                         <label for="cp_lastName0" class="required">Last Name</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_address0" id="cp_address0" placeholder="Form of Address" />
+                                                                                        <input type="text" class="form-control border" name="cp_address0" id="cp_address0" placeholder="Form of Address" autocomplete="off" />
                                                                                         <label for="cp_address0" class="required">Form of Address</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_position0" id="cp_position0" placeholder="Position" />
+                                                                                        <input type="text" class="form-control border" name="cp_position0" id="cp_position0" placeholder="Position" autocomplete="off" />
                                                                                         <label for="cp_position0" class="required">Position</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_department0" id="cp_department0" placeholder="Department" />
+                                                                                        <input type="text" class="form-control border" name="cp_department0" id="cp_department0" placeholder="Department" autocomplete="off" />
                                                                                         <label for="cp_department0" class="required">Department</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
@@ -661,37 +634,37 @@ License: For each use you must have a valid license purchased only from above li
                                                                                 <div class="col-lg-6">
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_phoneno0" id="cp_phoneno0" placeholder="Phone No."  />
+                                                                                        <input type="text" class="form-control border" name="cp_phoneno0" id="cp_phoneno0" placeholder="Phone No."  autocomplete="off" />
                                                                                         <label for="cp_phoneno0" class="required">Phone No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_mobileno0" id="cp_mobileno0" placeholder="Mobile No."  />
+                                                                                        <input type="text" class="form-control border" name="cp_mobileno0" id="cp_mobileno0" placeholder="Mobile No." autocomplete="off" />
                                                                                         <label for="cp_mobileno0" class="required">Mobile No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_faxno0" id="cp_faxno0" placeholder="Fax No." />
+                                                                                        <input type="text" class="form-control border" name="cp_faxno0" id="cp_faxno0" placeholder="Fax No." autocomplete="off" />
                                                                                         <label for="cp_faxno0" class="required">Fax No.</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_emil0" id="cp_emil0" placeholder="E-Mail Address"/>
+                                                                                        <input type="text" class="form-control border" name="cp_emil0" id="cp_emil0" placeholder="E-Mail Address" autocomplete="off" />
                                                                                         <label for="cp_emil0" class="required">E-Mail Address</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <input type="text" class="form-control border" name="cp_language0" id="cp_language0" placeholder="Language" readonly value="EN" />
+                                                                                        <input type="text" class="form-control border" name="cp_language0" id="cp_language0" placeholder="Language" readonly value="EN" autocomplete="off" />
                                                                                         <label for="cp_language0" class="required">Language</label>
                                                                                     </div>
                                                                                     <!--end::Input group-->
                                                                                     <!--begin::Input group-->
                                                                                     <div class="fv-row form-floating mb-5">
-                                                                                        <select class=" form-control border" name="cp_country0" id="cp_country0">
+                                                                                        <select class=" form-control border" name="cp_country0" id="cp_country0" autocomplete="off">
                                                                                             <option value="" selected>--select--</option>
                                                                                             <option value="1">Afghanistan</option>
                                                                                             <option value="2">Aland Islands</option>
@@ -1060,7 +1033,7 @@ License: For each use you must have a valid license purchased only from above li
                                                             </div>
                                                             <div class="col-lg-3">
                                                                 <div class="mb-5">
-                                                                    <input name="VendorType" type="text" id="others_field" class="form-control border" placeholder="" style="display:none">
+                                                                    <input name="VendorType" type="text" id="others_field" class="form-control border" placeholder="" style="display:none" autocomplete="off">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1397,22 +1370,22 @@ License: For each use you must have a valid license purchased only from above li
                                                                             </select>
                                                                         </td>
                                                                         <td class="fv-row">
-                                                                            <input class="form-control border" type="text" name="bank_key0" id="bank_key0" placeholder="" />
+                                                                            <input class="form-control border" type="text" name="bank_key0" id="bank_key0" placeholder="" autocomplete="off" />
                                                                         </td>
                                                                         <td class="fv-row">
-                                                                            <input class="form-control border" type="text" name="bank_name0" id="bank_name0" placeholder="" />
+                                                                            <input class="form-control border" type="text" name="bank_name0" id="bank_name0" placeholder="" autocomplete="off" />
                                                                         </td>
                                                                         <td class="fv-row">
-                                                                            <input class="form-control border" type="text" name="swift_code0" id="swift_code0" placeholder="" />
+                                                                            <input class="form-control border" type="text" name="swift_code0" id="swift_code0" placeholder="" autocomplete="off" />
                                                                         </td>
                                                                         <td class="fv-row">
-                                                                            <input class="form-control border" type="text" name="bank_account0" id="bank_account0" placeholder="" />
+                                                                            <input class="form-control border" type="text" name="bank_account0" id="bank_account0" placeholder=""  autocomplete="off" />
                                                                         </td>
                                                                         <td class="fv-row">
-                                                                            <input class="form-control border" type="text" name="account_holder0" id="account_holder0" placeholder="" />
+                                                                            <input class="form-control border" type="text" name="account_holder0" id="account_holder0" placeholder="" autocomplete="off" />
                                                                         </td>
                                                                         <td class="fv-row">
-                                                                            <input class="form-control border" type="text" name="iban0" id="iban0" placeholder="" onblur="ValidateIBANNo(0)" />
+                                                                            <input class="form-control border" type="text" name="iban0" id="iban0" placeholder="" onblur="ValidateIBANNo(0)" autocomplete="off" />
                                                                             <span id="opiban0"></span>
                                                                         </td>
                                                                         <td class="fv-row">
@@ -1476,7 +1449,7 @@ License: For each use you must have a valid license purchased only from above li
                                                         <div class="col-lg-6">
                                                             <!--begin::Input group-->
                                                             <div class="fv-row form-floating mb-5">
-                                                                <input name="VATNo" id="VATNo" type="text" class="form-control border error" placeholder="VAT Number" onblur="ValidateVATNo()" />
+                                                                <input name="VATNo" id="VATNo" type="text" class="form-control border error" placeholder="VAT Number" onblur="ValidateVATNo()" autocomplete="off" />
                                                                 <label>VAT Number</label>
                                                             </div>
                                                         </div>
@@ -1553,7 +1526,7 @@ License: For each use you must have a valid license purchased only from above li
                                                         <div class="col-6">
                                                             <!--begin::Input group-->
                                                             <div class="fv-row mb-5">
-                                                                <textarea name="Notes" id="Notes" class="form-control border" rows="3" placeholder=""></textarea>
+                                                                <textarea name="Notes" id="Notes" class="form-control border" rows="3" placeholder="" autocomplete="off"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1565,7 +1538,14 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Card-->
                                         <!-- Notes End -->
 
-                                        <button type="button" class="btn btn-sm btn-primary" id="register">Register</button>
+                                        <button type="button" class="btn btn-sm btn-primary" id="register" data-kt-indicator="off">
+                                            <span class="indicator-label" id="register-label">
+                                                Register
+                                            </span>
+                                            <span class="indicator-progress">
+                                                Register <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                            </span>
+                                        </button>
 
 
                                     </div>
@@ -1739,6 +1719,58 @@ License: For each use you must have a valid license purchased only from above li
 
 
 
+        function ValidateEmail() {
+            if ($("#EmailAddress").val() != "") {
+                $.ajax({
+                    type: "POST",
+                    async: true,
+                    url: "Home/EMAILValidate",
+                    data: { EmailAddress: $("#EmailAddress").val() },
+
+                    error: function (x, e) {
+                        var msg = "";
+                        if (x.status == 0) {
+                            msg = 'You are offline!!\n Please Check Your Network.';
+                        } else if (x.status == 404) {
+                            msg = 'Requested URL not found.';
+                        } else if (x.status == 500) {
+                            msg = 'Internel Server Error.';
+                        } else if (e == 'parsererror') {
+                            msg = 'Error.\nParsing JSON Request failed.';
+                        } else if (e == 'timeout') {
+                            msg = 'Request Time out.';
+                        } else {
+                            msg = 'Unknow Error.\n' + x.responseText;
+                        }
+
+                        Swal.fire({
+                            text: msg,
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, got it!",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        });
+                    },
+                    success: function (d) {
+                       console.log(d);
+                        if (d == "Valid Email Address") {
+                            $("#EmailAddress").removeClass("is-invalid");
+                            console.log(d);
+                            $("#opemailaddress").text(d)
+                            $("#opemailaddress").addClass("text-success")
+                            $("#opemailaddress").removeClass("text-danger")
+                        } else {
+                            $("#EmailAddress").addClass("is-invalid");
+                            $("#opemailaddress").text(d)
+                            $("#opemailaddress").removeClass("text-success")
+                            $("#opemailaddress").addClass("text-danger")
+                        }
+                    }
+                });
+            }
+        }
 
 
         function ValidateVATNo() {
@@ -2149,7 +2181,7 @@ License: For each use you must have a valid license purchased only from above li
                     })
                 },
             }).on('core.form.validating', function () {
-                registerButton.innerHTML = 'Validating ...';
+                //registerButton.innerHTML = 'Validating ...';
 
             });
 
@@ -2158,11 +2190,18 @@ License: For each use you must have a valid license purchased only from above li
                 fv.validate().then(function (status) {
                     //registerButton.innerHTML = status === 'Valid' ? 'Form is validated. Submitting ...' : 'Please enter the correct values';
                     if (status === 'Valid') {
-                        document.getElementById('register').setAttribute("data-kt-indicator", "on");
-
-                        registerButton.innerHTML = 'Form is validated. Submitting ...';
                         $('#register').removeClass('btn-danger');
                         $('#register').addClass('btn-primary');
+                        //registerButton.innerHTML = 'Form is validated. Submitting ...';
+
+                        
+
+
+                        registerButton.setAttribute("data-kt-indicator", "on");
+
+                        document.getElementById('register').disabled = true;
+                       
+                      
 
                         var VenObj = {};
                         VenObj.CompanyName = $('#CompanyName').val();
@@ -2294,12 +2333,19 @@ License: For each use you must have a valid license purchased only from above li
                                         confirmButton: "btn btn-primary"
                                     }
                                 });
+
+
+                                registerButton.removeAttribute("data-kt-indicator", "on");
+                                document.getElementById('register').disabled = false;
+
+
+                               
                             },
                             success: function (data) {
                                 console.log(data.status);
 
                                 if (data.status == "Success") {
-                                    registerButton.innerHTML = "Register"
+                                    document.getElementById('register-label').innerHTML = "Register"
                                     document.getElementById('register').removeAttribute("data-kt-indicator");
                                     // Show popup confirmation
                                     Swal.fire({
@@ -2311,6 +2357,12 @@ License: For each use you must have a valid license purchased only from above li
                                             confirmButton: "btn btn-primary"
                                         }
                                     });
+
+                                    setTimeout(function () {
+                                        window.location.href = "/Home/Index";
+                                    }, 1000);
+
+
                                 } else {
                                     Swal.fire({
                                         text: data.message,
@@ -2320,12 +2372,15 @@ License: For each use you must have a valid license purchased only from above li
                                         customClass: {
                                             confirmButton: "btn btn-primary"
                                         }
-                                    });
+                                    });                                   
                                 }
+                                document.getElementById('register').disabled = false;
+                                registerButton.removeAttribute("data-kt-indicator", "on");
+
                             }
                         });
                     } else {
-                        registerButton.innerHTML = 'Please enter the correct values';
+                        document.getElementById('register-label').innerHTML = 'Please enter the correct values';
                         $('#register').removeClass('btn-danger');
                         $('#register').addClass('btn-danger');
                     }

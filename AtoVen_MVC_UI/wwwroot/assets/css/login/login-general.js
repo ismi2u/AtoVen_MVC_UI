@@ -55,16 +55,15 @@ var KTLogin = function() {
             validation.validate().then(function (status)
             {
                 
-
-                $('#kt_login_signin_submit').innerHTML = status === 'Valid' ? 'Log In ...' : 'Log In';
+                //document.getElementById('kt_login_signin_submit').innerHTML = status === 'Valid' ? 'Log In ...' : 'Log In';
                 if (status == 'Valid') {
-                   document.getElementById('kt_login_signin_submit').setAttribute("data-kt-indicator", "on");
 
-                   var UserLogObj = {};
-                   UserLogObj.Email = $('#username').val();
+                    var btn = KTUtil.getById("kt_login_signin_submit");
+                    KTUtil.btnWait(btn, "spinner spinner-right spinner-white pr-15", "Log In");
+                    document.getElementById('kt_login_signin_submit').disabled = true;
+                    var UserLogObj = {};
+                    UserLogObj.Email = $('#username').val();
                     UserLogObj.Password = $('#password').val();
-                    
-                    console.log($("#rememberme").is(":checked"));
                     if ($("#rememberme").is(":checked")) {
                         UserLogObj.Remember = true;
                     } else {
@@ -105,6 +104,9 @@ var KTLogin = function() {
                                     confirmButton: "btn btn-primary"
                                 }
                             });
+
+                            KTUtil.btnRelease(btn);
+                            document.getElementById('kt_login_signin_submit').disabled = false;
                         },
                         success: function (d) {
                             console.log(d);
@@ -129,8 +131,11 @@ var KTLogin = function() {
                                 });
 
                             }
+
+                            KTUtil.btnRelease(btn);
+                            document.getElementById('kt_login_signin_submit').disabled = false;
                         }
-                    });
+                    });  
 
                  
 				} else {
@@ -147,7 +152,7 @@ var KTLogin = function() {
 					});
                 }
 
-                document.getElementById('kt_login_signin_submit').removeAttribute("data-kt-indicator");
+                 
 		    });
         });
 

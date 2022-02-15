@@ -58,6 +58,34 @@ namespace AtoVen_MVC_UI.Controllers
             return _oVendorList; 
         }
 
+        public async Task<string> EMAILValidate(Validators email)
+        {
+            var Jsonresult = "";
+
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+            string endpoint = apiBaseUrl + "/Validation/EmailValidator?EmailAddress=" + email.EmailAddress;
+
+            //var values = new Dictionary<string, string>();
+            using (var httpclient = new HttpClient())
+            {
+                HttpResponseMessage result = await httpclient.PostAsync(endpoint, null);
+
+                Jsonresult = result.ToString();
+                var responsecode = (int)result.StatusCode;
+                if (result.IsSuccessStatusCode)
+                {
+                    Jsonresult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    return Jsonresult;
+                }
+                else
+                {
+                    return responsecode + " " + result.ReasonPhrase;
+                }
+
+            }
+
+        }
+
         public async Task<string> VATValidate(Validators VATNo)
         {
             var Jsonresult = "";

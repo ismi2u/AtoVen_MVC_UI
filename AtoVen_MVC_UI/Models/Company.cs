@@ -35,7 +35,10 @@ namespace AtoVen_MVC_UI.Models
 
         public bool IsVendorInitiated { get; set; }
         
+        public int RecordDate { get; set; }
         public int ApprovalFlowID { get; set; }
+        public int IsApproved { get; set; }
+        public int ApprovedDate { get; set; }
 
         public List<ListOfCompanyContacts> ListOfCompanyContacts { get; set; }
         public List<ListOfCompanyBanks> ListOfCompanyBanks { get; set; }

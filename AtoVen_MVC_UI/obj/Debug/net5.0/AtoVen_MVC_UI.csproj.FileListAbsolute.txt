@@ -554,3 +554,4 @@ C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\bin\Debug\net5.0\runtime
 C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.Views.pdb
 C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.csproj.CopyComplete
 C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.genruntimeconfig.cache
+C:\Users\habee\source\repos\AtoVen_MVC_UI\AtoVen_MVC_UI\obj\Debug\net5.0\AtoVen_MVC_UI.csproj.AssemblyReference.cache

@@ -1485,7 +1485,7 @@
                 $.ajax({
                     type: "POST",
                     async: true,
-                    url: "Home/VATValidate",
+                    url: "/Home/VATValidate",
                     data: { VATNumber: $("#VATNo").val() },
 
                     error: function (x, e) {
@@ -1537,7 +1537,7 @@
                 $.ajax({
                     type: "POST",
                     async: true,
-                    url: "Home/IBANValidate",
+                    url: "/Home/IBANValidate",
                     data: { IbanNumber: $("#iban" + rowno).val() },
 
                     error: function (x, e) {
@@ -2134,7 +2134,7 @@
                                 }
                                 else {
                                     Swal.fire({
-                                        text: d.status,
+                                        text: d.message,
                                         icon: "error",
                                         buttonsStyling: false,
                                         confirmButtonText: "Ok, got it!",

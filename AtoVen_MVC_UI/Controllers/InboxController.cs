@@ -124,7 +124,7 @@ namespace AtoVen_MVC_UI.Controllers
 
         [HttpPost]
 
-        public async Task<Jsonresult> Approve(propVendorPutDTO vendordtls, List<ListOfCompanyContactsPutDTO> vendorContactdtls, List<ListOfCompanyBanksPutDTO> vendorBankdtls)
+        public async Task<string> Approve(propVendorPutDTO vendordtls, List<ListOfCompanyContactsPutDTO> vendorContactdtls, List<ListOfCompanyBanksPutDTO> vendorBankdtls)
         {
 
             var jsonresult = new Jsonresult
@@ -137,9 +137,7 @@ namespace AtoVen_MVC_UI.Controllers
 
             ApproveReject approveReject = new ApproveReject();
 
-            //approveReject.id = int.Parse(TempData["id"].ToString());
-            //approveReject.ApprovalStatus = 2;
-
+           
             VendorDtls = vendordtls;
             VendorDtls.ListOfCompanyContacts = vendorContactdtls;
             VendorDtls.ListOfCompanyBanks = vendorBankdtls;
@@ -148,7 +146,7 @@ namespace AtoVen_MVC_UI.Controllers
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
             string endpoint = apiBaseUrl + "/Companies/UpdateCompany/" + vendordtls.Id;
 
-            //string endpoint1 = apiBaseUrl + "/ApprovalFlows/PutApprovalFlow/" + TempData["id"].ToString();
+        
 
             using (var httpclient = new HttpClient())
             {
@@ -159,21 +157,15 @@ namespace AtoVen_MVC_UI.Controllers
 
                 HttpResponseMessage result = await httpclient.PutAsync(endpoint, data);
                 var responsecode = (int)result.StatusCode;
-                var responseBodyAsText = result.Content.ReadAsStringAsync().Result;
+                
                 if (result.IsSuccessStatusCode)
                 {
-                    //var json1 = JsonConvert.SerializeObject(approveReject);
-                    //var data1 = new StringContent(json1, Encoding.UTF8, "application/json");
-                    //HttpResponseMessage result1 = await httpclient.PutAsync(endpoint1, data1);
-                    //var responsecode1 = (int)result1.StatusCode;
-                    jsonresult.Status = "Success";
-                    jsonresult.Message = "Successfully Approved";
-                    return jsonresult;
+                    var responseBodyAsText = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    return responseBodyAsText;
                 }
                 else
                 {
-                    jsonresult = JsonConvert.DeserializeObject<Jsonresult>(responseBodyAsText);
-                    return jsonresult;
+                    return responsecode + " " + result.ReasonPhrase;
                 }
             }
 

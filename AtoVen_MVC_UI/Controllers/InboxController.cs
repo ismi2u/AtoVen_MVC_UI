@@ -76,26 +76,14 @@ namespace AtoVen_MVC_UI.Controllers
             }
         }
 
-        // GET: InboxController/Edit/5
-        public ActionResult Edit(int id)
+
+        [HttpGet]
+        public IActionResult Edit(string Id)
         {
+            ViewBag.CompanyId = Id;
             return View();
         }
 
-        // POST: InboxController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
 
         public ActionResult Proceed(string id, string companyID)

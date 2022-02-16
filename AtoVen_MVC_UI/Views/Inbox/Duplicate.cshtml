@@ -134,7 +134,7 @@
                     </td>
                     <td>
                        
-                        <a class="btn btn-primary" href="@Url.Action("Edit", "Inbox",new { Id=item.Id})" target='_blank'>View</a>
+                        <a class="btn btn-sm btn-primary" href="@Url.Action("Edit", "Inbox",new { Id=item.Id})" target='_blank'>View</a>
                     </td>
                 </tr>
             }
@@ -149,10 +149,10 @@
 
 
 <div style="float:right">
-    <a class="btn btn-primary" href="@Url.Action("Proceed", "Inbox",new { id = ViewData["ApprovalId"].ToString(), companyID=ViewData["Id"].ToString()})">
+    <a class="btn btn-sm btn-primary" href="@Url.Action("Proceed", "Inbox",new { id = ViewData["ApprovalId"].ToString(), companyID=ViewData["Id"].ToString()})">
         Proceed
     </a>
-    <a class="btn btn-secondary" href="/Inbox">
+    <a class="btn btn-sm btn-secondary" href="/Inbox">
         Close
     </a>
 </div>

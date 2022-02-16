@@ -99,7 +99,7 @@ $(document).on("click", "#add-row-bank", function () {
 
 
 	new_row_bd = new_row_bd + '<td>'
-	new_row_bd = new_row_bd + '<select class="form-control border"  id="bd_currency' + rowBD + '" name="bd_currency' + rowBD +'" required><option value="" selected>--select--</option><option value="USD">USD</option><option value="AED">AED</option><option value="SAR">SAR</option><option value="GBP">GBP</option></select>'
+	new_row_bd = new_row_bd + '<select class="form-control border"  id="bd_currency' + rowBD + '" name="bd_currency' + rowBD +'" required><option value="" selected>--select--</option><option value="AED">AED</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="SAR">SAR</option><option value="USD">USD</option></select>'
 	new_row_bd = new_row_bd + '</td>'
 
 

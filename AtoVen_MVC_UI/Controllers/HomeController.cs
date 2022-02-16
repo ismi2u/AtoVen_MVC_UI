@@ -143,9 +143,9 @@ namespace AtoVen_MVC_UI.Controllers
         }
 
         [HttpPost]
-        public async Task<string> Register(propVendorDTO vendordtls, List<ListOfCompanyContactsDTO> vendorContactdtls, List<ListOfCompanyBanksDTO> vendorBankdtls)
+        public async Task<string> Register(propVendorPostDTO vendordtls, List<ListOfCompanyContactsPostDTO> vendorContactdtls, List<ListOfCompanyBanksPostDTO> vendorBankdtls)
         {
-            propVendorDTO VendorDtls = new propVendorDTO();
+            propVendorPostDTO VendorDtls = new propVendorPostDTO();
             VendorDtls = vendordtls;
             VendorDtls.ListOfCompanyContacts = vendorContactdtls;
             VendorDtls.ListOfCompanyBanks = vendorBankdtls;
@@ -217,9 +217,9 @@ namespace AtoVen_MVC_UI.Controllers
 
 
         [HttpPost]
-        public async Task<string> Update(propVendorDTO vendordtls, List<ListOfCompanyContactsDTO> vendorContactdtls, List<ListOfCompanyBanksDTO> vendorBankdtls)
+        public async Task<string> Update(propVendorPutDTO vendordtls, List<ListOfCompanyContactsPutDTO> vendorContactdtls, List<ListOfCompanyBanksPutDTO> vendorBankdtls)
         {
-            propVendorDTO VendorDtls = new propVendorDTO();
+            propVendorPutDTO VendorDtls = new propVendorPutDTO();
             VendorDtls = vendordtls;
             VendorDtls.ListOfCompanyContacts = vendorContactdtls;
             VendorDtls.ListOfCompanyBanks = vendorBankdtls;

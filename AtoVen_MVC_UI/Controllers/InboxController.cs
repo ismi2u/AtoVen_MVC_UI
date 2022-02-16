@@ -99,7 +99,7 @@ namespace AtoVen_MVC_UI.Controllers
 
         public async Task<ActionResult> Duplicate(string id)
         {
-            List<propVendorDTO> propVendorDTO = new List<propVendorDTO>();
+            List<propVendor> propVendor = new List<propVendor>();
 
             ViewData["Id"] = id.Split("-")[0];
             ViewData["ApprovalId"] = id.Split("-")[0];
@@ -113,18 +113,18 @@ namespace AtoVen_MVC_UI.Controllers
                 using (var response = await httpclient.GetAsync(endpoint, HttpCompletionOption.ResponseHeadersRead))
                 {
                     var data = await response.Content.ReadAsStringAsync();
-                    propVendorDTO = JsonConvert.DeserializeObject<List<propVendorDTO>>(data);
+                    propVendor = JsonConvert.DeserializeObject<List<propVendor>>(data);
                 }
             }
 
 
-            return PartialView("Duplicate", propVendorDTO);
+            return PartialView("Duplicate", propVendor);
         }
 
 
         [HttpPost]
 
-        public async Task<Jsonresult> Approve(propVendorDTO vendordtls, List<ListOfCompanyContactsDTO> vendorContactdtls, List<ListOfCompanyBanksDTO> vendorBankdtls)
+        public async Task<Jsonresult> Approve(propVendorPutDTO vendordtls, List<ListOfCompanyContactsPutDTO> vendorContactdtls, List<ListOfCompanyBanksPutDTO> vendorBankdtls)
         {
 
             var jsonresult = new Jsonresult
@@ -133,7 +133,7 @@ namespace AtoVen_MVC_UI.Controllers
                 Message = "Something went wrong",
             };
 
-            propVendorDTO VendorDtls = new propVendorDTO();
+            propVendorPutDTO VendorDtls = new propVendorPutDTO();
 
             ApproveReject approveReject = new ApproveReject();
 
@@ -178,6 +178,7 @@ namespace AtoVen_MVC_UI.Controllers
             }
 
         }
+
 
         public async Task<Jsonresult> Reject()
         {
@@ -226,6 +227,42 @@ namespace AtoVen_MVC_UI.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<string> Update(propVendorPutDTO vendordtls, List<ListOfCompanyContactsPutDTO> vendorContactdtls, List<ListOfCompanyBanksPutDTO> vendorBankdtls)
+        {
+            propVendorPutDTO VendorDtls = new propVendorPutDTO();
+            VendorDtls = vendordtls;
+            VendorDtls.ListOfCompanyContacts = vendorContactdtls;
+            VendorDtls.ListOfCompanyBanks = vendorBankdtls;
+
+
+            string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
+            string endpoint = apiBaseUrl + "/Companies/UpdateCompany/" + vendordtls.Id;
+            var response = string.Empty;
+
+            using (var httpclient = new HttpClient())
+            {
+                httpclient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("Token"));
+
+                var json = JsonConvert.SerializeObject(VendorDtls);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+
+
+                HttpResponseMessage result = await httpclient.PutAsync(endpoint, data);
+                var responsecode = (int)result.StatusCode;
+
+                if (result.IsSuccessStatusCode)
+                {
+                    var responseBodyAsText = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    return responseBodyAsText;
+                }
+                else
+                {
+                    return responsecode + " " + result.ReasonPhrase;
+                }
+            }
+        }
 
         [HttpGet]
         public IActionResult Detail(string Id)

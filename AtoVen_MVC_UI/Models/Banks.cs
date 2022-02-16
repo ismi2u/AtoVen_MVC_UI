@@ -9,6 +9,7 @@ namespace AtoVen_MVC_UI.Models
     {
         public int id { get; set; }
         public int CompanyID { get; set; }
+        //public string CompanyName { get; set; }
         public string Country { get; set; }
         public string BankKey { get; set; }
         public string BankName { get; set; }
@@ -19,12 +20,11 @@ namespace AtoVen_MVC_UI.Models
         public string Currency { get; set; }
     }
 
-    public class ListOfCompanyBanksDTO
+    public class ListOfCompanyBanksPostDTO
     {
         public int Id { get; set; }
         public int CompanyID { get; set; }
         public string Country { get; set; }
-        public string CompanyName { get; set; }
         public string BankKey { get; set; }
         public string BankName { get; set; }
         public string SwiftCode { get; set; }
@@ -34,5 +34,19 @@ namespace AtoVen_MVC_UI.Models
         public string Currency { get; set; }
     }
 
-    
+    public class ListOfCompanyBanksPutDTO
+    {
+        public int Id { get; set; }
+        public int CompanyID { get; set; }
+        public string Country { get; set; }
+        public string BankKey { get; set; }
+        public string BankName { get; set; }
+        public string SwiftCode { get; set; }
+        public string BankAccount { get; set; }
+        public string AccountHolderName { get; set; }
+        public string Iban { get; set; }
+        public string Currency { get; set; }
+    }
+
+
 }

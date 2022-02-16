@@ -40,7 +40,6 @@ namespace AtoVen_MVC_UI.Controllers
             propVendorVM _oVendorList = new propVendorVM();
 
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
-            //string endpoint = apiBaseUrl + "/Companies/GetCompanies";
             string endpoint = apiBaseUrl + "/Companies/GetCompanyForVendor";
             using (var httpclient = new HttpClient())
             {
@@ -65,9 +64,9 @@ namespace AtoVen_MVC_UI.Controllers
         }
 
         [HttpPost]
-        public async Task<string> Update(propVendorDTO vendordtls, List<ListOfCompanyContactsDTO> vendorContactdtls, List<ListOfCompanyBanksDTO> vendorBankdtls)
+        public async Task<string> Update(propVendorPutDTO vendordtls, List<ListOfCompanyContactsPutDTO> vendorContactdtls, List<ListOfCompanyBanksPutDTO> vendorBankdtls)
         {
-            propVendorDTO VendorDtls = new propVendorDTO();
+            propVendorPutDTO VendorDtls = new propVendorPutDTO();
             VendorDtls = vendordtls;
             VendorDtls.ListOfCompanyContacts = vendorContactdtls;
             VendorDtls.ListOfCompanyBanks = vendorBankdtls;

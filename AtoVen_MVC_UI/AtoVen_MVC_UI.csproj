@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Content Remove="Views\Home\Inbox.cshtml" />
+    <Content Remove="Views\Home\Register.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

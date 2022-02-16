@@ -1996,7 +1996,6 @@
                         }
                         VenObj.PhoneNo = $('#PhoneNo').val();
                         VenObj.FaxNumber = $('#FaxNumber').val();
-                        VenObj.Email = $('#EmailAddress').val();
                         VenObj.MobileNo = $('#MobileNo').val();
                         VenObj.Website = $('#Website').val();
                         var vendortype = [];
@@ -2011,14 +2010,8 @@
                         VenObj.AccountGroup = $("input[name='AccountGroup']:checked").val();
                         VenObj.Notes = $('#Notes').val();
                         VenObj.VATNo = $('#VATNo').val();
-                        VenObj.IsVendorInitiated = true;
+                         
                         VenObj.ApprovalFlowID = $("#ApprovalFlowId").val();
-
-                        /* VenObj.ClerkVendorName = $('#ClerkVendorName').val();
-                         VenObj.ClerkNationalId = $('#ClerkNationalId').val();
-                         VenObj.ClerkEmailId = $('#ClerkEmailId').val();
-                         VenObj.ClerkTelephoneNo = $('#ClerkTelephoneNo').val();
-                         VenObj.ClerkFaxNo = $('#ClerkFaxNo').val();*/
 
                         var vendorcontactdtls = [];
                         TotalContactRow = $("#ContactRow").val();
@@ -2028,7 +2021,6 @@
                                 vendorcontactdtls.push({
                                     Id: $('#cp_id' + i).val(),
                                     CompanyId: $('#CompanyId').val(),
-                                    CompanyName: $('#CompanyName').val(),
                                     FirstName: $('#cp_firstName' + i).val(),
                                     LastName: $('#cp_lastName' + i).val(),
                                     Address: $('#cp_address' + i).val(),
@@ -2063,7 +2055,6 @@
                                 vendorbankdtls.push({
                                     Id: $('#bd_id' + j).val(),
                                     CompanyId: $('#CompanyId').val(),
-                                    CompanyName: $('#CompanyName').val(),
                                     Country: $('#bd_country' + j).val(),
                                     BankKey: $('#bank_name' + j).val(),
                                     BankName: $('#bank_name' + j).val(),

@@ -102,7 +102,7 @@ namespace AtoVen_MVC_UI.Controllers
             List<propVendor> propVendor = new List<propVendor>();
 
             ViewData["Id"] = id.Split("-")[0];
-            ViewData["ApprovalId"] = id.Split("-")[0];
+            ViewData["ApprovalId"] = id.Split("-")[1];
 
             string apiBaseUrl = _config.GetValue<string>("WebAPIBaseUrl");
             string endpoint = apiBaseUrl + "/Companies/GetCompanyDuplicatesByCompId/" + id.Split("-")[0];

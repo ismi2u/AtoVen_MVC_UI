@@ -117,6 +117,10 @@ var KTLogin = function() {
                                 if (d.userRole == "Vendor") {
                                     window.location.href = "/MyRegisteredCompany";
                                 }
+                                else if (d.userRole == "Approver")
+                                {
+                                    window.location.href = "/Inbox";
+                                }
                                 else {
                                     window.location.href = "/User";
                                 }

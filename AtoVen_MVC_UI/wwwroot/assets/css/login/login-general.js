@@ -118,7 +118,7 @@ var KTLogin = function() {
                                     window.location.href = "/MyRegisteredCompany";
                                 }
                                 else {
-                                    window.location.href = "/Inbox";
+                                    window.location.href = "/User";
                                 }
                             } else {
                                  Swal.fire({

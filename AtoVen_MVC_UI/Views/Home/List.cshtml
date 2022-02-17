@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<AtoVen_MVC_UI.Models.propVendor>
 
 @{
-    ViewBag.Title = "Users List";
-    Layout = "_AdminLayout";
+    ViewBag.Title = "Vendors List";
+    Layout = "_ApproverLayout";
 
 }
 
@@ -62,7 +62,7 @@
                             <td> @Html.DisplayFor(modelItem => item.CommercialRegistrationNo) </td>
                             <td> @Html.DisplayFor(modelItem => item.VATNo) </td>
                             <td> @Html.DisplayFor(modelItem => item.Email) </td>
-                            <td><a class='btn btn-sm btn-primary' href="@Url.Action("Edit", "Home", new { id = item.Id})">Edit</a>&nbsp;<a class='btn btn-sm btn-primary' href="@Url.Action("Detail", "Home", new { id = item.Id })">View</a>&nbsp;</td>
+                            <td><a href="@Url.Action("Edit", "Home", new { id = item.Id})" alt="Edit" title="Edit"><i class="bi bi-pencil"></i></a>&nbsp;&nbsp;&nbsp;<a class='' href="@Url.Action("Detail", "Home", new { id = item.Id })" alt="View" title="View"><i class="bi bi-eye"></i></a>&nbsp;</td>
                            
                         </tr>
                             
